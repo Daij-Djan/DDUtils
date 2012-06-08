@@ -1,0 +1,225 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B42754DA15814C3A00328308 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42754D915814C3A00328308 /* Foundation.framework */; };
+		B42754EB15814C8C00328308 /* DDASLQueryMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B42754E815814C8C00328308 /* DDASLQueryMain.m */; };
+		B42754EC15814C8C00328308 /* DDASLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B42754EA15814C8C00328308 /* DDASLQuery.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B42754D315814C3A00328308 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B42754D515814C3A00328308 /* DDASLQuery */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DDASLQuery; sourceTree = BUILT_PRODUCTS_DIR; };
+		B42754D915814C3A00328308 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B42754E815814C8C00328308 /* DDASLQueryMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLQueryMain.m; sourceTree = "<group>"; };
+		B42754E915814C8C00328308 /* DDASLQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLQuery.h; sourceTree = "<group>"; };
+		B42754EA15814C8C00328308 /* DDASLQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLQuery.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B42754D215814C3A00328308 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B42754DA15814C3A00328308 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B42754CA15814C3A00328308 = {
+			isa = PBXGroup;
+			children = (
+				B42754E715814C8C00328308 /* DDASLQuery */,
+				B42754D815814C3A00328308 /* Frameworks */,
+				B42754D615814C3A00328308 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B42754D615814C3A00328308 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B42754D515814C3A00328308 /* DDASLQuery */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B42754D815814C3A00328308 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B42754D915814C3A00328308 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B42754E715814C8C00328308 /* DDASLQuery */ = {
+			isa = PBXGroup;
+			children = (
+				B42754E815814C8C00328308 /* DDASLQueryMain.m */,
+				B42754E915814C8C00328308 /* DDASLQuery.h */,
+				B42754EA15814C8C00328308 /* DDASLQuery.m */,
+			);
+			path = DDASLQuery;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B42754D415814C3A00328308 /* DDASLQuery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B42754E415814C3A00328308 /* Build configuration list for PBXNativeTarget "DDASLQuery" */;
+			buildPhases = (
+				B42754D115814C3A00328308 /* Sources */,
+				B42754D215814C3A00328308 /* Frameworks */,
+				B42754D315814C3A00328308 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDASLQuery;
+			productName = M42ASLQuery;
+			productReference = B42754D515814C3A00328308 /* DDASLQuery */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B42754CC15814C3A00328308 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "doo GmbH";
+			};
+			buildConfigurationList = B42754CF15814C3A00328308 /* Build configuration list for PBXProject "DDASLQuery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B42754CA15814C3A00328308;
+			productRefGroup = B42754D615814C3A00328308 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B42754D415814C3A00328308 /* DDASLQuery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B42754D115814C3A00328308 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B42754EB15814C8C00328308 /* DDASLQueryMain.m in Sources */,
+				B42754EC15814C8C00328308 /* DDASLQuery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B42754E215814C3A00328308 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B42754E315814C3A00328308 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B42754E515814C3A00328308 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = DDASLQuery;
+			};
+			name = Debug;
+		};
+		B42754E615814C3A00328308 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = DDASLQuery;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B42754CF15814C3A00328308 /* Build configuration list for PBXProject "DDASLQuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B42754E215814C3A00328308 /* Debug */,
+				B42754E315814C3A00328308 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B42754E415814C3A00328308 /* Build configuration list for PBXNativeTarget "DDASLQuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B42754E515814C3A00328308 /* Debug */,
+				B42754E615814C3A00328308 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B42754CC15814C3A00328308 /* Project object */;
+}
