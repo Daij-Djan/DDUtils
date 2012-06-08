@@ -31,4 +31,4 @@ ui:
 <li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. 
 </ul>
 
-#ALL IS AVAIABLE under BSD
+#ALL IS AVAIABLE under MIT
