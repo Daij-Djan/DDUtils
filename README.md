@@ -9,7 +9,7 @@ model:
 <li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetSerrviceBrowser
 <li><b>DDASLQuery [ios+osx] + demo</b> - wraps the C apis for querying ASL (default log on ios4+ or 10.6+)
 <li><b>DDChecksum [ios+osx] + demo</b> - wraps the C api for building checksums (from apple's CommonCrypto library)
-<li><b>DDTask [osx]</b> - 'Replacement' for NSTask that can be run multiple times in any operation / any thread. It tries to get a successful result N times and returns the result of stdout or nil.
+<li><b>DDTask [osx] + demo</b> - 'Replacement' for NSTask that can be run multiple times in any operation / any thread. It tries to get a successful result N times and returns the result of stdout or nil.
 <li><b>M42AbstractCoreDataStack [ios+osx]</b> - offers a simple core data wrapper (if one doesnt want to use the really good library MagicalRecord)
 <li><b>M42RandomIndexPermutation M42CompatibleAlert [ios+osx] + demo</b> - Helper to build indexsets that are random but the indices remain unique and the sets reproducable.
 <li><b>NSFileManager+Count [osx]</b> - (Cocoa wrapper for legacy but fast carbon way of counting files in a folder )

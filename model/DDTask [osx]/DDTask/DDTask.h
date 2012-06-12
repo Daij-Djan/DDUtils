@@ -13,7 +13,7 @@
 @class DDTask;
 
 typedef void (^DDTaskCompletionHandler)(DDTask *);
-typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *);
+typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
 
 /**
  * 'Replacement' for NSTask that can be run multiple times in any operation / any thread. 

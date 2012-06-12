@@ -53,7 +53,8 @@
             //setup tool (cant run same task twice
             NSTask *task = [[NSTask alloc] init];
             [task setLaunchPath:self.launchPath];
-            [task setArguments:self.arguments];
+            if(self.arguments.count)
+                [task setArguments:self.arguments];
             [task setStandardOutput: pipe];
 
             NSDate *before = [NSDate date];
@@ -75,7 +76,7 @@
             //call error block if try failed
             if(aTerminationStatus!=0) {
                 if(self.errorHandler) {
-                    if(!self.errorHandler(self, task)) {
+                    if(!self.errorHandler(self, task, tries+1)) {
                         NSLog(@"Cancel running of %@ after %lu tries.", name, tries+1);
                         break;
                     }
