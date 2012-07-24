@@ -22,7 +22,7 @@ model:
 
 <li><b>NSFileManager+Count [osx]</b> - (Cocoa wrapper for legacy but fast carbon way of counting files in a folder )
 
-<li><b>NSString+advancedSplit[ios+osx]</b> - A 'smarter' version of componentsBySplittingString. It never breaks inside of quotes.
+<li><b>NSString+advancedSplit [ios+osx] + demo</b> - A 'smarter' version of componentsBySplittingString. It never breaks inside of quotes and respects escaped strings.
 
 <li><b>NSString+Entities [ios+osx]</b> - Escapes Entities so the NSString is valid for xml content
 
