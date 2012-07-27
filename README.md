@@ -29,6 +29,8 @@ model:
 <li><b>NSString+ValidateEmail [ios+osx] + demo</b> - Check if a NSString object represents a valid email. Uses some regex.
 
 <li><b>SKPaymentQueue+TransactionForProduct [ios]</b> - Category to search in a PaymentQueue for (any / first successful[restored or not]) transaction for a given product identifier.
+
+<li><b>NSworkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
 </ul>
 
 ui:
