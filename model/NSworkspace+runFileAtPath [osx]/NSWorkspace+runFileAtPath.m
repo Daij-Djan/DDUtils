@@ -8,7 +8,7 @@
 
 #import "NSWorkspace+runFileAtPath.h"
 
-NSString *DDRunTask(NSString *command, NSMutableArray *args) {
+int DDRunTask(NSString *command, NSMutableArray *args) {
     //add env if needed
     if(![command hasPrefix:@"./"] && ![command hasPrefix:@"/"]) {
         [args insertObject:command atIndex:0];
@@ -33,9 +33,9 @@ NSString *DDRunTask(NSString *command, NSMutableArray *args) {
             data = [fileHandle availableData];
             [readData appendData:data];
         }
-        return [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
+        return task.terminationStatus;
     }
-    return nil;
+    return -1;
 }
 
 @implementation NSWorkspace (runFileAtPath)
@@ -44,8 +44,10 @@ NSString *DDRunTask(NSString *command, NSMutableArray *args) {
     BOOL isDir = NO;
     BOOL br = NO;
     
-    if(![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
-        @throw [NSException exceptionWithName:@"runFileAtPath" reason:@"file doesnt exist" userInfo:nil];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir]) {
+        br = NO;
+        [NSError errorWithDomain:@"NSWorkspace" code:1000 userInfo:@{NSLocalizedDescriptionKey:@"file doesnt exist"}];
+    }
     
     if(isDir) {
         if([[NSWorkspace sharedWorkspace] isFilePackageAtPath:path]) {
@@ -67,10 +69,17 @@ NSString *DDRunTask(NSString *command, NSMutableArray *args) {
         NSMutableArray *args2 = [NSMutableArray arrayWithObject:path];
         if(args.count)
             [args2 addObjectsFromArray:args];
-        DDRunTask(@"osascript", args2);
+        
+        br = (DDRunTask(@"osascript", args2) == 0);
+        if(!br && pError) {
+            *pError = [NSError errorWithDomain:@"NSWorkspace" code:2 userInfo:@{ NSLocalizedDescriptionKey : @"Failed to run applescript via osascript tool" }];
+        }
     }
     else {
-        DDRunTask(path, args.mutableCopy);
+        br = (DDRunTask(path, args.mutableCopy) == 0);
+        if(!br && pError) {
+            *pError = [NSError errorWithDomain:@"NSWorkspace" code:3 userInfo:@{ NSLocalizedDescriptionKey : @"Failed to run shellscript or executable" }];
+        }
     }
     
     return br;
