@@ -38,11 +38,12 @@
 - (IBAction)cancel:(id)sender {
     [_peoplePickerView deselectAll:nil];
     
+    BOOL br = YES;
     if([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
-        BOOL br = [_delegate addressPicker:self canEndWithReturnCode:NSCancelButton];
-        if(br)
-            [NSApp stopModalWithCode:NSCancelButton];
+        br = [_delegate addressPicker:self canEndWithReturnCode:NSCancelButton];
     }
+    if(br)
+        [NSApp stopModalWithCode:NSCancelButton];
 }
 
 - (IBAction)ok:(id)sender {
@@ -50,11 +51,12 @@
         return ;
     }
     
+    BOOL br = YES;
     if([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
-        BOOL br = [_delegate addressPicker:self canEndWithReturnCode:NSOKButton];
-        if(br)
-            [NSApp stopModalWithCode:NSOKButton];
+        br = [_delegate addressPicker:self canEndWithReturnCode:NSOKButton];
     }
+    if(br)
+        [NSApp stopModalWithCode:NSOKButton];
 }
 
 -(IBAction)selectMe:(id)sender {
