@@ -35,6 +35,8 @@ model:
 
 ui:
 <ul>
+<li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
+
 <li><b>M42ClickableImagview & Label [ios]</b> - Subclasses that have action & target and react to touches
 
 <li><b>M42CompatibleAlert [ios+osx]</b> - Class that wraps UIAlert and NSAlertView. Displaying the correct one depending on OS.
@@ -52,7 +54,10 @@ screen
 
 <li><b>M42WebviewTableViewCell [ios]</b> - Interesting cell that displays html content
 
-<li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. 
+<li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
+</ul>
+
+<li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
 </ul>
 
 #ALL IS AVAIABLE under MIT
