@@ -11,6 +11,8 @@
 #import <AddressBook/ABPeoplePickerView.h>
 #import "NSView+findSubview.h"
 
+#define APPSTORE_CONFORM 0
+
 @interface DDAddressPicker () {
 	BOOL selectMeOnLoad;
 }
@@ -62,6 +64,9 @@
             [_peoplePickerView selectIdentifier:kABEmailProperty forPerson:person byExtendingSelection:NO];
             //=-> bug: tableView isnt scrolled!
             
+#if APPSTORE_CONFORM
+            NSLog(@"due to a bug in the view, focusing (making visible) the new selection isnt possible");
+#else
             //
             //working hack
             //
@@ -78,6 +83,7 @@
             
             //focus
             [[view window] makeFirstResponder:view];
+#endif
         }
     }
 }
