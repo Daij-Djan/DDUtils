@@ -60,4 +60,7 @@ screen
 <li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
 </ul>
 
-#ALL IS AVAIABLE under MIT
+<li><b>NSWorkspace+IconBadging [osx] + demo</b>-Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
+</ul>
+
+###ALL IS AVAIABLE under MIT

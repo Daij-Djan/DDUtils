@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4109A1F15F24D2A00399AFA /* NSWorkspace+IconBadging.m in Sources */ = {isa = PBXBuildFile; fileRef = B4109A0615F24D2A00399AFA /* NSWorkspace+IconBadging.m */; };
+		B4109A2015F24D2A00399AFA /* folderbadge_error.icns in Resources */ = {isa = PBXBuildFile; fileRef = B4109A0915F24D2A00399AFA /* folderbadge_error.icns */; };
+		B4109A2115F24D2A00399AFA /* folderbadge_sync.icns in Resources */ = {isa = PBXBuildFile; fileRef = B4109A0A15F24D2A00399AFA /* folderbadge_sync.icns */; };
+		B4109A2215F24D2A00399AFA /* folderbadge_update.icns in Resources */ = {isa = PBXBuildFile; fileRef = B4109A0B15F24D2A00399AFA /* folderbadge_update.icns */; };
+		B4109A2315F24D2A00399AFA /* DDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4109A0D15F24D2A00399AFA /* DDAppDelegate.m */; };
+		B4109A2415F24D2A00399AFA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B4109A0E15F24D2A00399AFA /* Credits.rtf */; };
+		B4109A2515F24D2A00399AFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4109A1015F24D2A00399AFA /* InfoPlist.strings */; };
+		B4109A2615F24D2A00399AFA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4109A1215F24D2A00399AFA /* MainMenu.xib */; };
+		B4109A2C15F24D2A00399AFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4109A1C15F24D2A00399AFA /* main.m */; };
+		B4109A2F15F24D4B00399AFA /* IconsToBeBadged in Resources */ = {isa = PBXBuildFile; fileRef = B4109A2E15F24D4B00399AFA /* IconsToBeBadged */; };
+		B474396415ECD82E00CC78C5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B474395A15ECD76900CC78C5 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B4109A0515F24D2A00399AFA /* NSWorkspace+IconBadging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+IconBadging.h"; sourceTree = "<group>"; };
+		B4109A0615F24D2A00399AFA /* NSWorkspace+IconBadging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+IconBadging.m"; sourceTree = "<group>"; };
+		B4109A0915F24D2A00399AFA /* folderbadge_error.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = folderbadge_error.icns; sourceTree = "<group>"; };
+		B4109A0A15F24D2A00399AFA /* folderbadge_sync.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = folderbadge_sync.icns; sourceTree = "<group>"; };
+		B4109A0B15F24D2A00399AFA /* folderbadge_update.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = folderbadge_update.icns; sourceTree = "<group>"; };
+		B4109A0C15F24D2A00399AFA /* DDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAppDelegate.h; sourceTree = "<group>"; };
+		B4109A0D15F24D2A00399AFA /* DDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAppDelegate.m; sourceTree = "<group>"; };
+		B4109A0F15F24D2A00399AFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B4109A1115F24D2A00399AFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4109A1315F24D2A00399AFA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B4109A1C15F24D2A00399AFA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B4109A1D15F24D2A00399AFA /* NSWorkspace+IconBadgingDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NSWorkspace+IconBadgingDemo-Info.plist"; sourceTree = "<group>"; };
+		B4109A1E15F24D2A00399AFA /* NSWorkspace+IconBadgingDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+IconBadgingDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B4109A2E15F24D4B00399AFA /* IconsToBeBadged */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IconsToBeBadged; sourceTree = "<group>"; };
+		B474395A15ECD76900CC78C5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B474396215ECD82E00CC78C5 /* NSWorkspace+IconBadgingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NSWorkspace+IconBadgingDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B474395F15ECD82E00CC78C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B474396415ECD82E00CC78C5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4109A0415F24D2A00399AFA /* NSWorkspace+IconBadging */ = {
+			isa = PBXGroup;
+			children = (
+				B4109A0515F24D2A00399AFA /* NSWorkspace+IconBadging.h */,
+				B4109A0615F24D2A00399AFA /* NSWorkspace+IconBadging.m */,
+			);
+			path = "NSWorkspace+IconBadging";
+			sourceTree = "<group>";
+		};
+		B4109A0715F24D2A00399AFA /* NSWorkspace+IconBadgingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B4109A2E15F24D4B00399AFA /* IconsToBeBadged */,
+				B4109A0815F24D2A00399AFA /* BadgeIcons */,
+				B4109A0C15F24D2A00399AFA /* DDAppDelegate.h */,
+				B4109A0D15F24D2A00399AFA /* DDAppDelegate.m */,
+				B4109A0E15F24D2A00399AFA /* Credits.rtf */,
+				B4109A1015F24D2A00399AFA /* InfoPlist.strings */,
+				B4109A1215F24D2A00399AFA /* MainMenu.xib */,
+				B4109A1C15F24D2A00399AFA /* main.m */,
+				B4109A1D15F24D2A00399AFA /* NSWorkspace+IconBadgingDemo-Info.plist */,
+				B4109A1E15F24D2A00399AFA /* NSWorkspace+IconBadgingDemo-Prefix.pch */,
+			);
+			path = "NSWorkspace+IconBadgingDemo";
+			sourceTree = "<group>";
+		};
+		B4109A0815F24D2A00399AFA /* BadgeIcons */ = {
+			isa = PBXGroup;
+			children = (
+				B4109A0915F24D2A00399AFA /* folderbadge_error.icns */,
+				B4109A0A15F24D2A00399AFA /* folderbadge_sync.icns */,
+				B4109A0B15F24D2A00399AFA /* folderbadge_update.icns */,
+			);
+			path = BadgeIcons;
+			sourceTree = "<group>";
+		};
+		B42754CA15814C3A00328308 = {
+			isa = PBXGroup;
+			children = (
+				B4109A0415F24D2A00399AFA /* NSWorkspace+IconBadging */,
+				B4109A0715F24D2A00399AFA /* NSWorkspace+IconBadgingDemo */,
+				B42754D815814C3A00328308 /* Frameworks */,
+				B42754D615814C3A00328308 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B42754D615814C3A00328308 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B474396215ECD82E00CC78C5 /* NSWorkspace+IconBadgingDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B42754D815814C3A00328308 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B474395A15ECD76900CC78C5 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B474396115ECD82E00CC78C5 /* NSWorkspace+IconBadgingDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B474397B15ECD82F00CC78C5 /* Build configuration list for PBXNativeTarget "NSWorkspace+IconBadgingDemo" */;
+			buildPhases = (
+				B474395E15ECD82E00CC78C5 /* Sources */,
+				B474395F15ECD82E00CC78C5 /* Frameworks */,
+				B474396015ECD82E00CC78C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NSWorkspace+IconBadgingDemo";
+			productName = DDAddressPickerDemo;
+			productReference = B474396215ECD82E00CC78C5 /* NSWorkspace+IconBadgingDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B42754CC15814C3A00328308 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "doo GmbH";
+			};
+			buildConfigurationList = B42754CF15814C3A00328308 /* Build configuration list for PBXProject "NSWorkspace+IconBadgingDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B42754CA15814C3A00328308;
+			productRefGroup = B42754D615814C3A00328308 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B474396115ECD82E00CC78C5 /* NSWorkspace+IconBadgingDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B474396015ECD82E00CC78C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4109A2015F24D2A00399AFA /* folderbadge_error.icns in Resources */,
+				B4109A2115F24D2A00399AFA /* folderbadge_sync.icns in Resources */,
+				B4109A2215F24D2A00399AFA /* folderbadge_update.icns in Resources */,
+				B4109A2415F24D2A00399AFA /* Credits.rtf in Resources */,
+				B4109A2515F24D2A00399AFA /* InfoPlist.strings in Resources */,
+				B4109A2615F24D2A00399AFA /* MainMenu.xib in Resources */,
+				B4109A2F15F24D4B00399AFA /* IconsToBeBadged in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B474395E15ECD82E00CC78C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4109A1F15F24D2A00399AFA /* NSWorkspace+IconBadging.m in Sources */,
+				B4109A2315F24D2A00399AFA /* DDAppDelegate.m in Sources */,
+				B4109A2C15F24D2A00399AFA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4109A0E15F24D2A00399AFA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4109A0F15F24D2A00399AFA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		B4109A1015F24D2A00399AFA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4109A1115F24D2A00399AFA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B4109A1215F24D2A00399AFA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4109A1315F24D2A00399AFA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B42754E215814C3A00328308 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B42754E315814C3A00328308 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B474397C15ECD82F00CC78C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSWorkspace+IconBadgingDemo/NSWorkspace+IconBadgingDemo-Prefix.pch";
+				INFOPLIST_FILE = "NSWorkspace+IconBadgingDemo/NSWorkspace+IconBadgingDemo-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B474397D15ECD82F00CC78C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSWorkspace+IconBadgingDemo/NSWorkspace+IconBadgingDemo-Prefix.pch";
+				INFOPLIST_FILE = "NSWorkspace+IconBadgingDemo/NSWorkspace+IconBadgingDemo-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B42754CF15814C3A00328308 /* Build configuration list for PBXProject "NSWorkspace+IconBadgingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B42754E215814C3A00328308 /* Debug */,
+				B42754E315814C3A00328308 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B474397B15ECD82F00CC78C5 /* Build configuration list for PBXNativeTarget "NSWorkspace+IconBadgingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B474397C15ECD82F00CC78C5 /* Debug */,
+				B474397D15ECD82F00CC78C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B42754CC15814C3A00328308 /* Project object */;
+}
