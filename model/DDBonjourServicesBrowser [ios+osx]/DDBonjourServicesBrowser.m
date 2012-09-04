@@ -1,18 +1,18 @@
 //
-//  BonjourServicesBrowser.m
+//  DDBonjourServicesBrowser.m
 //  calTodo
 //
 //  Created by Dominik Pich on 15.10.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "BonjourServicesBrowser.h"
+#import "DDBonjourServicesBrowser.h"
 
-NSString *BonjourServicesBrowserDidChangeServices = @"BonjourServicesBrowserDidChangeServices";
+NSString *DDBonjourServicesBrowserDidChangeServices = @"DDBonjourServicesBrowserDidChangeServices";
 
-static BonjourServicesBrowser *defaultBrowser;
+static DDBonjourServicesBrowser *defaultBrowser;
 
-@implementation BonjourServicesBrowser
+@implementation DBonjourServicesBrowser
 
 @synthesize type;
 @synthesize services;
@@ -38,7 +38,7 @@ static BonjourServicesBrowser *defaultBrowser;
 
 	[services release];
 	services = [[NSMutableArray alloc] init];
-	[[NSNotificationCenter defaultCenter] postNotificationName:BonjourServicesBrowserDidChangeServices object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DBonjourServicesBrowserDidChangeServices object:self];
 	
 	[browser searchForServicesOfType:aName inDomain:@""];
 }
@@ -64,7 +64,7 @@ static BonjourServicesBrowser *defaultBrowser;
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
 	[services removeObject:aNetService];
-	[[NSNotificationCenter defaultCenter] postNotificationName:BonjourServicesBrowserDidChangeServices object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DBonjourServicesBrowserDidChangeServices object:self];
 }
 
 #pragma mark Net Service Delegate Methods
@@ -76,7 +76,7 @@ static BonjourServicesBrowser *defaultBrowser;
 
 -(void)netServiceDidResolveAddress:(NSNetService *)aService {
 	[services addObject:aService];
-	[[NSNotificationCenter defaultCenter] postNotificationName:BonjourServicesBrowserDidChangeServices object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DBonjourServicesBrowserDidChangeServices object:self];
 	if(stopAfterResoleOf == aService) {
 		stopAfterResoleOf = nil;
 		[self stopSearch];
