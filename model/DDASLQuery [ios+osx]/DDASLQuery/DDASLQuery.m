@@ -14,9 +14,8 @@
 @synthesize seconds;
 @synthesize identifier;
 @synthesize minimumLogLevel;
-@synthesize flagForDicts; //array of dicts / string
 
-- (id)execute {
+- (id)execute:(BOOL)returnDicts { //array of dicts / string;
 	aslmsg query = asl_new(ASL_TYPE_QUERY);
 	
 	//criteria
@@ -41,7 +40,7 @@
 	
 	NSMutableArray *dicts;
 	NSMutableString *string;
-	if(flagForDicts) {
+	if(returnDicts) {
 		dicts = [NSMutableArray arrayWithCapacity:100];
 		string = nil;
 	}
@@ -61,13 +60,13 @@
 		const char *time = NULL;
 
 		NSMutableDictionary *dict;
-		if(flagForDicts) {
+		if(returnDicts) {
 			dict = [[NSMutableDictionary alloc] init];
 		}
 		
 		for (i = 0; (NULL != (key = asl_key(m, i))); i++)
 		{
-			if(flagForDicts) {
+			if(returnDicts) {
 				val = asl_get(m, key);
 				
 				[dict setObject:[NSString stringWithCString:val encoding:NSUTF8StringEncoding] 
@@ -87,7 +86,7 @@
 
 		}
 
-		if(flagForDicts) {
+		if(returnDicts) {
 			[dicts addObject:[NSDictionary dictionaryWithDictionary:dict]];
 			//[dict release];
 		}
@@ -100,7 +99,7 @@
 	}
 	aslresponse_free(r);	
 	
-	if(flagForDicts) {
+	if(returnDicts) {
 		return dicts;
 	}
 	else {
@@ -108,45 +107,46 @@
 	}
 }
 
-- (id)initSince:(double)secs withIdentifier:(NSString *)ident andMinLevel:(int)level asStringOrDictionarys:(BOOL)flag {
+- (id)initSince:(NSTimeInterval)secs
+ withIdentifier:(NSString *)ident
+    andMinLevel:(NSInteger)level {
     self = [super init];
     if(self) {
         self.seconds = secs;
         self.identifier = ident;
         self.minimumLogLevel = level;
-        self.flagForDicts = flag;
     }
     return self;
 }
 
 #pragma mark helpers
 
-+ (NSArray*)entriesSince:(double)seconds
++ (NSArray*)entriesSince:(NSTimeInterval)seconds
           withIdentifier:(NSString*)ident
-             andMinLevel:(int)level
+             andMinLevel:(NSInteger)level
 {
-    DDASLQuery *query = [[DDASLQuery alloc] initSince:seconds withIdentifier:ident andMinLevel:level asStringOrDictionarys:YES];
-    return [query execute];
+    DDASLQuery *query = [[DDASLQuery alloc] initSince:seconds withIdentifier:ident andMinLevel:level];
+    return [query execute:YES];
 }
 
-+ (NSString*)stringSince:(double)seconds
++ (NSString*)stringSince:(NSTimeInterval)seconds
           withIdentifier:(NSString*)ident
-             andMinLevel:(int)level 
+             andMinLevel:(NSInteger)level
 {
-    DDASLQuery *query = [[DDASLQuery alloc] initSince:seconds withIdentifier:ident andMinLevel:level asStringOrDictionarys:NO];
-    return [query execute];
+    DDASLQuery *query = [[DDASLQuery alloc] initSince:seconds withIdentifier:ident andMinLevel:level];
+    return [query execute:NO];
 }
 
 +(NSArray*)appLogEntriesForLastDay 
 {
     id i = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-    double t = 60*60*24;
+    NSTimeInterval t = 60*60*24;
 	return [DDASLQuery entriesSince:t withIdentifier:i andMinLevel:NSNotFound];
 }
 
 +(NSString*)appLogStringForLastHour {
     id i = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-    double t = 60*60*24;
+    NSTimeInterval t = 60*60*24;
 	return [DDASLQuery stringSince:t withIdentifier:i andMinLevel:NSNotFound];
 }
 

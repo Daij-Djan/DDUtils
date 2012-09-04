@@ -13,16 +13,12 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
-        id identifier = @"com.apple.kextd";
+        id identifier = @"doo";
         
         //AS STRING
-        NSLog(@"%@", [DDASLQuery stringSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
+        NSLog(@"str: %@", [DDASLQuery stringSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
         //OR DICTS :)
-        NSLog(@"%@", [DDASLQuery entriesSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
+        NSLog(@"dict %@", [DDASLQuery entriesSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
     }
     return 0;
 }
