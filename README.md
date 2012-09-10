@@ -14,7 +14,11 @@ model:
 
 <li><b>DDEmbeddedDataReader [osx] + demo</b> - Based on code from BVPlistExtractor by Bavarious, this class allows easy reading of embedded (linked in) data from any executable. (e.g. a CLI Tool's plist included using the linker flag `-sectcreate __TEXT __info_plist TestInfo.plist`)
 
+<li><b>DDRecentItemsManager [ios+osx] + demo</b> - simple wrapper that stores a list of items (NSDictionaries). The array is trimmed to a user-definable maximum (on osx it uses NSDocumentController, on ios it is set to 10 by default). The list is persisted as a plist in the ApplicationSupport directory. 
+
 <li><b>DDTask [osx] + demo</b> - 'Replacement' for NSTask that can be run multiple times in any operation / any thread. It tries to get a successful result N times and returns the result of stdout or nil.
+
+<li><b>DDXcodeProject [osx] + demo</b> - A class that wraps a XCode project file. It extracts the basic project variables (name, orga, language, _resolved_ root dir) but it doesnt yet look up targets or files. It uses reflection for the parsing.. also nice. Ive first seen it in AQXMLParser :) 
 
 <li><b>M42AbstractCoreDataStack [ios+osx]</b> - offers a simple core data wrapper (if one doesnt want to use the really good library MagicalRecord)
 
