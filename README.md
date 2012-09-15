@@ -28,6 +28,8 @@ model:
 
 <li><b>NSString+advancedSplit [ios+osx] + demo</b> - A 'smarter' version of componentsBySplittingString. It never breaks inside of quotes and respects escaped strings.
 
+<li><b>NSDictionary+PostData [ios+osx]</b> - Provides a method to get POST Data from a dictionary it supports NSStrings and NSData(!) [it creates multipart post]
+
 <li><b>NSString+Entities [ios+osx]</b> - Escapes Entities so the NSString is valid for xml content
 
 <li><b>NSString+ValidateEmail [ios+osx] + demo</b> - Check if a NSString object represents a valid email. Uses some regex.

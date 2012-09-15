@@ -16,8 +16,8 @@ int main(int argc, const char * argv[])
         id identifier = @"doo";
         
         //AS STRING
-        NSLog(@"str: %@", [DDASLQuery stringSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
-        //OR DICTS :)
+        NSLog(@"str: %@", [DDASLQuery stringSince:24*60*60 withIdentifier:identifier andMinLevel:NSNotFound]);
+//        //OR DICTS :)
         NSLog(@"dict %@", [DDASLQuery entriesSince:0 withIdentifier:identifier andMinLevel:NSNotFound]);
     }
     return 0;
