@@ -47,7 +47,7 @@
 	else {
 		string = [NSMutableString stringWithCapacity:1000];
 	}
-	
+    
 	//convert each
 	aslmsg m = NULL;
 	while (NULL != (m = aslresponse_next(r)))

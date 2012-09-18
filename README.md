@@ -30,6 +30,8 @@ model:
 
 <li><b>NSDictionary+PostData [ios+osx]</b> - Provides a method to get POST Data from a dictionary it supports NSStrings and NSData(!) [it creates multipart post]
 
+<li><b>NSObject+DDDump [ios+osx] + demo</b> - provides a dictionary with reflected information about the class (superclass, protocols, ivars, properties, methods). The category also has a 'dump' method to assemble the data into a NSString that you can output.
+
 <li><b>NSString+Entities [ios+osx]</b> - Escapes Entities so the NSString is valid for xml content
 
 <li><b>NSString+ValidateEmail [ios+osx] + demo</b> - Check if a NSString object represents a valid email. Uses some regex.
