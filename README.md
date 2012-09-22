@@ -38,7 +38,7 @@ model:
 
 <li><b>SKPaymentQueue+TransactionForProduct [ios]</b> - Category to search in a PaymentQueue for (any / first successful[restored or not]) transaction for a given product identifier.
 
-<li><b>NSworkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
+<li><b>NSWorkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
 </ul>
 
 ui:
@@ -63,12 +63,13 @@ screen
 <li><b>M42WebviewTableViewCell [ios]</b> - Interesting cell that displays html content
 
 <li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
-</ul>
 
 <li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
-</ul>
-
+]
 <li><b>NSWorkspace+IconBadging [osx] + demo</b>-Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
+
+<li><b>NSAttributedString+DDConvenience [ios+osx]</b>-Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>
+On OSX there's also attributedStringWithImage.
 </ul>
 
 ###ALL IS AVAIABLE under MIT
