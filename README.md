@@ -36,7 +36,7 @@ model:
 
 <li><b>NSString+ValidateEmail [ios+osx] + demo</b> - Check if a NSString object represents a valid email. Uses some regex.
 
-<li><b>SKPaymentQueue+TransactionForProduct [ios]</b> - Category to search in a PaymentQueue for (any / first successful[restored or not]) transaction for a given product identifier.
+<li><b>SKPaymentQueue+TransactionForProduct [ios+osx]</b> - Category to search in a PaymentQueue for (any / first successful[restored or not]) transaction for a given product identifier.
 
 <li><b>NSWorkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
 </ul>
@@ -44,6 +44,8 @@ model:
 ui:
 <ul>
 <li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
+
+<li><b>M42ActionSheet [ios]]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
 
 <li><b>M42ClickableImagview & Label [ios]</b> - Subclasses that have action & target and react to touches
 
@@ -65,7 +67,7 @@ screen
 <li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
 
 <li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
-]
+
 <li><b>NSWorkspace+IconBadging [osx] + demo</b>-Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
 
 <li><b>NSAttributedString+DDConvenience [ios+osx]</b>-Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>

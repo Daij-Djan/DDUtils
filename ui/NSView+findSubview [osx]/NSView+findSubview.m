@@ -38,7 +38,8 @@
 }
 
 - (NSView *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag {
-    return [[self findSubviewsOfKind:kind withTag:tag inView:self] objectAtIndex:0];
+    NSArray *views = [self findSubviewsOfKind:kind withTag:tag inView:self];
+    return views.count ? [views objectAtIndex:0] : nil;
 }
 
 - (NSView *)firstSubviewOfKind:(Class)kind {

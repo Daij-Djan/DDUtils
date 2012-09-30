@@ -8,6 +8,7 @@
 
 #import "NSDictionary+PostData.h"
 
+#define POST_BOUNDARY @"-=-=-=123142123123POST%^%(&=-=-=-";
 
 @implementation NSDictionary (PostData)
 
