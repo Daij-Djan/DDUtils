@@ -14,6 +14,9 @@ model:
 
 <li><b>DDEmbeddedDataReader [osx] + demo</b> - Based on code from BVPlistExtractor by Bavarious, this class allows easy reading of embedded (linked in) data from any executable. (e.g. a CLI Tool's plist included using the linker flag `-sectcreate __TEXT __info_plist TestInfo.plist`)
 
+<li><b>DDMicBlowDetector [ios] + demo</b> - one class that worries about getting microphone input and making 'sure' that the sound is a blowing/hissing sound… not some random music. (the confidence value for this can be set, as well as min/max durations)
+The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
+
 <li><b>DDRecentItemsManager [ios+osx] + demo</b> - simple wrapper that stores a list of items (NSDictionaries). The array is trimmed to a user-definable maximum (on osx it uses NSDocumentController, on ios it is set to 10 by default). The list is persisted as a plist in the ApplicationSupport directory. 
 
 <li><b>DDTask [osx] + demo</b> - 'Replacement' for NSTask that can be run multiple times in any operation / any thread. It tries to get a successful result N times and returns the result of stdout or nil.
