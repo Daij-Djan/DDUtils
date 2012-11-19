@@ -8,7 +8,7 @@
 //
 #import "DDRecentItemsManager.h"
 
-#if TARGFET_OS_IPHONE
+#if TARGET_OS_IPHONE
 #define maximumRecentDocumentCount 10
 #else
 #import <Cocoa/Cocoa.h>
@@ -17,7 +17,7 @@
 @implementation DDRecentItemsManager
 
 + (NSUInteger)defaultMaxiumSavesCount {
-#if TARGFET_OS_IPHONE
+#if TARGET_OS_IPHONE
     return maximumRecentDocumentCount;
 #else
     return [[NSDocumentController sharedDocumentController] maximumRecentDocumentCount];
@@ -68,13 +68,18 @@
         [plist setObject:saves forKey:identifier];
     }
     
+    //get rid of duplicates
+    while([saves containsObject:search]) {
+        [saves removeObject:search];
+    }
+    
     //insert
     [saves addObject:search];
     
     //if bigger than maximum, trim
     if(saves.count > self.maximumSavesCount) {
         NSUInteger l = self.maximumSavesCount;
-        NSLog(@"trim to %lu",l);
+        NSLog(@"trim to %lu",(unsigned long)l);
         NSUInteger c = saves.count - self.maximumSavesCount;
         NSArray *newsaves = [saves subarrayWithRange:NSMakeRange(c, l)];
         [plist setObject:newsaves forKey:identifier];
