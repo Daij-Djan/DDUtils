@@ -8,6 +8,8 @@ model:
 <ul>
 <li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetSerrviceBrowser
 
+<li><b>DBPrefsWindowController [osx]</b> - a window controller that is tailored for doing preferences windows. (has a tabbar, crossfades. Meant to be subclassed. Based on class by Dave Batton)
+
 <li><b>DDASLQuery [ios+osx] + demo</b> - wraps the C apis for querying ASL (default log on ios4+ or 10.6+)
 
 <li><b>DDChecksum [ios+osx] + demo</b> - wraps the C api for building checksums (from apple's CommonCrypto library)
