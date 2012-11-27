@@ -83,6 +83,8 @@
                 }
             }
             
+            [fileHandle closeFile];
+            
             task = nil;//! so no notification comes after we are done
             tries++;
         }

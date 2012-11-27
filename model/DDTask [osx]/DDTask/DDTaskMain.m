@@ -50,7 +50,7 @@ int main(int argc, const char * argv[])
             [task run];
         });
 
-        //---
+        //--- SHOULD FAIL
          
         args = [NSArray arrayWithObjects:@"-s", nil];
 
