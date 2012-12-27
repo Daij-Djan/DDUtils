@@ -6,7 +6,7 @@ most of the classes are not tested and have no documentation. They also arent me
 
 model:
 <ul>
-<li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetSerrviceBrowser
+<li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetServiceBrowser
 
 <li><b>DBPrefsWindowController [osx]</b> - a window controller that is tailored for doing preferences windows. (has a tabbar, crossfades. Meant to be subclassed. Based on class by Dave Batton)
 
@@ -44,6 +44,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>SKPaymentQueue+TransactionForProduct [ios+osx]</b> - Category to search in a PaymentQueue for (any / first successful[restored or not]) transaction for a given product identifier.
 
 <li><b>NSWorkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
+
+<li><b>NSArray+DDPerformAfterDelay [ios+osx]</b>-Category on NSArray to easily call makeObjectsPerformSelector after a delay
+
 </ul>
 
 ui:
@@ -71,12 +74,15 @@ screen
 
 <li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
 
+<li><b>NSWindow+Fade [osx]</b>-Category on NSWindow that adds fadeIn and fadeOut actions that work like animated order in order out
+
 <li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
 
 <li><b>NSWorkspace+IconBadging [osx] + demo</b>-Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
 
 <li><b>NSAttributedString+DDConvenience [ios+osx]</b>-Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>
 On OSX there's also attributedStringWithImage.
+
 </ul>
 
 ###ALL IS AVAIABLE under MIT
