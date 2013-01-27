@@ -21,7 +21,7 @@
      [reflection valueForKeyPath:@"protocols.name"],
      [reflection valueForKeyPath:@"variables.name"],
      [reflection valueForKeyPath:@"properties.name"],
-     [reflection valueForKeyPath:@"methods.name"]];
+     [reflection valueForKeyPath:@"methods.description"]];
     
     return dump;
 }
@@ -85,13 +85,49 @@
         NSMutableArray *methods = [NSMutableArray arrayWithCapacity:cMethods];
         for(int i = 0; i < cMethods; i++) {
             const char *type = method_getTypeEncoding(ms[i]);
-            SEL name = method_getName(ms[i]);
-            [methods addObject:@{@"name": NSStringFromSelector(name), @"type": @(type)}];
+            if(!type) type = "";
+
+            SEL s = method_getName(ms[i]);
+            NSString *name = NSStringFromSelector(s);
+            [methods addObject:@{@"name": name, @"type": @(type), @"description": [NSString stringWithFormat:@"%@ %s", name, type]}];
         }
         [reflect setObject:methods forKey:@"methods"];
     }
 
     return reflect;
+}
+
++ (NSArray *)classDumps {
+    int numClasses;
+    Class * classes = NULL;
+    NSMutableArray *dumps = nil;
+    
+    classes = NULL;
+    numClasses = objc_getClassList(NULL, 0);
+    
+    if (numClasses > 0 )
+    {
+        classes = malloc(sizeof(Class) * numClasses);
+        numClasses = objc_getClassList(classes, numClasses);
+
+        dumps = [NSMutableArray arrayWithCapacity:numClasses];
+        for (int i = 0; i < numClasses; i++) {
+            @try {
+                Method s = class_getInstanceMethod(classes[i], @selector(doesNotRecognizeSelector:));
+                if (!s) {
+                    NSLog(@"%s doesnt implement doesNotRecognizeSelector and is no NSObject, skip it", class_getName(classes[i]));
+                    continue;
+                }
+                [dumps addObject:[classes[i] dump]];
+            }
+            @catch (NSException *e) {
+                NSLog(@"Exception %@ ignored during dumping", [e name]);
+            }
+        }
+        free(classes);
+    }
+
+    return dumps;
 }
 
 @end

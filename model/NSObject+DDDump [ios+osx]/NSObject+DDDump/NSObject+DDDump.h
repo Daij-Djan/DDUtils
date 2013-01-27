@@ -13,4 +13,6 @@
 @property(readonly) NSString *dump;
 @property(readonly) NSDictionary *reflection;
 
++ (NSArray*)classDumps; //TODO add filter criteria
+
 @end
