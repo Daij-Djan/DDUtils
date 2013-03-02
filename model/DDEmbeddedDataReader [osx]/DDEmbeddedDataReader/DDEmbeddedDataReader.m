@@ -62,7 +62,7 @@ NSData *_BVMachOSection(NSURL *url, char *segname, char *sectname, NSError **err
         goto END_FILE;
     }
     
-    size = stat_buf.st_size;
+    size = (long)stat_buf.st_size;
     
     if (size == 0) {
         if (error) *error = _BVEmptyFileError(url);
@@ -333,7 +333,7 @@ NSData *_BVMachOSectionFromMachOHeader64(char *addr, long bytes_left, char *segn
                 if (error) *error = _BVCorruptMachOError(url);
                 goto END_FUNCTION;
             }
-            data = [NSData dataWithBytes:(base_macho_header_addr + sect->offset) length:sect->size];
+            data = [NSData dataWithBytes:(base_macho_header_addr + sect->offset) length:(NSUInteger)sect->size];
             goto END_FUNCTION;
         }
     }
