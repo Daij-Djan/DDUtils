@@ -45,8 +45,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>NSWorkspace+runFileAtPath [osx]</b> - category that provides a method to run any file. It can be an Applescript (NSApplescript is used), a shell script or exectuable (NSTask is used),  a file wrapper or app (NSWorkspace is used) or a directory (is opened with the finder). Specified arguments are passed to the Apple Scripts, Shell scripts, to apps and to unix executables.
 
-<li><b>NSArray+DDPerformAfterDelay [ios+osx]</b>-Category on NSArray to easily call makeObjectsPerformSelector after a delay
+<li><b>NSArray+DDPerformAfterDelay [ios+osx]</b> - Category on NSArray to easily call makeObjectsPerformSelector after a delay
 
+<li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVLY. The normal refreshObject isnt recursive.
 </ul>
 
 ui:
