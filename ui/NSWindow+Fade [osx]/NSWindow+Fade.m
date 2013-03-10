@@ -11,21 +11,27 @@
 #define kWindowAnimationDuration 0.1f
 
 @implementation NSWindow (Fade)
-- (IBAction)fadeIn:(id)sender
+
+- (void)fadeInWithDuration:(NSNumber*)d
 {
     [self setAlphaValue:0.f];
     [self makeKeyAndOrderFront:nil];
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:kWindowAnimationDuration];
+    [[NSAnimationContext currentContext] setDuration:d.floatValue];
     [[self animator] setAlphaValue:1.f];
     [NSAnimationContext endGrouping];
 }
 
-- (IBAction)fadeOut:(id)sender
+- (IBAction)fadeIn:(id)sender
+{
+    [self fadeInWithDuration:@(kWindowAnimationDuration)];
+}
+
+- (void)fadeOutWithDuration:(NSNumber*)d
 {
     [NSAnimationContext beginGrouping];
-    __block __unsafe_unretained NSWindow *bself = self;
-    [[NSAnimationContext currentContext] setDuration:kWindowAnimationDuration];
+    __block NSWindow *bself = self;
+    [[NSAnimationContext currentContext] setDuration:d.floatValue];
     [[NSAnimationContext currentContext] setCompletionHandler:^{
         [bself orderOut:nil];
         [bself setAlphaValue:1.f];
@@ -33,4 +39,10 @@
     [[self animator] setAlphaValue:0.f];
     [NSAnimationContext endGrouping];
 }
+
+- (IBAction)fadeOut:(id)sender
+{
+    [self fadeOutWithDuration:@(kWindowAnimationDuration)];
+}
+
 @end
