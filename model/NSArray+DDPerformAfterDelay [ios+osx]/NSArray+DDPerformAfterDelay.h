@@ -13,4 +13,7 @@
 - (void)makeObjectsPerformSelector:(SEL)aSelector afterDelay:(NSTimeInterval)delay;
 - (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument afterDelay:(NSTimeInterval)delay;
 
+- (void)makeObjectsPerformSelector:(SEL)aSelector afterDelay:(NSTimeInterval)delay completionHandler:(void (^)())handler;
+- (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument afterDelay:(NSTimeInterval)delay completionHandler:(void (^)())handler;
+
 @end
