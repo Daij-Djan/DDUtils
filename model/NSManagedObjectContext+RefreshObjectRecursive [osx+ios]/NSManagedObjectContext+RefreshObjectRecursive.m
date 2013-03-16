@@ -14,12 +14,17 @@
 }
 
 - (void)refreshObject:(NSManagedObject*)object mergeChanges:(BOOL)mergeChanges recursive:(BOOL)recursive doneObjects:(NSMutableSet*)doneObjects {
+    if(object == nil)
+        return;
+
     //prevent us from going in circles
     if([doneObjects containsObject:object.objectID])
         return;
     [doneObjects addObject:object.objectID];
     
     if(object.isFault)
+        return;
+    if(object.isDeleted)
         return;
     
     //visit all non-transient relations
