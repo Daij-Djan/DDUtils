@@ -6,6 +6,8 @@ most of the classes are not tested and have no documentation. They also arent me
 
 model:
 <ul>
+<li><b>DDSocialMessenger [ios+osx]</b> - provides easy-to-use methods to post to twitter or facebook or both! It encapsulates all dealings with accounts and social framework
+
 <li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetServiceBrowser
 
 <li><b>DBPrefsWindowController [osx]</b> - a window controller that is tailored for doing preferences windows. (has a tabbar, crossfades. Meant to be subclassed. Based on class by Dave Batton)
@@ -75,17 +77,18 @@ screen
 
 <li><b>M42WebviewTableViewCell [ios]</b> - Interesting cell that displays html content
 
-<li><b>NSWindow+localize [osx]</b>-Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
+<li><b>NSWindow+localize [osx]</b> - Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
 
-<li><b>NSWindow+Fade [osx]</b>-Category on NSWindow that adds fadeIn and fadeOut actions that work like animated order in order out
+<li><b>NSWindow+Fade [osx]</b> - Category on NSWindow that adds fadeIn and fadeOut actions that work like animated order in order out
 
-<li><b>NSView+findSubview [osx]</b>-Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
+<li><b>NSView+findSubview [osx]</b> - Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
 
-<li><b>NSWorkspace+IconBadging [osx] + demo</b>-Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
+<li><b>NSWorkspace+IconBadging [osx] + demo</b> - Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
 
-<li><b>NSAttributedString+DDConvenience [ios+osx]</b>-Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>
+<li><b>NSAttributedString+DDConvenience [ios+osx]</b> - Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>
 On OSX there's also attributedStringWithImage.
 
+<li><b>UIAlertView+UserInfo [ios]</b> - Category on UIAlertView that adds a userInfo NSDictionary property to the alert that you can set and get (like it works for NSTimer)
 </ul>
 
 ###ALL IS AVAIABLE under MIT
