@@ -54,6 +54,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>NSOperation+Duration [ios+osx] + demo</b> - Category that adds a duration property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
 </ul>
 
+<li><b>NSOperation+UserInfo [ios+osx] + demo</b> - Category that adds a userInfo dictionary property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
+</ul>
+
 ui:
 <ul>
 <li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
