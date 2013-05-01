@@ -12,7 +12,11 @@
 @implementation NSObject (DDDump)
 
 - (NSString *)dump {
-    NSDictionary *reflection = self.reflection;
+    return [NSObject dumpOfClass:self.class];
+}
+
++ (NSString *)dumpOfClass:(Class)cls {
+    NSDictionary *reflection = [self reflectionOfClass:cls];
 
     NSMutableString *dump = [NSMutableString string];
     [dump appendFormat:@"%@ : %@ <%@> {\n%@}\n%@\n\%@",
@@ -26,15 +30,19 @@
     return dump;
 }
 
-- (NSDictionary*)reflection {
+- (NSDictionary *)reflection {
+    return [NSObject reflectionOfClass:self.class];
+}
+
++ (NSDictionary*)reflectionOfClass:(Class)cls {
     NSMutableDictionary *reflect = [NSMutableDictionary dictionary];
     
     //class
-    const char *name = class_getName(self.class);
+    const char *name = class_getName(cls);
     [reflect setObject:@{@"name": @(name)} forKey:@"class"];
 
     //superclass
-    Class superClass = class_getSuperclass(self.class);
+    Class superClass = class_getSuperclass(cls);
     if(superClass) {
         const char *name = class_getName(superClass);
         [reflect setObject:@{@"name": @(name)} forKey:@"superclass"];
@@ -42,7 +50,7 @@
     
     //protocols
     unsigned int cProtocols = 0;
-    Protocol * __unsafe_unretained *protos = class_copyProtocolList(self.class, &cProtocols);
+    Protocol * __unsafe_unretained *protos = class_copyProtocolList(cls, &cProtocols);
     if(cProtocols) {
         NSMutableArray *protocols = [NSMutableArray arrayWithCapacity:cProtocols];
         for(int i = 0; i < cProtocols; i++) {
@@ -54,7 +62,7 @@
     
     //ivars
     unsigned int cVars = 0;
-    Ivar *vars = class_copyIvarList(self.class, &cVars);
+    Ivar *vars = class_copyIvarList(cls, &cVars);
     if(cVars) {
         NSMutableArray *variables = [NSMutableArray arrayWithCapacity:cVars];
         for(int i = 0; i < cVars; i++) {
@@ -67,7 +75,7 @@
     
     //properties
     unsigned int cProperties = 0;
-    objc_property_t *props = class_copyPropertyList(self.class, &cProperties);
+    objc_property_t *props = class_copyPropertyList(cls, &cProperties);
     if(cProperties) {
         NSMutableArray *properties = [NSMutableArray arrayWithCapacity:cProperties];
         for(int i = 0; i < cProperties; i++) {
@@ -80,7 +88,7 @@
 
     //methods
     unsigned int cMethods = 0;
-    Method *ms = class_copyMethodList(self.class, &cMethods);
+    Method *ms = class_copyMethodList(cls, &cMethods);
     if(cMethods) {
         NSMutableArray *methods = [NSMutableArray arrayWithCapacity:cMethods];
         for(int i = 0; i < cMethods; i++) {
