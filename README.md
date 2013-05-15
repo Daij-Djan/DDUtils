@@ -57,6 +57,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>NSOperation+UserInfo [ios+osx] + demo</b> - Category that adds a userInfo dictionary property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
 </ul>
 
+<li><b>NSObject+MethodSwizzle [ios+osx]</b> - I found myself doing a lot of swizzling recently, so I added this category. I especially like mikeash's neat trick of swizzling a method of ANY class with a C Function you provide!
+
 ui:
 <ul>
 <li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
@@ -93,5 +95,5 @@ On OSX there's also attributedStringWithImage.
 
 <li><b>UIAlertView+UserInfo [ios]</b> - Category on UIAlertView that adds a userInfo NSDictionary property to the alert that you can set and get (like it works for NSTimer)
 </ul>
-
+=
 ###ALL IS AVAIABLE under MIT
