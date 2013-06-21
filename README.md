@@ -59,6 +59,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>NSObject+MethodSwizzle [ios+osx]</b> - I found myself doing a lot of swizzling recently, so I added this category. I especially like mikeash's neat trick of swizzling a method of ANY class with a C Function you provide!
 
+<li><b>UIFont+RegisterURL [ios]</b> - This category enables you to load a UIFont from ANY url. The url can be local or remote. It can also point to local a folder (or a NSBundle) to load fonts from there :) Last but not least it provides a convenience method fontWithName:size:ifNeededLoadURL:
+
 ui:
 <ul>
 <li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
