@@ -49,7 +49,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>NSArray+DDPerformAfterDelay [ios+osx]</b> - Category on NSArray to easily call makeObjectsPerformSelector after a delay
 
-<li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVLY. The normal refreshObject isnt recursive.
+<li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVELY. The normal refreshObject isnt recursive.
 
 <li><b>NSOperation+Duration [ios+osx] + demo</b> - Category that adds a duration property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
 </ul>
@@ -88,7 +88,9 @@ screen
 
 <li><b>NSWindow+Fade [osx]</b> - Category on NSWindow that adds fadeIn and fadeOut actions that work like animated order in order out
 
-<li><b>NSView+findSubview [osx]</b> - Category on NSView that provides aa method to find a subview (by class and or tag) in its subview-tree.
+<li><b>NSView+findSubview [osx]</b> - Category on NSView that provides aa method to find a(or many) subview (by class and or tag) in its subview-tree.
+
+<li><b>UIView+findSubview [ios]</b> - Category on UIView that provides methods to find a(or many) subview (by class and or tag) in its subview-tree.
 
 <li><b>NSWorkspace+IconBadging [osx] + demo</b> - Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
 
@@ -97,5 +99,9 @@ On OSX there's also attributedStringWithImage.
 
 <li><b>UIAlertView+UserInfo [ios]</b> - Category on UIAlertView that adds a userInfo NSDictionary property to the alert that you can set and get (like it works for NSTimer)
 </ul>
-=
+
+<li><b>UIImage+DDBadge [ios]</b> - Category on UIImage that returns a badged copy of an image. The look of the badge is customizable to a certain degree
+
+</ul>
+
 ###ALL IS AVAIABLE under MIT
