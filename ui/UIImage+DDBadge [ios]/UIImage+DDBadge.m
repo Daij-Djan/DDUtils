@@ -1,6 +1,5 @@
 //
 //  UIImage+DDBadge.m
-//  HBStoreLocatorTest
 //
 //  Created by Dominik Pich on 14.06.13.
 //  Copyright (c) 2013 Dominik Pich. All rights reserved.
@@ -14,12 +13,58 @@ NSString *DDBadgeFrameColor = @"frameColor";
 NSString *DDBadgeTextColor = @"textColor";
 NSString *DDBadgeShowWhenZero = @"showWhenZero";
 NSString *DDBadgeFrameWidth = @"frameWidth";
-NSString *DDBadgeFont = @"badgeFont";
+NSString *DDBadgeFont = @"DDBadgeFont";
+NSString *DDBadgeSize = @"DDBadgeSize";
+NSString *DDBadgeOrigin = @"DDBadgeOrigin";
+
+CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badgeSize);
+CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badgeSize) {
+    CGPoint pt = CGPointZero;
+    
+    switch (origin) {
+        case DDBadgeOriginModeTopLeft:
+            break;
+        case DDBadgeOriginModeTopRight:
+            pt.x = size.width - badgeSize.width;
+            break;
+        case DDBadgeOriginModeTopCenter:
+            pt.x = size.width/2 - badgeSize.width/2;
+            break;
+            
+        case DDBadgeOriginModeMiddleLeft:
+            pt.y = size.height/2 - badgeSize.height/2;
+            break;
+        case DDBadgeOriginModeMiddleRight:
+            pt.y = size.height/2 - badgeSize.height/2;
+            pt.x = size.width - badgeSize.width;
+            break;
+        case DDBadgeOriginModeMiddleCenter:
+            pt.y = size.height/2 - badgeSize.height/2;
+            pt.x = size.width/2 - badgeSize.width/2;
+            break;
+            
+        case DDBadgeOriginModeBottomLeft:
+            pt.y = size.height - badgeSize.width;
+            break;
+        case DDBadgeOriginModeBottomRight:
+            pt.y = size.height - badgeSize.width;
+            pt.x = size.width - badgeSize.width;
+            break;
+        case DDBadgeOriginModeBottomCenter:
+            pt.y = size.height - badgeSize.width;
+            pt.x = size.width/2 - badgeSize.width/2;
+            break;            
+        default:
+            break;
+    }
+    
+    return pt;
+}
 
 @implementation UIImage (DDBadge)
 
 - (instancetype)imageBadgedWithValue:(NSInteger)badgeValue {
-    return [self imageBadgedWithOptions:@{DDBadgeFrameWidth:@1, DDBadgeTextColor:[UIColor whiteColor], DDBadgeFrameColor:[UIColor whiteColor], DDBadgeBackgroundColor:[UIColor redColor], DDBadgeShowWhenZero:@NO, DDBadgeValue:@(badgeValue), DDBadgeFont:[UIFont boldSystemFontOfSize:10]}];
+    return [self imageBadgedWithOptions:@{DDBadgeFrameWidth:@1, DDBadgeTextColor:[UIColor whiteColor], DDBadgeFrameColor:[UIColor whiteColor], DDBadgeBackgroundColor:[UIColor redColor], DDBadgeShowWhenZero:@NO, DDBadgeValue:@(badgeValue), DDBadgeFont:[UIFont boldSystemFontOfSize:14], DDBadgeSize:[NSValue valueWithCGSize:CGSizeMake(26, 26)], DDBadgeOrigin:@(DDBadgeOriginModeTopRight) }];
 }
 
 - (instancetype)imageBadgedWithOptions:(NSDictionary*)options {
@@ -32,9 +77,14 @@ NSString *DDBadgeFont = @"badgeFont";
         UIColor *textColor = options[DDBadgeTextColor];
         CGFloat outlineWidth = [options[DDBadgeFrameWidth] floatValue];
         UIFont *font = options[DDBadgeFont];
+        NSValue *badgeSizeValue = options[DDBadgeSize];
+        CGSize badgeSize = badgeSizeValue.CGSizeValue;
+        NSNumber *badgeOriginNumber = options[DDBadgeOrigin];
         
         CGSize size = self.size;
-        CGRect rect = {.origin=CGPointMake(size.width-22, 0), .size=CGSizeMake(22, 22)};
+        CGPoint badgeOrigin = DDBadgeOriginForSize(badgeOriginNumber.unsignedIntegerValue, size, badgeSize);
+        
+        CGRect rect = {.origin=badgeOrigin, .size=badgeSize};
         
         //begin
         UIGraphicsBeginImageContextWithOptions(size, NO, 0);
@@ -54,8 +104,8 @@ NSString *DDBadgeFont = @"badgeFont";
         //text
         NSString *badgeValueString = [NSString stringWithFormat:@"%ld", (long)badgeValue];
         CGSize numberSize = [badgeValueString sizeWithFont:font];
-        CGRect badgeValueRect = CGRectMake(rect.size.width/2.0 - numberSize.width/2.0,
-                                           rect.size.height/2.0 - numberSize.height/2.0,
+        CGRect badgeValueRect = CGRectMake(badgeOrigin.x + badgeSize.width/2.0 - numberSize.width/2.0,
+                                           badgeOrigin.y + badgeSize.height/2.0 - numberSize.height/2.0,
                                            numberSize.width, numberSize.height);
 
         [textColor set];

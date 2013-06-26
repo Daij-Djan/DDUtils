@@ -1,6 +1,5 @@
 //
 //  UIImage+DDBadge.h
-//  HBStoreLocatorTest
 //
 //  Created by Dominik Pich on 14.06.13.
 //  Copyright (c) 2013 Dominik Pich. All rights reserved.
@@ -10,7 +9,7 @@
 
 @interface UIImage (DDBadge)
 
-- (instancetype)imageBadgedWithValue:(NSInteger)badgeValue; //this method assumes defaults (white text & 1px frame on red & hide if 0 & bold sys default font)
+- (instancetype)imageBadgedWithValue:(NSInteger)badgeValue; //this method assumes defaults (white text & 1px frame on red & hide if 0 & bold sys default font 14pt & 26px26px in TR corner )
 - (instancetype)imageBadgedWithOptions:(NSDictionary*)options;
 
 @end
@@ -23,4 +22,18 @@ extern NSString *DDBadgeTextColor;
 extern NSString *DDBadgeShowWhenZero;
 extern NSString *DDBadgeFrameWidth;
 extern NSString *DDBadgeFont;
-//the badge's position and size is fixed - TR and 22x22
+extern NSString *DDBadgeSize; //NSValue valueWithSize
+extern NSString *DDBadgeOrigin; //NSNumber enum
+
+//enum
+typedef NS_ENUM(NSUInteger, DDBadgeOriginMode) {
+    DDBadgeOriginModeTopLeft,
+    DDBadgeOriginModeTopRight,
+    DDBadgeOriginModeTopCenter,
+    DDBadgeOriginModeMiddleLeft,
+    DDBadgeOriginModeMiddleRight,
+    DDBadgeOriginModeMiddleCenter,
+    DDBadgeOriginModeBottomLeft,
+    DDBadgeOriginModeBottomRight,
+    DDBadgeOriginModeBottomCenter,
+};
