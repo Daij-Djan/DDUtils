@@ -92,6 +92,8 @@ screen
 
 <li><b>UIView+findSubview [ios]</b> - Category on UIView that provides methods to find a(or many) subview (by class and or tag) in its subview-tree.
 
+<li><b>UIView+Border [ios]</b> - Category on UIView that provides a simple wrapper around CALayer allowing to easily add a border around a view.
+
 <li><b>NSWorkspace+IconBadging [osx] + demo</b> - Category on NSWorkspace that allows setting icon <b>badges</b> on files/folder (like dropbox or torquoise SVN). (wraps carbon's IconServices API for that) 
 
 <li><b>NSAttributedString+DDConvenience [ios+osx]</b> - Category on NSAttributedString to create it from printf like varargs (like stringWithFormat:)<br/>
