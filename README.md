@@ -52,14 +52,16 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVELY. The normal refreshObject isnt recursive.
 
 <li><b>NSOperation+Duration [ios+osx] + demo</b> - Category that adds a duration property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
-</ul>
 
 <li><b>NSOperation+UserInfo [ios+osx] + demo</b> - Category that adds a userInfo dictionary property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
-</ul>
 
 <li><b>NSObject+MethodSwizzle [ios+osx]</b> - I found myself doing a lot of swizzling recently, so I added this category. I especially like mikeash's neat trick of swizzling a method of ANY class with a C Function you provide!
 
 <li><b>UIFont+RegisterURL [ios]</b> - This category enables you to load a UIFont from ANY url. The url can be local or remote. It can also point to local a folder (or a NSBundle) to load fonts from there :) Last but not least it provides a convenience method fontWithName:size:ifNeededLoadURL:
+
+<li><b>DDOpenAtLoginController [osx]</b> - This class provides a single property. 'appStartsAtLogin' It adds/removes the current app from the login items list. That bool is bindable and and reflects the system preferences. 
+
+</ul>
 
 ui:
 <ul>
