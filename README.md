@@ -10,6 +10,8 @@ model:
 
 <li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetServiceBrowser
 
+<li><b>DDPowerMonitor [osx]</b> - easy monitor power mode (battery / ac / charging) and system sleep/wake
+
 <li><b>DBPrefsWindowController [osx]</b> - a window controller that is tailored for doing preferences windows. (has a tabbar, crossfades. Meant to be subclassed. Based on class by Dave Batton)
 
 <li><b>DDASLQuery [ios+osx] + demo</b> - wraps the C apis for querying ASL (default log on ios4+ or 10.6+)
