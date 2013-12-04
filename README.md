@@ -63,6 +63,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>DDOpenAtLoginController [osx]</b> - This class provides a single property. 'appStartsAtLogin' It adds/removes the current app from the login items list. That bool is bindable and and reflects the system preferences. 
 
+<li><b>DDLMUService [osx]</b> - A wrapper for the undocumented IOKit LMUService: The 'kernel driver' for the ambient light sensor AND the LED Backlight of Macbooks (only tested under 10.9 on MBP 2011 but should work for any Macbook able to run 10.8+)
+<li><b>DDUserNotificationCenterMonitor [osx]</b> - Component that monitors the global MTNLion notification center. (It uses SCEvents to monitor disk changes and FMDB to read the Notification Center's SQLite database.)
+
 </ul>
 
 ui:
