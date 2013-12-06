@@ -115,7 +115,7 @@
     
     if (numClasses > 0 )
     {
-        classes = malloc(sizeof(Class) * numClasses);
+        classes = (__unsafe_unretained Class*)malloc(sizeof(Class) * numClasses);
         numClasses = objc_getClassList(classes, numClasses);
 
         dumps = [NSMutableArray arrayWithCapacity:numClasses];
