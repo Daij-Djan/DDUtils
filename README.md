@@ -92,7 +92,7 @@ screen
 
 <li><b>M42WebViewController [ios]</b> - A view controller that manages a webview. It displays loading labels and offers a back button if appropriate
 
-<li><b>M42WebviewTableViewCell [ios]</b> - Interesting cell that displays html content
+<li><b>M42WebviewTableViewCell [ios + demo]</b> - Interesting cell that displays html content and tells the controller its required size. A Demo using a minimal tabeView is included.
 
 <li><b>NSWindow+localize [osx]</b> - Category on NSWindow that localizes itself and all its subviews. (knows many defacto default selectors so it works with many views out-of-the-box) 
 

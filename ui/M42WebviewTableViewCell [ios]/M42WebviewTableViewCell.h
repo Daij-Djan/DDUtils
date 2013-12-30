@@ -5,39 +5,38 @@
 //  Created by Dominik Pich on 09.08.10.
 //  Copyright 2010 FHK Gummersbach. All rights reserved.
 //
+//  modernized 12/2013
+//
 
 #import <UIKit/UIKit.h>
 
 @class M42WebviewTableViewCell;
 
-@protocol M42WebviewTableViewCellDelegate
-
-@optional
+@protocol M42WebviewTableViewCellDelegate <NSObject>
 - (void)tableCellDidLoadContent:(M42WebviewTableViewCell*)cell;
-- (void)tableCellWasClicked:(M42WebviewTableViewCell*)cell;
+@optional
 - (BOOL)tableCell:(M42WebviewTableViewCell*)cell shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 @end
 
-@interface M42WebviewTableViewCell : UITableViewCell<UIWebViewDelegate> {
-	id<M42WebviewTableViewCellDelegate> delegate;
-	UIWebView *webView;
-	NSString *html;
-	NSURL *baseURL;	
-	int tag;
-	CGFloat neededHeight;
-	BOOL ready;
-}
+#pragma mark -
+
+@interface M42WebviewTableViewCell : UITableViewCell<UIWebViewDelegate>
+#if !__has_feature(objc_arc)
 @property(assign) id<M42WebviewTableViewCellDelegate> delegate;
+#else
+@property(weak) id<M42WebviewTableViewCellDelegate> delegate;
+#endif
+
+- (void)setHtmlFromURL:(NSURL *)newHtmlURL;
+@property(nonatomic, copy, readonly) NSURL *htmlURL;
 
 - (void)setHtml:(NSString *)newHtml AndBaseURL:(NSURL*)baseURL;
-@property(readonly) NSString *html;
-@property(readonly) NSURL *baseURL;
+@property(nonatomic, copy, readonly) NSString *html;
+@property(nonatomic, copy, readonly) NSURL *baseURL;
 
-@property(readonly) UIWebView *webView;
-@property(assign) int tag;
-@property(readonly) CGFloat height;
-@property(readonly) BOOL ready;
+@property(nonatomic, assign) int tag;
 
-- (CGRect)frameForEmptyWebviewAssumingBounds:(CGRect)f;
-- (CGRect)frameForEmptyWebview;
+@property(nonatomic, readonly) UIWebView *webView;
+@property(nonatomic, readonly) CGFloat height;
+@property(nonatomic, readonly) BOOL ready;
 @end
