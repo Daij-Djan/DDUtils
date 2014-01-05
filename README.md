@@ -1,10 +1,14 @@
 #About
 this is a VERY loose collection of individual classes and/or components for OSX/IOS that I find myself reusing serveral times and so thought it that it might be good to make them available.
 
-most of the classes are not tested and have no documentation. They also arent meant or even guaranteed to be feature complete.
-<b>they were/are all used in one or the other published app though.</b>
+Most of the classes are arent meant or even guaranteed to be feature complete. Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
 
-model:
+####I wrapped all class in a static library (1 ios, 1 osx),
+<b>this does not include the demos of course</b>
+<br/>
+<br/>
+##Individual Classes
+######model-related:
 <ul>
 <li><b>DDSocialMessenger [ios+osx]</b> - provides easy-to-use methods to post to twitter or facebook or both! It encapsulates all dealings with accounts and social framework
 
@@ -23,6 +27,10 @@ model:
 <li><b>DDMicBlowDetector [ios] + demo</b> - one class that worries about getting microphone input and making 'sure' that the sound is a blowing/hissing sound… not some random music. (the confidence value for this can be set, as well as min/max durations)
 The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
+<li><b>DDFilterableArray [ios+osx] + demo</b> - basic Subclasses of NSArray and NSMutableArray AND a category on NSArray to make a Array class that you can easily filter by passing a prediate format string or a predicate inside of the brackets. (This is great for parsers, see xsd2cocoa for a real life usage)
+
+<li><b>NSObject+TransparentKVC [ios+osx] + demo</b> - use @protocols fot typesafe KVC. E.g. for Accessing parsed JSON (nested NSDictionaries) [clean, consisce, effective, self documenting, see the Demo for a better explanation of this concept]
+
 <li><b>DDRecentItemsManager [ios+osx] + demo</b> - simple wrapper that stores a list of items (NSDictionaries). The array is trimmed to a user-definable maximum (on osx it uses NSDocumentController, on ios it is set to 10 by default). The list is persisted as a plist in the ApplicationSupport directory. 
 
 <li><b>DDTask [osx] + demo</b> - 'Replacement' for NSTask that can be run multiple times in any operation / any thread. It tries to get a successful result N times and returns the result of stdout or nil.
@@ -31,7 +39,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>M42AbstractCoreDataStack [ios+osx]</b> - offers a simple core data wrapper (if one doesnt want to use the really good library MagicalRecord)
 
-<li><b>M42RandomIndexPermutation M42CompatibleAlert [ios+osx] + demo</b> - Helper to build indexsets that are random but the indices remain unique and the sets reproducable.
+<li><b>M42RandomIndexPermutation [ios+osx] + demo</b> - Helper to build indexsets that are random but the indices remain unique and the sets reproducable.
 
 <li><b>NSFileManager+Count [osx]</b> - (Cocoa wrapper for legacy but fast carbon way of counting files in a folder )
 
@@ -57,7 +65,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>NSOperation+UserInfo [ios+osx] + demo</b> - Category that adds a userInfo dictionary property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
 
-<li><b>NSObject+MethodSwizzle [ios+osx]</b> - I found myself doing a lot of swizzling recently, so I added this category. I especially like mikeash's neat trick of swizzling a method of ANY class with a C Function you provide!
+<li><b>NSObject+MethodSwizzle [ios+osx] + demo</b> - I found myself doing a lot of swizzling recently, so I added this category. I especially like mikeash's neat trick of swizzling a method of ANY class with a C Function you provide!
 
 <li><b>UIFont+RegisterURL [ios]</b> - This category enables you to load a UIFont from ANY url. The url can be local or remote. It can also point to local a folder (or a NSBundle) to load fonts from there :) Last but not least it provides a convenience method fontWithName:size:ifNeededLoadURL:
 
@@ -71,15 +79,13 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 </ul>
 
-ui:
+######ui-related:
 <ul>
 <li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
 
 <li><b>M42ActionSheet [ios]]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
 
 <li><b>M42ClickableImagview & Label [ios]</b> - Subclasses that have action & target and react to touches
-
-<li><b>M42CompatibleAlert [ios+osx]</b> - Class that wraps UIAlert and NSAlertView. Displaying the correct one depending on OS.
 
 <li><b>M42LoadingScreenViewController [ios]</b> - Black screen, White 'Loading...', spinner, progressbar :) Looks a bit like the iOS Startup 
 screen
@@ -114,6 +120,9 @@ On OSX there's also attributedStringWithImage.
 
 <li><b>UIImage+DDBadge [ios]</b> - Category on UIImage that returns a badged copy of an image. The look of the badge is customizable to a certain degree
 
+<li><b>UIImage+DefaultImage</b> - Category on UIImage to easily get the Current App's Default image (the correct version for the Current Device)
 </ul>
 
+<br/>
+<br/>
 ###ALL IS AVAIABLE under MIT

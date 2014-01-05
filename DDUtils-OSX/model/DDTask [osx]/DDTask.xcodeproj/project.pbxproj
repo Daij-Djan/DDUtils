@@ -1,0 +1,235 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B44C4558158699BD00D4CABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B44C4557158699BD00D4CABE /* Foundation.framework */; };
+		B44C456815869A2700D4CABE /* DDTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B44C456615869A2700D4CABE /* DDTask.m */; };
+		B44C456915869A2700D4CABE /* DDTaskMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B44C456715869A2700D4CABE /* DDTaskMain.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B44C4551158699BD00D4CABE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B44C4553158699BD00D4CABE /* DDTask */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DDTask; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44C4557158699BD00D4CABE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B44C455D158699BD00D4CABE /* DDTask-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDTask-Prefix.pch"; sourceTree = "<group>"; };
+		B44C456515869A2700D4CABE /* DDTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTask.h; sourceTree = "<group>"; };
+		B44C456615869A2700D4CABE /* DDTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTask.m; sourceTree = "<group>"; };
+		B44C456715869A2700D4CABE /* DDTaskMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTaskMain.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B44C4550158699BD00D4CABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44C4558158699BD00D4CABE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B44C4548158699BD00D4CABE = {
+			isa = PBXGroup;
+			children = (
+				B44C4559158699BD00D4CABE /* DDTask */,
+				B44C4556158699BD00D4CABE /* Frameworks */,
+				B44C4554158699BD00D4CABE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B44C4554158699BD00D4CABE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B44C4553158699BD00D4CABE /* DDTask */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B44C4556158699BD00D4CABE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B44C4557158699BD00D4CABE /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B44C4559158699BD00D4CABE /* DDTask */ = {
+			isa = PBXGroup;
+			children = (
+				B44C456515869A2700D4CABE /* DDTask.h */,
+				B44C456615869A2700D4CABE /* DDTask.m */,
+				B44C456715869A2700D4CABE /* DDTaskMain.m */,
+				B44C455C158699BD00D4CABE /* Supporting Files */,
+			);
+			path = DDTask;
+			sourceTree = "<group>";
+		};
+		B44C455C158699BD00D4CABE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B44C455D158699BD00D4CABE /* DDTask-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B44C4552158699BD00D4CABE /* DDTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B44C4562158699BD00D4CABE /* Build configuration list for PBXNativeTarget "DDTask" */;
+			buildPhases = (
+				B44C454F158699BD00D4CABE /* Sources */,
+				B44C4550158699BD00D4CABE /* Frameworks */,
+				B44C4551158699BD00D4CABE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDTask;
+			productName = DDTask;
+			productReference = B44C4553158699BD00D4CABE /* DDTask */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B44C454A158699BD00D4CABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "doo GmbH";
+			};
+			buildConfigurationList = B44C454D158699BD00D4CABE /* Build configuration list for PBXProject "DDTask" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B44C4548158699BD00D4CABE;
+			productRefGroup = B44C4554158699BD00D4CABE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B44C4552158699BD00D4CABE /* DDTask */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B44C454F158699BD00D4CABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44C456815869A2700D4CABE /* DDTask.m in Sources */,
+				B44C456915869A2700D4CABE /* DDTaskMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B44C4560158699BD00D4CABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B44C4561158699BD00D4CABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B44C4563158699BD00D4CABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B44C4564158699BD00D4CABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B44C454D158699BD00D4CABE /* Build configuration list for PBXProject "DDTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44C4560158699BD00D4CABE /* Debug */,
+				B44C4561158699BD00D4CABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44C4562158699BD00D4CABE /* Build configuration list for PBXNativeTarget "DDTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44C4563158699BD00D4CABE /* Debug */,
+				B44C4564158699BD00D4CABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B44C454A158699BD00D4CABE /* Project object */;
+}

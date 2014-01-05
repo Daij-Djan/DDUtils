@@ -1,0 +1,225 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4C7780D158146B1006BFACF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C7780C158146B1006BFACF /* Foundation.framework */; };
+		B4C77810158146B1006BFACF /* ValidateEmailMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C7780F158146B1006BFACF /* ValidateEmailMain.m */; };
+		B4C7781C158146E4006BFACF /* NSString+ValidateEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C7781B158146E4006BFACF /* NSString+ValidateEmail.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B4C77806158146B1006BFACF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B4C77808158146B1006BFACF /* NSString+ValidateEmail */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NSString+ValidateEmail"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C7780C158146B1006BFACF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4C7780F158146B1006BFACF /* ValidateEmailMain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValidateEmailMain.m; sourceTree = "<group>"; };
+		B4C7781A158146E4006BFACF /* NSString+ValidateEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ValidateEmail.h"; sourceTree = "<group>"; };
+		B4C7781B158146E4006BFACF /* NSString+ValidateEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ValidateEmail.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4C77805158146B1006BFACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C7780D158146B1006BFACF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4C777FD158146B1006BFACF = {
+			isa = PBXGroup;
+			children = (
+				B4C7780E158146B1006BFACF /* NSString+ValidateEmail */,
+				B4C7780B158146B1006BFACF /* Frameworks */,
+				B4C77809158146B1006BFACF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4C77809158146B1006BFACF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4C77808158146B1006BFACF /* NSString+ValidateEmail */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4C7780B158146B1006BFACF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4C7780C158146B1006BFACF /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4C7780E158146B1006BFACF /* NSString+ValidateEmail */ = {
+			isa = PBXGroup;
+			children = (
+				B4C7781A158146E4006BFACF /* NSString+ValidateEmail.h */,
+				B4C7781B158146E4006BFACF /* NSString+ValidateEmail.m */,
+				B4C7780F158146B1006BFACF /* ValidateEmailMain.m */,
+			);
+			path = "NSString+ValidateEmail";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4C77807158146B1006BFACF /* NSString+ValidateEmail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4C77817158146B1006BFACF /* Build configuration list for PBXNativeTarget "NSString+ValidateEmail" */;
+			buildPhases = (
+				B4C77804158146B1006BFACF /* Sources */,
+				B4C77805158146B1006BFACF /* Frameworks */,
+				B4C77806158146B1006BFACF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NSString+ValidateEmail";
+			productName = "NSString+ValidateEmail";
+			productReference = B4C77808158146B1006BFACF /* NSString+ValidateEmail */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4C777FF158146B1006BFACF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "doo GmbH";
+			};
+			buildConfigurationList = B4C77802158146B1006BFACF /* Build configuration list for PBXProject "NSString+ValidateEmail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B4C777FD158146B1006BFACF;
+			productRefGroup = B4C77809158146B1006BFACF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4C77807158146B1006BFACF /* NSString+ValidateEmail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4C77804158146B1006BFACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C77810158146B1006BFACF /* ValidateEmailMain.m in Sources */,
+				B4C7781C158146E4006BFACF /* NSString+ValidateEmail.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B4C77815158146B1006BFACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B4C77816158146B1006BFACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B4C77818158146B1006BFACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B4C77819158146B1006BFACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4C77802158146B1006BFACF /* Build configuration list for PBXProject "NSString+ValidateEmail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C77815158146B1006BFACF /* Debug */,
+				B4C77816158146B1006BFACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4C77817158146B1006BFACF /* Build configuration list for PBXNativeTarget "NSString+ValidateEmail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C77818158146B1006BFACF /* Debug */,
+				B4C77819158146B1006BFACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4C777FF158146B1006BFACF /* Project object */;
+}

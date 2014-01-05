@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B394735C16E2019A001BF675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B394735B16E2019A001BF675 /* UIKit.framework */; };
+		B394735D16E2019A001BF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B44C4557158699BD00D4CABE /* Foundation.framework */; };
+		B394735F16E2019A001BF675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B394735E16E2019A001BF675 /* CoreGraphics.framework */; };
+		B394736716E2019A001BF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B394736616E2019A001BF675 /* main.m */; };
+		B394736B16E2019A001BF675 /* DDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B394736A16E2019A001BF675 /* DDAppDelegate.m */; };
+		B394736D16E2019A001BF675 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B394736C16E2019A001BF675 /* Default.png */; };
+		B394736F16E2019A001BF675 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B394736E16E2019A001BF675 /* Default@2x.png */; };
+		B394737116E2019A001BF675 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B394737016E2019A001BF675 /* Default-568h@2x.png */; };
+		B394737416E2019A001BF675 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B394737316E2019A001BF675 /* DDViewController.m */; };
+		B394737E16E201B4001BF675 /* DDEmbeddedDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B44C456615869A2700D4CABE /* DDEmbeddedDataReader.m */; };
+		B44C4558158699BD00D4CABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B44C4557158699BD00D4CABE /* Foundation.framework */; };
+		B44C456815869A2700D4CABE /* DDEmbeddedDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B44C456615869A2700D4CABE /* DDEmbeddedDataReader.m */; };
+		B44C456915869A2700D4CABE /* DDEmbeddedDataReaderMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B44C456715869A2700D4CABE /* DDEmbeddedDataReaderMain.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B44C4551158699BD00D4CABE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B394735A16E2019A001BF675 /* DDEmbeddDataReaderIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDEmbeddDataReaderIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B394735B16E2019A001BF675 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B394735E16E2019A001BF675 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		B394736216E2019A001BF675 /* DDEmbeddDataReaderIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DDEmbeddDataReaderIOS-Info.plist"; sourceTree = "<group>"; };
+		B394736616E2019A001BF675 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B394736816E2019A001BF675 /* DDEmbeddDataReaderIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDEmbeddDataReaderIOS-Prefix.pch"; sourceTree = "<group>"; };
+		B394736916E2019A001BF675 /* DDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAppDelegate.h; sourceTree = "<group>"; };
+		B394736A16E2019A001BF675 /* DDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAppDelegate.m; sourceTree = "<group>"; };
+		B394736C16E2019A001BF675 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B394736E16E2019A001BF675 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B394737016E2019A001BF675 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B394737216E2019A001BF675 /* DDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
+		B394737316E2019A001BF675 /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
+		B44C4553158699BD00D4CABE /* DDEmbeddedDataReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DDEmbeddedDataReader; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44C4557158699BD00D4CABE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B44C456515869A2700D4CABE /* DDEmbeddedDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEmbeddedDataReader.h; sourceTree = "<group>"; };
+		B44C456615869A2700D4CABE /* DDEmbeddedDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEmbeddedDataReader.m; sourceTree = "<group>"; };
+		B44C456715869A2700D4CABE /* DDEmbeddedDataReaderMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEmbeddedDataReaderMain.m; sourceTree = "<group>"; };
+		B460E04215B4B49100E7EB51 /* DDEmbeddedTestData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DDEmbeddedTestData.txt; sourceTree = "<group>"; };
+		B460E04415B4B83600E7EB51 /* DDEmbeddedTestInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DDEmbeddedTestInfo.plist; sourceTree = "<group>"; };
+		B460E04515B4B8D400E7EB51 /* DDEmbeddedTestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DDEmbeddedTestImage.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B394735716E2019A001BF675 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B394735C16E2019A001BF675 /* UIKit.framework in Frameworks */,
+				B394735D16E2019A001BF675 /* Foundation.framework in Frameworks */,
+				B394735F16E2019A001BF675 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44C4550158699BD00D4CABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44C4558158699BD00D4CABE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B394736016E2019A001BF675 /* DDEmbeddDataReaderIOS */ = {
+			isa = PBXGroup;
+			children = (
+				B394736916E2019A001BF675 /* DDAppDelegate.h */,
+				B394736A16E2019A001BF675 /* DDAppDelegate.m */,
+				B394737216E2019A001BF675 /* DDViewController.h */,
+				B394737316E2019A001BF675 /* DDViewController.m */,
+				B394736116E2019A001BF675 /* Supporting Files */,
+			);
+			path = DDEmbeddDataReaderIOS;
+			sourceTree = "<group>";
+		};
+		B394736116E2019A001BF675 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B394736216E2019A001BF675 /* DDEmbeddDataReaderIOS-Info.plist */,
+				B394736616E2019A001BF675 /* main.m */,
+				B394736816E2019A001BF675 /* DDEmbeddDataReaderIOS-Prefix.pch */,
+				B394736C16E2019A001BF675 /* Default.png */,
+				B394736E16E2019A001BF675 /* Default@2x.png */,
+				B394737016E2019A001BF675 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B44C4548158699BD00D4CABE = {
+			isa = PBXGroup;
+			children = (
+				B44C4559158699BD00D4CABE /* DDEmbeddedDataReader */,
+				B394736016E2019A001BF675 /* DDEmbeddDataReaderIOS */,
+				B44C4556158699BD00D4CABE /* Frameworks */,
+				B44C4554158699BD00D4CABE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B44C4554158699BD00D4CABE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B44C4553158699BD00D4CABE /* DDEmbeddedDataReader */,
+				B394735A16E2019A001BF675 /* DDEmbeddDataReaderIOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B44C4556158699BD00D4CABE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B44C4557158699BD00D4CABE /* Foundation.framework */,
+				B394735B16E2019A001BF675 /* UIKit.framework */,
+				B394735E16E2019A001BF675 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B44C4559158699BD00D4CABE /* DDEmbeddedDataReader */ = {
+			isa = PBXGroup;
+			children = (
+				B44C456515869A2700D4CABE /* DDEmbeddedDataReader.h */,
+				B44C456615869A2700D4CABE /* DDEmbeddedDataReader.m */,
+				B44C456715869A2700D4CABE /* DDEmbeddedDataReaderMain.m */,
+				B460E04215B4B49100E7EB51 /* DDEmbeddedTestData.txt */,
+				B460E04415B4B83600E7EB51 /* DDEmbeddedTestInfo.plist */,
+				B460E04515B4B8D400E7EB51 /* DDEmbeddedTestImage.png */,
+			);
+			path = DDEmbeddedDataReader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B394735916E2019A001BF675 /* DDEmbeddDataReaderIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B394737D16E2019A001BF675 /* Build configuration list for PBXNativeTarget "DDEmbeddDataReaderIOS" */;
+			buildPhases = (
+				B394735616E2019A001BF675 /* Sources */,
+				B394735716E2019A001BF675 /* Frameworks */,
+				B394735816E2019A001BF675 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDEmbeddDataReaderIOS;
+			productName = DDEmbeddDataReaderIOS;
+			productReference = B394735A16E2019A001BF675 /* DDEmbeddDataReaderIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B44C4552158699BD00D4CABE /* DDEmbeddedDataReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B44C4562158699BD00D4CABE /* Build configuration list for PBXNativeTarget "DDEmbeddedDataReader" */;
+			buildPhases = (
+				B44C454F158699BD00D4CABE /* Sources */,
+				B44C4550158699BD00D4CABE /* Frameworks */,
+				B44C4551158699BD00D4CABE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDEmbeddedDataReader;
+			productName = DDEmbeddedDataReader;
+			productReference = B44C4553158699BD00D4CABE /* DDEmbeddedDataReader */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B44C454A158699BD00D4CABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "doo GmbH";
+			};
+			buildConfigurationList = B44C454D158699BD00D4CABE /* Build configuration list for PBXProject "DDEmbeddedDataReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B44C4548158699BD00D4CABE;
+			productRefGroup = B44C4554158699BD00D4CABE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B44C4552158699BD00D4CABE /* DDEmbeddedDataReader */,
+				B394735916E2019A001BF675 /* DDEmbeddDataReaderIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B394735816E2019A001BF675 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B394736D16E2019A001BF675 /* Default.png in Resources */,
+				B394736F16E2019A001BF675 /* Default@2x.png in Resources */,
+				B394737116E2019A001BF675 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B394735616E2019A001BF675 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B394736716E2019A001BF675 /* main.m in Sources */,
+				B394736B16E2019A001BF675 /* DDAppDelegate.m in Sources */,
+				B394737416E2019A001BF675 /* DDViewController.m in Sources */,
+				B394737E16E201B4001BF675 /* DDEmbeddedDataReader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44C454F158699BD00D4CABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44C456815869A2700D4CABE /* DDEmbeddedDataReader.m in Sources */,
+				B44C456915869A2700D4CABE /* DDEmbeddedDataReaderMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B394737B16E2019A001BF675 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DDEmbeddDataReaderIOS/DDEmbeddDataReaderIOS-Prefix.pch";
+				INFOPLIST_FILE = "DDEmbeddDataReaderIOS/DDEmbeddDataReaderIOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__testData,
+					DDEmbeddedDataReader/DDEmbeddedTestData.txt,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					DDEmbeddedDataReader/DDEmbeddedTestInfo.plist,
+					"-sectcreate",
+					__IMG,
+					__testImg,
+					DDEmbeddedDataReader/DDEmbeddedTestImage.png,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B394737C16E2019A001BF675 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sapient GmbH";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DDEmbeddDataReaderIOS/DDEmbeddDataReaderIOS-Prefix.pch";
+				INFOPLIST_FILE = "DDEmbeddDataReaderIOS/DDEmbeddDataReaderIOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__testData,
+					DDEmbeddedDataReader/DDEmbeddedTestData.txt,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					DDEmbeddedDataReader/DDEmbeddedTestInfo.plist,
+					"-sectcreate",
+					__IMG,
+					__testImg,
+					DDEmbeddedDataReader/DDEmbeddedTestImage.png,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "64D0C2A8-274E-4E42-AF64-8D9242084C06";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B44C4560158699BD00D4CABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B44C4561158699BD00D4CABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B44C4563158699BD00D4CABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__testData,
+					DDEmbeddedDataReader/DDEmbeddedTestData.txt,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					DDEmbeddedDataReader/DDEmbeddedTestInfo.plist,
+					"-sectcreate",
+					__IMG,
+					__testImg,
+					DDEmbeddedDataReader/DDEmbeddedTestImage.png,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B44C4564158699BD00D4CABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__testData,
+					DDEmbeddedDataReader/DDEmbeddedTestData.txt,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					DDEmbeddedDataReader/DDEmbeddedTestInfo.plist,
+					"-sectcreate",
+					__IMG,
+					__testImg,
+					DDEmbeddedDataReader/DDEmbeddedTestImage.png,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B394737D16E2019A001BF675 /* Build configuration list for PBXNativeTarget "DDEmbeddDataReaderIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B394737B16E2019A001BF675 /* Debug */,
+				B394737C16E2019A001BF675 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44C454D158699BD00D4CABE /* Build configuration list for PBXProject "DDEmbeddedDataReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44C4560158699BD00D4CABE /* Debug */,
+				B44C4561158699BD00D4CABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44C4562158699BD00D4CABE /* Build configuration list for PBXNativeTarget "DDEmbeddedDataReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44C4563158699BD00D4CABE /* Debug */,
+				B44C4564158699BD00D4CABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B44C454A158699BD00D4CABE /* Project object */;
+}
