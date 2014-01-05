@@ -1,6 +1,5 @@
 //
 //  NSManagedObjectContext+RefreshObjectRecursive.h
-//  myAudi
 //
 //  Created by Dominik Pich on 09.03.13.
 //

@@ -3,7 +3,7 @@
 //  SandboxedDemo
 //
 //  Created by Dominik Pich on 9/13/12.
-//  Copyright (c) 2012 doo GmbH. All rights reserved.
+//  Copyright (c) 2012 Dominik Pich. All rights reserved.
 //
 
 #import "DDAppDelegate.h"
@@ -16,7 +16,7 @@
     //DOESNT WORK when sandboxed, works if not
     //also if identifier == own process or just using facility_key
     
-    id identifier = @"doo";
+    id identifier = @"daijdjan"; //TODO real sender name
 
     NSLog(@"str: %@", [DDASLQuery stringSince:24*60*60 withIdentifier:identifier andMinLevel:NSNotFound]);
     [NSApp terminate:nil];

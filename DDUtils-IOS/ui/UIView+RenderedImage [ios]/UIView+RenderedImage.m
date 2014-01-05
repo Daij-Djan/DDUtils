@@ -1,11 +1,8 @@
 //
 //  UIView+RenderedImage.m
-//  myAudi
 //
-//  Created by Michael Zapf on 06.12.12.
-//  Copyright (c) 2012 Sapient GmbH. All rights reserved.
+//  Created by Dominik Pich on 09.03.13.
 //
-
 #import "UIView+RenderedImage.h"
 #import <QuartzCore/QuartzCore.h>
 

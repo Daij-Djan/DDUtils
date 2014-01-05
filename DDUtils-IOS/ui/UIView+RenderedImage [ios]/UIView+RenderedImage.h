@@ -1,11 +1,8 @@
 //
 //  UIView+RenderedImage.h
-//  myAudi
 //
-//  Created by Michael Zapf on 06.12.12.
-//  Copyright (c) 2012 Sapient GmbH. All rights reserved.
+//  Created by Dominik Pich on 09.03.13.
 //
-
 #import <UIKit/UIKit.h>
 
 @interface UIView (RenderedImage)

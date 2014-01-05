@@ -3,7 +3,7 @@
 //  DDRecentItemsManagerDemo
 //
 //  Created by Dominik Pich on 9/10/12.
-//  Copyright (c) 2012 doo GmbH. All rights reserved.
+//  Copyright (c) 2012 Dominik Pich. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

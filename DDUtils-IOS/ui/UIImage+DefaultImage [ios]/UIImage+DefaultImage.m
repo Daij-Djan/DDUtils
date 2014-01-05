@@ -1,11 +1,8 @@
 //
 //  UIImage+DefaultImage.m
-//  MSSChassis
 //
 //  Created by Dominik Pich on 23.07.13.
-//  Copyright (c) 2013 Sapient GmbH. All rights reserved.
 //
-
 #import "UIImage+DefaultImage.h"
 
 @implementation UIImage (DefaultImage)

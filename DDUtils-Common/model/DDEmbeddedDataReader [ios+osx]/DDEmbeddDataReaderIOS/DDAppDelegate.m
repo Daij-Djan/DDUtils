@@ -3,7 +3,7 @@
 //  DDEmbeddDataReaderIOS
 //
 //  Created by Dominik Pich on 02.03.13.
-//  Copyright (c) 2013 doo GmbH. All rights reserved.
+//  Copyright (c) 2013 Dominik Pich. All rights reserved.
 //
 
 #import "DDAppDelegate.h"

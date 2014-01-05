@@ -4,8 +4,6 @@
 //  Created by Dominik Pich on 9/7/12.
 //  Copyright (c) 2012 Dominik Pich. All rights reserved.
 //
-//  Based on DKSavedSearchManager from doo
-//
 #import "DDRecentItemsManager.h"
 
 #if TARGET_OS_IPHONE
