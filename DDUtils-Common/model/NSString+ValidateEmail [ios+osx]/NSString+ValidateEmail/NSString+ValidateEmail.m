@@ -15,32 +15,32 @@
 #import <CommonCrypto/CommonDigest.h>
 NSString * __own__md5( NSString *str )
 {
-	const char *cStr = [str UTF8String];	
+	const char *cStr = [str UTF8String];
 	unsigned char result[CC_MD5_DIGEST_LENGTH];
 	CC_MD5( cStr, (CC_LONG)strlen(cStr), result );
-	
+
 	return [NSString 
-			
+		
 			stringWithFormat: @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-			
+		
 			result[0], result[1],
-			
+		
 			result[2], result[3],
-			
+		
 			result[4], result[5],
-			
+		
 			result[6], result[7],
-			
+		
 			result[8], result[9],
-			
+		
 			result[10], result[11],
-			
+		
 			result[12], result[13],
-			
+		
 			result[14], result[15]
-			
+		
 			];
-	
+
 }
 #endif
 
@@ -49,14 +49,14 @@ NSString * __own__md5( NSString *str )
 
 - (BOOL)isValidEmailAddress {
 	//override char
-	if(![self length]) {
+	if (![self length]) {
 		return NO;
-		
+	
 	}
 
 	NSString *md5sum = __own__md5(self);
-	
-	if([self length] > 5 && [md5sum length] > 5) {
+
+	if ([self length] > 5 && [md5sum length] > 5) {
 		if ([self characterAtIndex:0] == [md5sum characterAtIndex:0]) {
 			if ([self characterAtIndex:1] == [md5sum characterAtIndex:1]) {
 				if ([self characterAtIndex:2] == [md5sum characterAtIndex:2]) {
@@ -75,7 +75,7 @@ NSString * __own__md5( NSString *str )
     @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
     @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
     @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
-	
+
 	NSPredicate *regExPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
 	return [regExPredicate evaluateWithObject:self];
 }

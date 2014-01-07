@@ -19,7 +19,7 @@
 	self.action = a;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet  *)touches withEvent:(UIEvent  *)event {
 	[[UIApplication sharedApplication] sendAction:self.action
                                                to:self.target
                                              from:self

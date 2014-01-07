@@ -28,11 +28,11 @@ DDPowerMode DDPowerModeFromNSString(NSString *modeString);
 @protocol DDPowerMonitorDelegate <NSObject>
 
 @optional
-- (void)powerMonitorRegisteredSystemWillGoToSleep:(DDPowerMonitor*)monitor;
-- (BOOL)powerMonitorAllowSystemToSleep:(DDPowerMonitor*)monitor;
-- (void)powerMonitorRegisteredSystemDidWakeFromSleep:(DDPowerMonitor*)monitor;
+- (void)powerMonitorRegisteredSystemWillGoToSleep:(DDPowerMonitor *)monitor;
+- (BOOL)powerMonitorAllowSystemToSleep:(DDPowerMonitor *)monitor;
+- (void)powerMonitorRegisteredSystemDidWakeFromSleep:(DDPowerMonitor *)monitor;
 
-- (void)powerMonitor:(DDPowerMonitor*)monitor powerModeChanged:(DDPowerMode)powerMode;
+- (void)powerMonitor:(DDPowerMonitor *)monitor powerModeChanged:(DDPowerMode)powerMode;
 
 @end
 

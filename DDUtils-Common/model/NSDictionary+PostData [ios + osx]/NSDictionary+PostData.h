@@ -11,6 +11,6 @@
 
 @interface NSDictionary (PostData)
 
-- (NSData*)postData;
+- (NSData *)postData;
 
 @end

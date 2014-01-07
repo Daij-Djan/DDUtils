@@ -35,7 +35,7 @@
 
 - (NSUInteger)count {return count;}
 
-- (NSInteger *)indices {return indices;}
+- (NSInteger  *)indices {return indices;}
 
 - (NSInteger)next {
 	if (index < count) return indices[index++];
@@ -54,11 +54,11 @@
 	//[super dealloc];
 }
 
-- (NSString *)description {
+- (NSString  *)description {
     NSMutableString *buf = [NSMutableString stringWithFormat:@"permutation (%lu) :: ", (unsigned long)count];
     
     for(int i=0;i<count;i++) {
-        if(i==0)
+        if (i==0)
             [buf appendFormat:@"%ld", (long)indices[i]];
         else
             [buf appendFormat:@", %ld", (long)indices[i]];
@@ -72,15 +72,15 @@
 }
 
 - (BOOL)isEqualTo:(id)object {
-    if(![object isKindOfClass:[self class]])
+    if (![object isKindOfClass:[self class]])
         return NO;
     
     M42RandomIndexPermutation *perm = object;
-    if(count != perm.count)
+    if (count != perm.count)
         return NO;
     
     for(int i=0;i<count;i++) {
-        if(indices[i] != perm.indices[i])
+        if (indices[i] != perm.indices[i])
             return NO;
     }
 

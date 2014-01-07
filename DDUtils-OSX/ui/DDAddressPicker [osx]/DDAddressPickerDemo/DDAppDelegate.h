@@ -11,11 +11,11 @@
 
 @interface DDAppDelegate : NSObject <NSApplicationDelegate, DDAddressPickerDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property(assign) IBOutlet NSWindow *window;
 
-@property (weak) IBOutlet NSButton *selectMe;
-@property (weak) IBOutlet NSButton *runModal;
-@property (weak) IBOutlet NSButton *needsSelection;
+@property(weak) IBOutlet NSButton *selectMe;
+@property(weak) IBOutlet NSButton *runModal;
+@property(weak) IBOutlet NSButton *needsSelection;
 - (IBAction)show:(id)sender;
 
 @end

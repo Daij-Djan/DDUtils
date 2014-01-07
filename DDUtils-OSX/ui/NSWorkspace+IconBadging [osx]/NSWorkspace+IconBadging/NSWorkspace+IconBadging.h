@@ -15,12 +15,12 @@
  @param badge
  @param path
  */
-- (void)setIconBadge:(NSString*)badgePath atFilePath:(NSString*)filePath;
+- (void)setIconBadge:(NSString *)badgePath atFilePath:(NSString *)filePath;
 
 /**
  remove a file's icon badge
  @param path
  */
-- (void)removeIconBadgeAtFilePath:(NSString*)filePath;
+- (void)removeIconBadgeAtFilePath:(NSString *)filePath;
 
 @end

@@ -21,10 +21,10 @@
 	UIView *mainView = [[UIView alloc] initWithFrame:f];
 	mainView.backgroundColor = [UIColor blackColor];
 	mainView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	
+
 	//show loading screen
 	label = [[UILabel alloc] init];
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor whiteColor];
 	label.font = [UIFont boldSystemFontOfSize:18.0f];
 	label.backgroundColor = [UIColor blackColor];
@@ -38,7 +38,7 @@
 	label.frame = f1; 
 	label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[mainView addSubview:label];
-	
+
 	activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	CGRect f2 = activityView.frame;
 	f1.origin.x = f1.size.width/2 - f2.size.width/2;
@@ -57,8 +57,8 @@
 	f3.size.height += 10;
 	progressView.frame = f3; 
 	progressView.autoresizingMask = activityView.autoresizingMask;
-	[mainView addSubview:progressView];	
-	
+	[mainView addSubview:progressView];
+
 	self.view = mainView;
 //	[mainView release];
 }

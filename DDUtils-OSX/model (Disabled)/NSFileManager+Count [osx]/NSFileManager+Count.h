@@ -11,6 +11,6 @@
 
 @interface NSFileManager (count) 
 
-- (NSInteger) countOfFilesInDirectory:(NSString *) inPath;
+- (NSInteger) countOfFilesInDirectory:(NSString  *) inPath;
 
 @end

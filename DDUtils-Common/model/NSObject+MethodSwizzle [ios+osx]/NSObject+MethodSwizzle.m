@@ -16,11 +16,11 @@
     }
 }
 
-+ (void*)swizzleInstanceMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f {
++ (void *)swizzleInstanceMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f {
     Method origMethod = class_getInstanceMethod(trgt, originalSelector);
-    void *origImp = (void *)method_getImplementation(origMethod);
+    void *origImp = (void  *)method_getImplementation(origMethod);
     
-    if(!class_addMethod(trgt, originalSelector, f, method_getTypeEncoding(origMethod)))
+    if (!class_addMethod(trgt, originalSelector, f, method_getTypeEncoding(origMethod)))
         method_setImplementation(origMethod, f);
     
     return origImp;
@@ -41,14 +41,14 @@
     }
 }
 
-+ (void*)swizzleClassMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f {
++ (void *)swizzleClassMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f {
     const char *name = class_getName(trgt);
     Class meta = objc_getMetaClass(name);
 
     Method origMethod = class_getClassMethod(trgt, originalSelector);
-    void *origImp = (void *)method_getImplementation(origMethod);
+    void *origImp = (void  *)method_getImplementation(origMethod);
     
-    if(!class_addMethod(meta, originalSelector, f, method_getTypeEncoding(origMethod)))
+    if (!class_addMethod(meta, originalSelector, f, method_getTypeEncoding(origMethod)))
         method_setImplementation(origMethod, f);
     
     return origImp;

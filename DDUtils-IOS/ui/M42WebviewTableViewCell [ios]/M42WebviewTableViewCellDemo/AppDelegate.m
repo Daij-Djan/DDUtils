@@ -10,13 +10,13 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication  *)application didFinishLaunchingWithOptions:(NSDictionary  *)launchOptions
 {
 #ifdef NO_STORYBOARDS
     // Override point for customization after application launch.
 #endif
     return YES;
 }
-							
+						
 
 @end

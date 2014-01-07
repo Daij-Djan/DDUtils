@@ -14,8 +14,10 @@
  * the picker's delegate
  */
 @protocol DDAddressPickerDelegate <NSObject, NSWindowDelegate>
+
 @optional
-- (BOOL)addressPicker:(DDAddressPicker *)picker canEndWithReturnCode:(NSInteger)returnCode;
+- (BOOL)addressPicker:(DDAddressPicker  *)picker canEndWithReturnCode:(NSInteger)returnCode;
+
 @end
 
 /**
@@ -26,22 +28,22 @@
 /**
  * the delegate
  */
-@property (weak) IBOutlet id<DDAddressPickerDelegate> delegate;
+@property(weak) IBOutlet id<DDAddressPickerDelegate> delegate;
 
 /**
  * a NSInteger tag that can be assigned - works like NSView's tags
  */
-@property (assign) NSInteger tag;
+@property(assign) NSInteger tag;
 
 /** 
  * the list of selected persons
  */
-@property (readonly) NSArray *persons;
+@property(readonly) NSArray *persons;
 
 /**
  * if true,  at least one person needs to be able to close the panel
  */
-@property (assign) BOOL needsSelection;
+@property(assign) BOOL needsSelection;
 
 /**
  * run as an application modal panel
@@ -57,6 +59,6 @@
  * the picker view
  * @warn for more options, configure it directly
  */
-@property (weak) IBOutlet ABPeoplePickerView *peoplePickerView;
+@property(weak) IBOutlet ABPeoplePickerView *peoplePickerView;
 
 @end

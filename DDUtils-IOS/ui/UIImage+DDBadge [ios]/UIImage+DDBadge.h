@@ -10,7 +10,7 @@
 @interface UIImage (DDBadge)
 
 - (instancetype)imageBadgedWithValue:(NSInteger)badgeValue; //this method assumes defaults (white text & 1px frame on red & hide if 0 & bold sys default font 14pt & 26px26px in TR corner )
-- (instancetype)imageBadgedWithOptions:(NSDictionary*)options;
+- (instancetype)imageBadgedWithOptions:(NSDictionary *)options;
 
 @end
 

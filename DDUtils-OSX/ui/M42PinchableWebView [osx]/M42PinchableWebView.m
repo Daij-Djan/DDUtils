@@ -10,17 +10,17 @@
 
 @implementation M42PinchableWebView
 
-- (void)magnifyWithEvent:(NSEvent *)event {
+- (void)magnifyWithEvent:(NSEvent  *)event {
 	CGFloat old = [self textSizeMultiplier];
 	[self setTextSizeMultiplier:old+[event magnification]*0.8];
 }
 
--(IBAction)zoomIn:(id)sender {
+- (IBAction)zoomIn:(id)sender {
 	CGFloat old = [self textSizeMultiplier];
 	[self setTextSizeMultiplier:old+0.4];
 }
 
--(IBAction)zoomOut:(id)sender {
+- (IBAction)zoomOut:(id)sender {
 	CGFloat old = [self textSizeMultiplier];
 	[self setTextSizeMultiplier:old-0.4];
 }

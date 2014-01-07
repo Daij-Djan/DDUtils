@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIAlertView (UserInfo)
-@property (nonatomic, assign) NSDictionary* userInfo;
+@property(nonatomic, assign) NSDictionary* userInfo;
 @end

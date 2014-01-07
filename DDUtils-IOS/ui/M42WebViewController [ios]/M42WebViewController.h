@@ -19,7 +19,7 @@
 }
 @property(readonly) UIWebView *webView;
 
-- (void)loadHTMLString:(NSString *)string baseURL:(NSURL *)baseURL;
-- (void)loadRequest:(NSURLRequest*)aRequest;
+- (void)loadHTMLString:(NSString  *)string baseURL:(NSURL  *)baseURL;
+- (void)loadRequest:(NSURLRequest *)aRequest;
 - (void)invalidate;
 @end

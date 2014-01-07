@@ -12,7 +12,7 @@
     NSMutableArray *pickers;
 }
 
-- (BOOL)addressPicker:(DDAddressPicker *)picker canEndWithReturnCode:(NSInteger)returnCode {
+- (BOOL)addressPicker:(DDAddressPicker  *)picker canEndWithReturnCode:(NSInteger)returnCode {
     NSLog(@"Delegate called: %@", picker.persons);
     return YES;
 }
@@ -22,18 +22,18 @@
     picker.delegate = self;
     picker.needsSelection = self.needsSelection.state == NSOnState;
     
-    if(self.selectMe.state == NSOnState) {
+    if (self.selectMe.state == NSOnState) {
         [picker selectMe];
     }
     
-    if(self.runModal.state == NSOnState) {
+    if (self.runModal.state == NSOnState) {
         [picker runModal];
-    }
-    else {
+    } else {
         [picker showWindow:sender];
-        if(!pickers)
+        if (!pickers)
             pickers = [NSMutableArray arrayWithCapacity:5];
         [pickers addObject:picker];
     }
 }
+
 @end

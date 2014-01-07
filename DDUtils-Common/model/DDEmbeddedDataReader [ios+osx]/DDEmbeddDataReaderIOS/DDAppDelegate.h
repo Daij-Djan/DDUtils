@@ -12,8 +12,8 @@
 
 @interface DDAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) DDViewController *viewController;
+@property(strong, nonatomic) DDViewController *viewController;
 
 @end

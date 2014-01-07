@@ -19,10 +19,11 @@
 
 - (void)updateHistory:(id)sender {
     id str = self.textView.stringValue;
-    if(![str length])
+    if (![str length])
         return;
     
-    [[DDRecentItemsManager sharedManager] saveSearch:@{@"Demo-String":str} forIdentifier:@"DEMO" error:nil];
+    NSDictionary *demo = @{@"Demo-String": str};
+    [[DDRecentItemsManager sharedManager] saveSearch:demo forIdentifier:@"DEMO" error:nil];
     saves = [[DDRecentItemsManager sharedManager] savedSearchesforIdentifier:@"DEMO"];
     [self.historyTable reloadData];
 }
@@ -34,13 +35,13 @@
 
 #pragma mark -
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView  *)tableView {
     return saves.count;
 }
 
 /* This method is required for the "Cell Based" TableView, and is optional for the "View Based" TableView. If implemented in the latter case, the value will be set to the view at a given row/column if the view responds to -setObjectValue: (such as NSControl and NSTableCellView).
  */
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (id)tableView:(NSTableView  *)tableView objectValueForTableColumn:(NSTableColumn  *)tableColumn row:(NSInteger)row {
     return saves[row];
 }
 

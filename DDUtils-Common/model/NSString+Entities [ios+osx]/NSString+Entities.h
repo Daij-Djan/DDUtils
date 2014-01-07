@@ -11,7 +11,7 @@
 
 @interface NSString (Entities)
 
-- (NSString*)stringByEscapingXmlEntities;
-- (NSString*)stringByUnescapingXmlEntities;
+- (NSString *)stringByEscapingXmlEntities;
+- (NSString *)stringByUnescapingXmlEntities;
 
 @end

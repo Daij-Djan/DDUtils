@@ -39,13 +39,16 @@ static NSError *_BVEmptyFileError(NSURL *url);
 static NSError *_BVCorruptMachOError(NSURL *url);
 
 #pragma mark - Definition of constants for error reporting
-NSString * const BVPlistExtractorErrorDomain = @"com.bavarious.PlistExtractor.ErrorDomain";
+NSString *const BVPlistExtractorErrorDomain = @"com.bavarious.PlistExtractor.ErrorDomain";
 const NSInteger BVPlistExtractorErrorOpenFile = 1;
 const NSInteger BVPlistExtractorErrorEmptyFile = 2;
 const NSInteger BVPlistExtractorErrorCorruptMachO = 3;
 
 #pragma mark - Definition of private functions
-NSData *_BVMachOSection(NSURL *url, char *segname, char *sectname, NSError **error) {
+NSData *_BVMachOSection(NSURL *url,
+                        char *segname,
+                        char *sectname,
+                        NSError **error) {
     NSData *data = nil;
     int fd;
     struct stat stat_buf;
@@ -85,7 +88,7 @@ NSData *_BVMachOSection(NSURL *url, char *segname, char *sectname, NSError **err
     // Check if it's a fat file
     //   Make sure the file is long enough to hold a fat_header
     if (size < sizeof(struct fat_header)) goto END_MMAP;
-    struct fat_header *fh = (struct fat_header *)addr;
+    struct fat_header *fh = (struct fat_header  *)addr;
     uint32_t magic = NSSwapBigIntToHost(FAT_MAGIC);
     
     // It's a fat file
@@ -102,7 +105,7 @@ NSData *_BVMachOSection(NSURL *url, char *segname, char *sectname, NSError **err
         
         // Read the architectures
         for (int ifat_arch = 0; ifat_arch < nfat_arch; ifat_arch++) {
-            struct fat_arch *fa = (struct fat_arch *)addr;
+            struct fat_arch *fa = (struct fat_arch  *)addr;
             int offset = NSSwapBigIntToHost(fa->offset);
             addr += sizeof(struct fat_arch);
             
@@ -114,9 +117,8 @@ NSData *_BVMachOSection(NSURL *url, char *segname, char *sectname, NSError **err
             data = _BVMachOSectionFromMachOHeader(start_addr + offset, bytes_left, segname, sectname, url, error);
             if (data) break;
         }
-    }
-    // It's a thin file
-    else {
+    } else {
+        // It's a thin file
         data = _BVMachOSectionFromMachOHeader(start_addr, bytes_left,segname, sectname, url, error);
     }
     
@@ -140,19 +142,18 @@ NSData *_BVMachOSectionFromMachOHeader(char *addr, long bytes_left, char *segnam
     }
     
     // The first bytes are the Mach-O header
-    mh = (struct mach_header *)addr;
+    mh = (struct mach_header  *)addr;
     
     if (mh->magic == MH_MAGIC) { // 32-bit
         data = _BVMachOSectionFromMachOHeader32(addr, bytes_left, segname, sectname, url, error);
-    }
-    else if (mh->magic == MH_MAGIC_64) { // 64-bit
+    } else if (mh->magic == MH_MAGIC_64) { // 64-bit
         data = _BVMachOSectionFromMachOHeader64(addr, bytes_left, segname, sectname, url, error);
     }
-    
     return data;
 }
 
 #pragma mark - Definition of private functions for error reporting
+
 NSError *_BVPOSIXError(NSURL *url) {
     NSError *underlyingError = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain
                                                           code:errno
@@ -167,7 +168,6 @@ NSError *_BVPOSIXError(NSURL *url) {
     NSError *error = [[NSError alloc] initWithDomain:BVPlistExtractorErrorDomain
                                                 code:BVPlistExtractorErrorOpenFile
                                             userInfo:userInfo];
-    
     return error;
 }
 
@@ -180,7 +180,6 @@ NSError *_BVGenericError(NSURL *url, NSString *fileQualifier, NSInteger errorCod
     NSError *error = [[NSError alloc] initWithDomain:BVPlistExtractorErrorDomain
                                                 code:errorCode
                                             userInfo:userInfo];
-    
     return error;
 }
 
@@ -193,6 +192,7 @@ NSError *_BVCorruptMachOError(NSURL *url) {
 }
 
 #pragma mark - Instantiation of private template functions
+
 NSData *_BVMachOSectionFromMachOHeader32(char *addr, long bytes_left, char *segname, char *sectname, NSURL *url, NSError **error) {
     NSData *data = nil;
     char *base_macho_header_addr = addr;
@@ -208,7 +208,7 @@ NSData *_BVMachOSectionFromMachOHeader32(char *addr, long bytes_left, char *segn
         goto END_FUNCTION;
     }
     
-    mh = (struct mach_header *)addr;
+    mh = (struct mach_header  *)addr;
     addr += sizeof(struct mach_header);
     bytes_left -= sizeof(struct mach_header);
     
@@ -218,7 +218,7 @@ NSData *_BVMachOSectionFromMachOHeader32(char *addr, long bytes_left, char *segn
             goto END_FUNCTION;
         }
         
-        lc = (struct load_command *)addr;
+        lc = (struct load_command  *)addr;
         
         if (lc->cmdsize == 0) continue;
         bytes_left -= lc->cmdsize;
@@ -233,7 +233,7 @@ NSData *_BVMachOSectionFromMachOHeader32(char *addr, long bytes_left, char *segn
         }
         
         // It's a segment
-        sc = (struct segment_command *)addr;
+        sc = (struct segment_command  *)addr;
         
         if (strcmp(segname, sc->segname) != 0 || sc->nsects == 0) {
             addr += lc->cmdsize;
@@ -248,7 +248,7 @@ NSData *_BVMachOSectionFromMachOHeader32(char *addr, long bytes_left, char *segn
             bytes_left -= sizeof(struct section);
             if (bytes_left < 0) goto END_FUNCTION;
             
-            sect = (struct section *)addr;
+            sect = (struct section  *)addr;
             addr += sizeof(struct section);
             
             if (strcmp(sectname, sect->sectname) != 0) continue;
@@ -282,7 +282,7 @@ NSData *_BVMachOSectionFromMachOHeader64(char *addr, long bytes_left, char *segn
         goto END_FUNCTION;
     }
     
-    mh = (struct mach_header_64 *)addr;
+    mh = (struct mach_header_64  *)addr;
     addr += sizeof(struct mach_header_64);
     bytes_left -= sizeof(struct mach_header_64);
     
@@ -292,7 +292,7 @@ NSData *_BVMachOSectionFromMachOHeader64(char *addr, long bytes_left, char *segn
             goto END_FUNCTION;
         }
         
-        lc = (struct load_command *)addr;
+        lc = (struct load_command  *)addr;
         
         if (lc->cmdsize == 0) continue;
         bytes_left -= lc->cmdsize;
@@ -308,7 +308,7 @@ NSData *_BVMachOSectionFromMachOHeader64(char *addr, long bytes_left, char *segn
         }
         
         // It's a segment
-        sc = (struct segment_command_64 *)addr;
+        sc = (struct segment_command_64  *)addr;
         
         if (strcmp(segname, sc->segname) != 0 || sc->nsects == 0) {
 //            printf("\nskip segment name %s", sc->segname);
@@ -324,7 +324,7 @@ NSData *_BVMachOSectionFromMachOHeader64(char *addr, long bytes_left, char *segn
             bytes_left -= sizeof(struct section_64);
             if (bytes_left < 0) goto END_FUNCTION;
             
-            sect = (struct section_64 *)addr;
+            sect = (struct section_64  *)addr;
             addr += sizeof(struct section_64);
             
             if (strcmp(sectname, sect->sectname) != 0) {
@@ -350,18 +350,18 @@ END_FUNCTION:
 
 @implementation DDEmbeddedDataReader
 
-+ (NSData*)dataFromSegment:(NSString*)segment inSection:(NSString*)section ofExecutableAtURL:(NSURL*)url error:(NSError**)error {
-    return _BVMachOSection(url, (char*)[segment UTF8String], (char*)[section UTF8String], error);
++ (NSData *)dataFromSegment:(NSString *)segment inSection:(NSString *)section ofExecutableAtURL:(NSURL *)url error:(NSError **)error {
+    return _BVMachOSection(url, (char *)[segment UTF8String], (char *)[section UTF8String], error);
 }
 
-+ (NSData*)dataFromSegment:(NSString*)segment inSection:(NSString*)section ofExecutableAtPath:(NSString*)path error:(NSError**)error {
++ (NSData *)dataFromSegment:(NSString *)segment inSection:(NSString *)section ofExecutableAtPath:(NSString *)path error:(NSError **)error {
     return [self dataFromSegment:segment inSection:section ofExecutableAtURL:[NSURL fileURLWithPath:path] error:error];
 }
 
-+ (NSData *)embeddedDataFromSegment:(NSString *)segment inSection:(NSString *)section error:(NSError *__autoreleasing *)error {
-    uint32_t size = MAXPATHLEN*2;
++ (NSData  *)embeddedDataFromSegment:(NSString  *)segment inSection:(NSString  *)section error:(NSError *__autoreleasing *)error {
+    uint32_t size = MAXPATHLEN * 2;
     char ch[size];
-    if(_NSGetExecutablePath(ch, &size)!=0) {
+    if (_NSGetExecutablePath(ch, &size)!=0) {
         return nil;
     }
     NSString *s = [NSString stringWithUTF8String:ch];
@@ -370,26 +370,27 @@ END_FUNCTION:
 
 #pragma mark -
 
-+ (NSData*)dataFromSection:(NSString*)section ofExecutableAtURL:(NSURL*)url error:(NSError**)error {
-    return _BVMachOSection(url, "__TEXT", (char*)[section UTF8String], error);
++ (NSData *)dataFromSection:(NSString *)section ofExecutableAtURL:(NSURL *)url error:(NSError **)error {
+    return _BVMachOSection(url, "__TEXT", (char *)[section UTF8String], error);
 }
 
-+ (NSData*)dataFromSection:(NSString*)section ofExecutableAtPath:(NSString*)path error:(NSError**)error {
++ (NSData *)dataFromSection:(NSString *)section ofExecutableAtPath:(NSString *)path error:(NSError **)error {
     return [self dataFromSection:section ofExecutableAtURL:[NSURL fileURLWithPath:path] error:error];
 }
 
-+ (NSData *)embeddedDataFromSection:(NSString *)section error:(NSError *__autoreleasing *)error {
-    uint32_t size = MAXPATHLEN*2;
++ (NSData  *)embeddedDataFromSection:(NSString  *)section error:(NSError *__autoreleasing  *)error {
+    uint32_t size = MAXPATHLEN * 2;
     char ch[size];
-    if(_NSGetExecutablePath(ch, &size)!=0) {
+    if (_NSGetExecutablePath(ch, &size)!=0) {
         return nil;
     }
     NSString *s = [NSString stringWithUTF8String:ch];
     return [self dataFromSection:section ofExecutableAtPath:s error:error];
 }
+
 #pragma mark -
 
-+ (id)defaultPlistOfExecutableAtURL:(NSURL*)url error:(NSError**)error {
++ (id)defaultPlistOfExecutableAtURL:(NSURL *)url error:(NSError **)error {
     id plist = nil;
     NSData *data = _BVMachOSection(url, "__TEXT", "__info_plist", error);
     if (data) {
@@ -402,14 +403,14 @@ END_FUNCTION:
     return plist;
 }
 
-+ (id)defaultPlistOfExecutableAtPath:(NSString*)path error:(NSError**)error {
++ (id)defaultPlistOfExecutableAtPath:(NSString *)path error:(NSError **)error {
     return [self defaultPlistOfExecutableAtURL:[NSURL fileURLWithPath:path] error:error];
 }
 
-+ (id)defaultEmbeddedPlist:(NSError**)error {
-    uint32_t size = MAXPATHLEN*2;
++ (id)defaultEmbeddedPlist:(NSError **)error {
+    uint32_t size = MAXPATHLEN * 2;
     char ch[size];
-    if(_NSGetExecutablePath(ch, &size)!=0) {
+    if (_NSGetExecutablePath(ch, &size)!=0) {
         return nil;
     }
     NSString *s = [NSString stringWithUTF8String:ch];

@@ -9,22 +9,19 @@
 
 #pragma mark sha
 
-+ (NSString *)hexForDigest:(unsigned char*)ret ofLength:(int)l
-{
-	if(ret && l>0) 
-	{
-        NSMutableString* output = [NSMutableString stringWithCapacity:l * 2];
++ (NSString  *)hexForDigest:(unsigned char *)ret ofLength:(int)l {
+	if (ret && l > 0) {
+        NSMutableString *output = [NSMutableString stringWithCapacity:l * 2];
         
-        for(int i = 0; i < l; i++)
+        for (int i = 0; i < l; i++) {
             [output appendFormat:@"%02x", ret[i]];
-        
+        }
         return output;
-	}	
+	}
 	return nil;
 }
 
-+ (NSString *)checksum:(DDChecksumType)type forData:(NSData *)data
-{
++ (NSString  *)checksum:(DDChecksumType)type forData:(NSData  *)data {
     unsigned char *ret = nil;
     int l = 0;
     
@@ -47,7 +44,6 @@
         default:
             break;
     }
-    
 	return [self hexForDigest:ret ofLength:l];
 }
 

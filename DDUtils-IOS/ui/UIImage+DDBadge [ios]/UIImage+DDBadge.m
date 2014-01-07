@@ -28,19 +28,19 @@ CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badge
             pt.x = size.width - badgeSize.width;
             break;
         case DDBadgeOriginModeTopCenter:
-            pt.x = size.width/2 - badgeSize.width/2;
+            pt.x = size.width / 2 - badgeSize.width / 2;
             break;
             
         case DDBadgeOriginModeMiddleLeft:
-            pt.y = size.height/2 - badgeSize.height/2;
+            pt.y = size.height / 2 - badgeSize.height / 2;
             break;
         case DDBadgeOriginModeMiddleRight:
-            pt.y = size.height/2 - badgeSize.height/2;
+            pt.y = size.height / 2 - badgeSize.height / 2;
             pt.x = size.width - badgeSize.width;
             break;
         case DDBadgeOriginModeMiddleCenter:
-            pt.y = size.height/2 - badgeSize.height/2;
-            pt.x = size.width/2 - badgeSize.width/2;
+            pt.y = size.height / 2 - badgeSize.height / 2;
+            pt.x = size.width / 2 - badgeSize.width / 2;
             break;
             
         case DDBadgeOriginModeBottomLeft:
@@ -52,12 +52,11 @@ CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badge
             break;
         case DDBadgeOriginModeBottomCenter:
             pt.y = size.height - badgeSize.width;
-            pt.x = size.width/2 - badgeSize.width/2;
+            pt.x = size.width / 2 - badgeSize.width / 2;
             break;            
         default:
             break;
     }
-    
     return pt;
 }
 
@@ -67,11 +66,11 @@ CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badge
     return [self imageBadgedWithOptions:@{DDBadgeFrameWidth:@1, DDBadgeTextColor:[UIColor whiteColor], DDBadgeFrameColor:[UIColor whiteColor], DDBadgeBackgroundColor:[UIColor redColor], DDBadgeShowWhenZero:@NO, DDBadgeValue:@(badgeValue), DDBadgeFont:[UIFont boldSystemFontOfSize:14], DDBadgeSize:[NSValue valueWithCGSize:CGSizeMake(26, 26)], DDBadgeOrigin:@(DDBadgeOriginModeTopRight) }];
 }
 
-- (instancetype)imageBadgedWithOptions:(NSDictionary*)options {
+- (instancetype)imageBadgedWithOptions:(NSDictionary *)options {
     NSInteger badgeValue = [options[DDBadgeValue] integerValue];
     BOOL displayWhenZero = [options[DDBadgeShowWhenZero] boolValue];
     
-    if(badgeValue || displayWhenZero) {
+    if (badgeValue || displayWhenZero) {
         UIColor *badgeColor = options[DDBadgeBackgroundColor];
         UIColor *outlineColor = options[DDBadgeFrameColor];
         UIColor *textColor = options[DDBadgeTextColor];
@@ -84,7 +83,7 @@ CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badge
         CGSize size = self.size;
         CGPoint badgeOrigin = DDBadgeOriginForSize(badgeOriginNumber.unsignedIntegerValue, size, badgeSize);
         
-        CGRect rect = {.origin=badgeOrigin, .size=badgeSize};
+        CGRect rect = {.origin = badgeOrigin, .size = badgeSize};
         
         //begin
         UIGraphicsBeginImageContextWithOptions(size, NO, 0);
@@ -103,24 +102,24 @@ CGPoint DDBadgeOriginForSize(DDBadgeOriginMode origin, CGSize size, CGSize badge
 
         //text
         NSString *badgeValueString = [NSString stringWithFormat:@"%ld", (long)badgeValue];
-        CGSize numberSize = [badgeValueString sizeWithFont:font];
-        CGRect badgeValueRect = CGRectMake(badgeOrigin.x + badgeSize.width/2.0 - numberSize.width/2.0,
-                                           badgeOrigin.y + badgeSize.height/2.0 - numberSize.height/2.0,
+        CGSize numberSize = [badgeValueString sizeWithAttributes:@{NSFontAttributeName:font}];
+        CGRect badgeValueRect = CGRectMake(badgeOrigin.x + badgeSize.width / 2.0 - numberSize.width / 2.0,
+                                           badgeOrigin.y + badgeSize.height / 2.0 - numberSize.height / 2.0,
                                            numberSize.width, numberSize.height);
 
         [textColor set];
-        [badgeValueString drawInRect:badgeValueRect
-                            withFont:font
-                       lineBreakMode:NSLineBreakByClipping
-                           alignment:NSTextAlignmentCenter];
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.alignment = NSTextAlignmentCenter;
+        paragraph.lineBreakMode = NSLineBreakByClipping;
+        [badgeValueString drawInRect:badgeValueRect withAttributes:@{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraph}];
         
         //finish
-        UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
+        UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return result;
-    }
-    else
+    } else {
         return self;
+    }
 }
 
 @end

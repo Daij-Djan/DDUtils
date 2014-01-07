@@ -16,10 +16,10 @@
 #pragma mark DDLMUServiceCall
 
 enum {
-    DDLMUServiceCallGetSensorReadingID   = 0,  // getSensorReading(int *, int *)
-    DDLMUServiceCallGetLEDBrightnessID   = 1,  // getLEDBrightness(int, int *)
-    DDLMUServiceCallSetLEDBrightnessID   = 2,  // setLEDBrightness(int, int, int *)
-    DDLMUServiceCallFadeLEDBrightnessID  = 3,  // setLEDFade(int, int, int, int *)
+    DDLMUServiceCallGetSensorReadingID   = 0,  // getSensorReading(int *, int  *)
+    DDLMUServiceCallGetLEDBrightnessID   = 1,  // getLEDBrightness(int, int  *)
+    DDLMUServiceCallSetLEDBrightnessID   = 2,  // setLEDBrightness(int, int, int  *)
+    DDLMUServiceCallFadeLEDBrightnessID  = 3,  // setLEDFade(int, int, int, int  *)
 } DDLMUServiceCall;
 
 @implementation DDLMUService {
@@ -43,13 +43,12 @@ enum {
         serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault,
                                                     IOServiceMatching("IOI2CDeviceLMU"));
     }
-    
     return serviceObject;
 }
 
 #pragma mark -
 
-- (id) init {
+- (id)init {
     self = [super init];
     if (self != nil) {
         //get service
@@ -70,10 +69,8 @@ enum {
     return self;
 }
 
-
-
-- (void) dealloc {
-    if(dataPort) {
+- (void)dealloc {
+    if (dataPort) {
         IOServiceClose(dataPort);
     }
 }
@@ -105,15 +102,12 @@ enum {
         double newRight = log2(values[1]);
         
         double newAvg = (newLeft + newRight) / 2;
-        percentage = 100.0 * (CGFloat)(newAvg-kGetSensorMaxValue) / kGetSensorMaxValue;
-    }
-    else if(kr == kIOReturnBusy) {
+        percentage = 100.0 * (CGFloat)(newAvg - kGetSensorMaxValue) / kGetSensorMaxValue;
+    } else if (kr == kIOReturnBusy) {
         NSLog(@"kIOReturnBusy");
-    }
-    else {
+    } else {
         mach_error("I/O Kit error:", kr);
     }
-    
     return percentage;
 }
 
@@ -143,19 +137,16 @@ enum {
 
         percentage = 100.0 * (CGFloat)newVal / kLEDBrightnessMaxValue;
 
-    }
-    else if(kr == kIOReturnBusy) {
+    } else if (kr == kIOReturnBusy) {
         NSLog(@"kIOReturnBusy");
-    }
-    else {
+    } else {
         mach_error("I/O Kit error:", kr);
     }
-
     return percentage;
 }
 
 - (void)setKeyboardLightPercentageValue:(CGFloat)keyboardLightPercentageValue {
-    UInt64 value = keyboardLightPercentageValue/100 * kLEDBrightnessMaxValue;
+    UInt64 value = keyboardLightPercentageValue / 100 * kLEDBrightnessMaxValue;
 
     //Set the ALS
     IOItemCount   scalarInputCount  = 2;
@@ -167,7 +158,7 @@ enum {
     
     kern_return_t kr = IOConnectCallMethod(dataPort,
                                            DDLMUServiceCallSetLEDBrightnessID,
-                                           (const uint64_t*)&ins,
+                                           (const uint64_t *)&ins,
                                            scalarInputCount,
                                            nil,
                                            0,
@@ -181,10 +172,9 @@ enum {
 //        double percentage = 100.0 * (CGFloat)newVal / kLEDBrightnessMaxValue;
 //    }
 //    else
-    if(kr == kIOReturnBusy) {
+    if (kr == kIOReturnBusy) {
         NSLog(@"kIOReturnBusy");
-    }
-    else if(kr != KERN_SUCCESS) {
+    } else if (kr != KERN_SUCCESS) {
         mach_error("I/O Kit error:", kr);
     }
 }
@@ -192,7 +182,7 @@ enum {
 - (void)fadeKeyboardLightTo:(CGFloat)keyboardLightPercentageValue
                    duration:(NSUInteger)duration
           completionHandler:(void (^)())handler {
-    UInt64 value = keyboardLightPercentageValue/100 * kLEDBrightnessMaxValue;
+    UInt64 value = keyboardLightPercentageValue / 100 * kLEDBrightnessMaxValue;
     
     //Set the ALS
     IOItemCount   scalarInputCount  = 3;
@@ -205,7 +195,7 @@ enum {
     
     kern_return_t kr = IOConnectCallMethod(dataPort,
                                            DDLMUServiceCallFadeLEDBrightnessID,
-                                           (const uint64_t*)&ins,
+                                           (const uint64_t *)&ins,
                                            scalarInputCount,
                                            nil,
                                            0,
@@ -215,16 +205,14 @@ enum {
                                            0);
     
     if (kr == KERN_SUCCESS && scalarOutputCount >= 1) {
-        double delayInSeconds = (double)duration/1000.0;
+        double delayInSeconds = (double)duration / 1000.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             handler();
         });
-    }
-    else if(kr == kIOReturnBusy) {
+    } else if (kr == kIOReturnBusy) {
         NSLog(@"kIOReturnBusy");
-    }
-    else {
+    } else {
         mach_error("I/O Kit error:", kr);
     }
 }

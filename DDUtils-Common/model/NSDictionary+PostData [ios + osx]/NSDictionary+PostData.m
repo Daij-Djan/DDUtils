@@ -12,7 +12,7 @@
 
 @implementation NSDictionary (PostData)
 
-/*- (NSData*)postData {
+/*- (NSData *)postData {
     NSMutableString *post = [[NSMutableString alloc] init];
 
 	for(NSString *key in [self allKeys]) {
@@ -27,24 +27,24 @@
 }
 */
 
-- (NSData*)postData {
+- (NSData *)postData {
 	NSString *stringBoundary = POST_BOUNDARY;
 	NSMutableData *postBody = [NSMutableData data];
 
 	for(NSString *key in [self allKeys]) {
-		if([key isKindOfClass:[NSString class]]) {
+		if ([key isKindOfClass:[NSString class]]) {
 			id value = [self objectForKey:key];
-			if([value isKindOfClass:[NSString class]]) {
-				if([postBody length])
+			if ([value isKindOfClass:[NSString class]]) {
+				if ([postBody length])
 					[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
 				[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
 				[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
 				[postBody appendData:[value dataUsingEncoding:NSUTF8StringEncoding]];
 			}
-			else if([value isKindOfClass:[NSData class]]) {
+			else if ([value isKindOfClass:[NSData class]]) {
 				NSString *filename = @"file.bin";
 
-				if([postBody length])
+				if ([postBody length])
 					[postBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
 				[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
 				[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key,filename] dataUsingEncoding:NSUTF8StringEncoding]];

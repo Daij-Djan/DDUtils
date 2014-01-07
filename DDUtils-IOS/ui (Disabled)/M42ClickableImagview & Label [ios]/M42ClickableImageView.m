@@ -19,7 +19,7 @@
 	self.action = a;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet  *)touches withEvent:(UIEvent  *)event {
 	[target performSelector:action withObject:nil];
 }
 

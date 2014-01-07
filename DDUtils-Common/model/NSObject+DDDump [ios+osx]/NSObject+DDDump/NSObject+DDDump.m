@@ -11,11 +11,11 @@
 
 @implementation NSObject (DDDump)
 
-- (NSString *)dump {
+- (NSString  *)dump {
     return [NSObject dumpOfClass:self.class];
 }
 
-+ (NSString *)dumpOfClass:(Class)cls {
++ (NSString  *)dumpOfClass:(Class)cls {
     NSDictionary *reflection = [self reflectionOfClass:cls];
 
     NSMutableString *dump = [NSMutableString string];
@@ -26,15 +26,14 @@
      [reflection valueForKeyPath:@"variables.name"],
      [reflection valueForKeyPath:@"properties.name"],
      [reflection valueForKeyPath:@"methods.description"]];
-    
     return dump;
 }
 
-- (NSDictionary *)reflection {
+- (NSDictionary  *)reflection {
     return [NSObject reflectionOfClass:self.class];
 }
 
-+ (NSDictionary*)reflectionOfClass:(Class)cls {
++ (NSDictionary *)reflectionOfClass:(Class)cls {
     NSMutableDictionary *reflect = [NSMutableDictionary dictionary];
     
     //class
@@ -43,17 +42,17 @@
 
     //superclass
     Class superClass = class_getSuperclass(cls);
-    if(superClass) {
+    if (superClass) {
         const char *name = class_getName(superClass);
         [reflect setObject:@{@"name": @(name)} forKey:@"superclass"];
     }
     
     //protocols
     unsigned int cProtocols = 0;
-    Protocol * __unsafe_unretained *protos = class_copyProtocolList(cls, &cProtocols);
-    if(cProtocols) {
+    Protocol *__unsafe_unretained *protos = class_copyProtocolList(cls, &cProtocols);
+    if (cProtocols) {
         NSMutableArray *protocols = [NSMutableArray arrayWithCapacity:cProtocols];
-        for(int i = 0; i < cProtocols; i++) {
+        for (int i = 0; i < cProtocols; i++) {
             const char *name = protocol_getName(protos[i]);
             [protocols addObject:@{@"name": @(name)}];
         }
@@ -63,9 +62,9 @@
     //ivars
     unsigned int cVars = 0;
     Ivar *vars = class_copyIvarList(cls, &cVars);
-    if(cVars) {
+    if (cVars) {
         NSMutableArray *variables = [NSMutableArray arrayWithCapacity:cVars];
-        for(int i = 0; i < cVars; i++) {
+        for (int i = 0; i < cVars; i++) {
             const char *name = ivar_getName(vars[i]);
             const char *type = ivar_getTypeEncoding(vars[i]);
             [variables addObject:@{@"name": @(name), @"type": @(type)}];
@@ -76,9 +75,9 @@
     //properties
     unsigned int cProperties = 0;
     objc_property_t *props = class_copyPropertyList(cls, &cProperties);
-    if(cProperties) {
+    if (cProperties) {
         NSMutableArray *properties = [NSMutableArray arrayWithCapacity:cProperties];
-        for(int i = 0; i < cProperties; i++) {
+        for (int i = 0; i < cProperties; i++) {
             const char *attr = property_getAttributes(props[i]);
             const char *name = property_getName(props[i]);
             [properties addObject:@{@"name": @(name), @"attributes": @(attr)}];
@@ -89,11 +88,11 @@
     //methods
     unsigned int cMethods = 0;
     Method *ms = class_copyMethodList(cls, &cMethods);
-    if(cMethods) {
+    if (cMethods) {
         NSMutableArray *methods = [NSMutableArray arrayWithCapacity:cMethods];
-        for(int i = 0; i < cMethods; i++) {
+        for (int i = 0; i < cMethods; i++) {
             const char *type = method_getTypeEncoding(ms[i]);
-            if(!type) type = "";
+            if (!type) type = "";
 
             SEL s = method_getName(ms[i]);
             NSString *name = NSStringFromSelector(s);
@@ -101,21 +100,19 @@
         }
         [reflect setObject:methods forKey:@"methods"];
     }
-
     return reflect;
 }
 
-+ (NSArray *)classDumps {
++ (NSArray  *)classDumps {
     int numClasses;
-    Class * classes = NULL;
+    Class *classes = NULL;
     NSMutableArray *dumps = nil;
     
     classes = NULL;
     numClasses = objc_getClassList(NULL, 0);
     
-    if (numClasses > 0 )
-    {
-        classes = (__unsafe_unretained Class*)malloc(sizeof(Class) * numClasses);
+    if (numClasses > 0 ) {
+        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
         numClasses = objc_getClassList(classes, numClasses);
 
         dumps = [NSMutableArray arrayWithCapacity:numClasses];
@@ -134,7 +131,6 @@
         }
         free(classes);
     }
-
     return dumps;
 }
 

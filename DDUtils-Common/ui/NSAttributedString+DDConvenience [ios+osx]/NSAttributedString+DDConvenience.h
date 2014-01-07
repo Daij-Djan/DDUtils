@@ -15,8 +15,9 @@
 
 #if TARGET_OS_IPHONE
 #else
-+ (NSAttributedString *)attributedStringWithImage:(NSImage*)image;
++ (NSAttributedString  *)attributedStringWithImage:(NSImage *)image;
 #endif
 
-+ (NSAttributedString *)attributedStringWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
++ (NSAttributedString  *)attributedStringWithFormat:(NSString  *)format, ... NS_FORMAT_FUNCTION(1,2);
+
 @end

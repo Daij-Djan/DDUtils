@@ -26,6 +26,6 @@
  * @param pError in case of error, this is filled with an NSError
  * @return the success of the run: YES or NO
  */
-- (BOOL)runFileAtPath:(NSString*)path arguments:(NSArray*)args error:(NSError**)pError;
+- (BOOL)runFileAtPath:(NSString *)path arguments:(NSArray *)args error:(NSError **)pError;
 
 @end

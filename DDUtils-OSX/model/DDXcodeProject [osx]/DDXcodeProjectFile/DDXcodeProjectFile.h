@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Gentle Bytes. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 /** @file DDXcodeProjectFile.h */
+
+#import <Foundation/Foundation.h>
 
 /**
  * reads an xcode 4 Project file and provides an in memory representation
@@ -33,7 +33,7 @@
  */
 @property(readonly) NSArray *files;
 
-+ (id)xcodeProjectFileWithPath:(NSString*)path error:(NSError**)pError;
-+ (id)xcodeProjectFileWithDictionary:(NSDictionary*)dict error:(NSError**)pError;
++ (id)xcodeProjectFileWithPath:(NSString *)path error:(NSError **)pError;
++ (id)xcodeProjectFileWithDictionary:(NSDictionary *)dict error:(NSError **)pError;
 
 @end

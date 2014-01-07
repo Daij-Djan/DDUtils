@@ -12,13 +12,13 @@
 
 @implementation NSString (Entities)
 
-- (NSString*)stringByEscapingXmlEntities {
+- (NSString *)stringByEscapingXmlEntities {
 	NSMutableString *copy = [self mutableCopy];
 	[copy escapeXmlEntities];
 	return copy;
 }
 
-- (NSString*)stringByUnescapingXmlEntities {
+- (NSString *)stringByUnescapingXmlEntities {
 	NSMutableString *copy = [self mutableCopy];
 	[copy unescapeXmlEntities];
 	return copy;

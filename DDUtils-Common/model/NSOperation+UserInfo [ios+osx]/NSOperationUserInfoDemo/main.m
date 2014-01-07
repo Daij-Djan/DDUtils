@@ -16,7 +16,7 @@
     NSNumber *_number;
 }
 
-- (NSNumber*)number {
+- (NSNumber *)number {
     return _number;
 }
 
@@ -24,9 +24,9 @@
     return _number.intValue%2 + 1;
 }
 
-- (id)initWithNumber:(NSNumber*)number {
+- (id)initWithNumber:(NSNumber *)number {
     self = [super init];
-    if(self)
+    if (self)
         _number = number;
     return self;
 }
@@ -37,7 +37,7 @@
 
 @end
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -49,7 +49,7 @@ int main(int argc, const char * argv[])
             operation.userInfo = @{@"sleeptime":@(i)};
             operation.completionBlock = ^{
                 NSLog(@"operation with %@ (sleeps %d) finished. userinfo is %@", o.number, o.sleepTime, o.userInfo);
-                if(queue.operationCount==0)
+                if (queue.operationCount==0)
                     exit(1);
             };
             [queue addOperation:operation];
@@ -60,11 +60,11 @@ int main(int argc, const char * argv[])
         operation.userInfo = @{@"url":operation.request.URL};
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"download of %@ completed. userinfo is %@", operation.request.URL, operation.userInfo);
-            if(queue.operationCount==0)
+            if (queue.operationCount==0)
                 exit(1);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"download of %@ failed. userinfo is %@", operation.request.URL, operation.userInfo);
-            if(queue.operationCount==0)
+            if (queue.operationCount==0)
                 exit(1);
         }];
         [queue addOperation:operation];

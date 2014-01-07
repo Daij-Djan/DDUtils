@@ -17,14 +17,14 @@
 @synthesize disable;
 
 - (void)__setupOverlay {
-	if(disable) {
-		if(!overlay) {
+	if (disable) {
+		if (!overlay) {
 			overlay = [[UILabel alloc] init];
 			overlay.opaque = NO;
 			overlay.alpha = 0.5;
 			overlay.backgroundColor = [UIColor blackColor];
 		}
-		
+	
 		CGRect f = self.view.bounds;
         f.origin.y += (f.size.height - TABBAR_HEIGHT);
         f.size.height = TABBAR_HEIGHT;
@@ -32,9 +32,9 @@
 		overlay.frame = f;
 		overlay.userInteractionEnabled = YES;
 		[self.view addSubview:overlay];
-	}
-	else {
-		if(overlay) {
+	} else {
+
+		if (overlay) {
 			[overlay removeFromSuperview];
 //			[overlay release];
 			overlay = nil;

@@ -8,13 +8,13 @@
 
 + (void)swizzleInstanceMethodWithSelector:(SEL)original_selector withSelector:(SEL)alternative_selector;
 
-+ (void*)swizzleInstanceMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f;
++ (void *)swizzleInstanceMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f;
 
 //---
 
 + (void)swizzleClassMethodWithSelector:(SEL)original_selector withSelector:(SEL)alternative_selector;
 
-+ (void*)swizzleClassMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f;
++ (void *)swizzleClassMethodWithSelector:(SEL)originalSelector ofClass:(Class)trgt withFunction:(IMP)f;
 
 @end
 

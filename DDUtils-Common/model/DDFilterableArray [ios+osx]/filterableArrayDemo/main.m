@@ -75,7 +75,7 @@ void sample2() {
     }
 }
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         sample1();//simple strings in an array

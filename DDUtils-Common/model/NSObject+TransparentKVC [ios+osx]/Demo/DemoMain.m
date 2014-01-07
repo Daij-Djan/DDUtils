@@ -13,10 +13,10 @@ NSString *kPropertyKey = @"property";
 @interface Leaf : NSObject
 @end
 @implementation Leaf
-- (id)valueForKey:(NSString *)key {
-	if([key isEqualToString:@"property"]) {
+- (id)valueForKey:(NSString  *)key {
+	if ([key isEqualToString:@"property"]) {
         static id prop = nil;
-        if(!prop)
+        if (!prop)
             prop = @"Hallo Welt";
 		return prop;
 	}
@@ -27,10 +27,10 @@ NSString *kPropertyKey = @"property";
 @interface Container2 : NSObject
 @end
 @implementation Container2
-- (id)valueForKey:(NSString *)key {
-	if([key isEqualToString:@"leafItem"]) {
+- (id)valueForKey:(NSString  *)key {
+	if ([key isEqualToString:@"leafItem"]) {
         static id leaf = nil;
-        if(!leaf)
+        if (!leaf)
             leaf =  [[Leaf alloc] init];
 		return leaf;
 	}
@@ -41,10 +41,10 @@ NSString *kPropertyKey = @"property";
 @interface Container1 : NSObject
 @end
 @implementation Container1
-- (id)valueForKey:(NSString *)key {
-	if([key isEqualToString:@"container2"]) {
+- (id)valueForKey:(NSString  *)key {
+	if ([key isEqualToString:@"container2"]) {
         static id container2 = nil;
-        if(!container2)
+        if (!container2)
             container2 =  [[Container2 alloc] init];
 		return container2;
 	}
@@ -59,7 +59,7 @@ NSString *kPropertyKey = @"property";
 int main(int argc, char *argv[]) {
 	@autoreleasepool {
 		id<MainContainer> container = (id)[[Container1 alloc] init];
-		
+	
 		//access via KVC
        	NSString *prop = [(id)container valueForKeyPath:@"container2.leafItem.property"];
         //or a tad safer but a lot more annoying version
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 		//see how we use typesafe properties here although we only have KVC
         //clean, consisce, effective, self documenting
 		NSString *prop3 = container.container2.leafItem.property;
-		
+	
 		NSLog(@"%@ = %@ = %@", prop, prop2, prop3);
 	}
 }

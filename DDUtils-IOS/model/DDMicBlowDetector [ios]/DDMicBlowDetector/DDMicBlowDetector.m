@@ -19,7 +19,7 @@
     BOOL waitForStop;
 }
 
-+ (DDMicBlowDetector*)sharedDetector {
++ (DDMicBlowDetector *)sharedDetector {
     static DDMicBlowDetector *_sharedDetector = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -34,7 +34,7 @@
 
 - (id)init {
     self = [super init];
-    if(self) {
+    if (self) {
         self.minDuration = 0;
         self.maxDuration = 0;
         self.requiredConfidence = DDMicBlowDetectorDefaultRequiredConfidence;
@@ -53,10 +53,9 @@
 #pragma mark -
              
 - (void)setMonitoring:(BOOL)flag {
-    if(flag && !_monitoring) {
+    if (flag && !_monitoring) {
         [self start];
-    }
-    else if(!flag && _monitoring){
+    } else if (!flag && _monitoring) {
         [self stop];
     }
     _monitoring = flag;
@@ -68,9 +67,9 @@
     NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
     
     NSDictionary *settings = @{AVSampleRateKey: @44100.0f,
-                              AVFormatIDKey: @(kAudioFormatAppleLossless),
-                              AVNumberOfChannelsKey: @1,
-                              AVEncoderAudioQualityKey: @(AVAudioQualityMax)};
+                              AVFormatIDKey:@(kAudioFormatAppleLossless),
+                              AVNumberOfChannelsKey:@1,
+                              AVEncoderAudioQualityKey:@(AVAudioQualityMax)};
     
     NSError *error = nil;
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
@@ -79,13 +78,18 @@
         [recorder prepareToRecord];
         recorder.meteringEnabled = YES;
         [recorder record];
-        levelTimer = [NSTimer scheduledTimerWithTimeInterval:DDMicBlowDetectorTimerSpeed target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+        levelTimer = [NSTimer scheduledTimerWithTimeInterval:DDMicBlowDetectorTimerSpeed
+                                                      target:self
+                                                    selector:@selector(levelTimerCallback:)
+                                                    userInfo:nil
+                                                     repeats:YES];
 #if __has_feature(objc_arc)
 #else
         [levelTimer retain];
 #endif
-    } else
+    } else {
         @throw [NSException exceptionWithName:@"DDMicBlowDetector cant start" reason:@"Cant init AVAudioRecorder with output to /dev/null" userInfo:nil];
+    }
 }
 
 - (void)stop {
@@ -101,7 +105,6 @@
     lowPassResults = 0;
     waitForStop = NO;
 }
-
 
 #pragma mark -
 
@@ -124,42 +127,40 @@
         latestDuration += DDMicBlowDetectorTimerSpeed;
         noteDuration = latestDuration;
 
-        if(latestDuration >= self.minDuration) {
-            if(!startedBefore)
+        if (latestDuration >= self.minDuration) {
+            if (!startedBefore) {
                 noteName = DDMicBlowDetectorDidDetectStart;
-            else {
-                if(!waitForStop &&
+            } else {
+                if (!waitForStop &&
                    self.maxDuration > self.minDuration &&
                    latestDuration > self.maxDuration) {
                     noteName = DDMicBlowDetectorDidDetectTooLong;
                     waitForStop = YES;
-                }
-                else
+                } else {
                     noteName = DDMicBlowDetectorDidDetectContinue;
+                }
             }
         }
-    }
-    else {
-        if(!waitForStop && latestDuration) {
-            if(latestDuration < self.minDuration) {
+    } else {
+        if (!waitForStop && latestDuration) {
+            if (latestDuration < self.minDuration) {
                 noteName = DDMicBlowDetectorDidDetectTooShort;
-            }
-            else {
+            } else {
                 noteName = DDMicBlowDetectorDidDetectStop;
             }
         }
         
         noteDuration = latestDuration;
-        latestDuration=0;
+        latestDuration = 0;
         waitForStop = NO;
     }
     
     //send notification
-    if(noteName) {
+    if (noteName) {
 #ifdef DEBUG
         NSLog(@"Sending: %@ %f", noteName, noteDuration);
 #endif
-        [[NSNotificationCenter defaultCenter] postNotificationName:noteName object:self userInfo:@{DDMicBlowDetectorDuration : @(noteDuration)}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:noteName object:self userInfo:@{DDMicBlowDetectorDuration:@(noteDuration)}];
     }
 }
 

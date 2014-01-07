@@ -12,13 +12,13 @@
 @implementation NSObject (TransparentKVC)
 
 // Determine if we can handle the unknown selector sel
-- (NSMethodSignature *)methodSignatureForSelector_xchg:(SEL)sel {
+- (NSMethodSignature  *)methodSignatureForSelector_xchg:(SEL)sel {
  	NSMethodSignature *signature = [self methodSignatureForSelector_xchg:sel];
-	
-	if(!signature) {
+
+	if (!signature) {
 		id	stringSelector = NSStringFromSelector(sel);
 		NSUInteger parameterCount =  [[stringSelector componentsSeparatedByString:@":"] count]-1;
-		
+	
 		// Zero argument, forward to valueForKey:
 		if (parameterCount == 0) {
 			signature = [self methodSignatureForSelector_xchg:@selector(valueForKey:)];
@@ -31,7 +31,7 @@
 }
 
 //forward unknown calls
-- (void)forwardInvocation_xchg:(NSInvocation *)invocation {
+- (void)forwardInvocation_xchg:(NSInvocation  *)invocation {
     id	stringSelector = NSStringFromSelector(invocation.selector);
     NSUInteger parameterCount =  [[stringSelector componentsSeparatedByString:@":"] count]-1;
     
@@ -39,7 +39,7 @@
 	if (parameterCount == 0) {
 		__unsafe_unretained id value = [self valueForKey:NSStringFromSelector([invocation selector])];
 		[invocation setReturnValue:&value];
-		
+	
 	}
     //set KVC
     else if (parameterCount == 1) {
@@ -47,7 +47,7 @@
 		// ObjC methods are C functions taking instance and selector as their first two arguments
 		__unsafe_unretained id value;
 		[invocation getArgument:&value atIndex:2];
-		
+	
 		// Get key name by converting setMyValue: to myValue
 		id key = [NSString stringWithFormat:@"%@%@",
 				  [[stringSelector substringWithRange:NSMakeRange(3, 1)] lowercaseString],

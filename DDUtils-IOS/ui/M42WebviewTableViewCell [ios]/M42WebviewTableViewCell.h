@@ -13,9 +13,9 @@
 @class M42WebviewTableViewCell;
 
 @protocol M42WebviewTableViewCellDelegate <NSObject>
-- (void)tableCellDidLoadContent:(M42WebviewTableViewCell*)cell;
+- (void)tableCellDidLoadContent:(M42WebviewTableViewCell *)cell;
 @optional
-- (BOOL)tableCell:(M42WebviewTableViewCell*)cell shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+- (BOOL)tableCell:(M42WebviewTableViewCell *)cell shouldStartLoadWithRequest:(NSURLRequest  *)request navigationType:(UIWebViewNavigationType)navigationType;
 @end
 
 #pragma mark -
@@ -27,10 +27,10 @@
 @property(weak) id<M42WebviewTableViewCellDelegate> delegate;
 #endif
 
-- (void)setHtmlFromURL:(NSURL *)newHtmlURL;
+- (void)setHtmlFromURL:(NSURL  *)newHtmlURL;
 @property(nonatomic, copy, readonly) NSURL *htmlURL;
 
-- (void)setHtml:(NSString *)newHtml AndBaseURL:(NSURL*)baseURL;
+- (void)setHtml:(NSString  *)newHtml AndBaseURL:(NSURL *)baseURL;
 @property(nonatomic, copy, readonly) NSString *html;
 @property(nonatomic, copy, readonly) NSURL *baseURL;
 

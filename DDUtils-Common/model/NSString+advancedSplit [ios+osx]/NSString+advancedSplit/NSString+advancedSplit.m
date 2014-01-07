@@ -12,7 +12,7 @@
 @implementation NSString (advancedSplit)
 
 #define MOD_STRING @"∆"
-- (NSArray*)componentsSeparatedByString:(NSString*)string options:(DDAdvancedSplitOptions)options
+- (NSArray *)componentsSeparatedByString:(NSString *)string options:(DDAdvancedSplitOptions)options
 {
     //gather infos for searching
 	NSMutableString *copy = self.mutableCopy;
@@ -36,16 +36,16 @@
 		unichar ch = [copy characterAtIndex:i];
 
         //check for quotation if it is wished :)
-        if(ignoreQuotes) {
-            if(ch=='"') {
-                if(inQuote) {
+        if (ignoreQuotes) {
+            if (ch=='"') {
+                if (inQuote) {
                     inQuote = NO;
                 }
                 else {
                     inQuote = YES;
                 }
                 
-                if(cleanupString) {
+                if (cleanupString) {
                     [copy deleteCharactersInRange:NSMakeRange(i, 1)];
                     i--;
                     c--;
@@ -56,13 +56,13 @@
         }
         
         //check for escapes
-        if(ignoreEscapes) {
-            if(!isEscaped) {
+        if (ignoreEscapes) {
+            if (!isEscaped) {
                 //got escape dont check next
                 if (ch == '\\') {
                     isEscaped = YES;
 
-                    if(cleanupString) {
+                    if (cleanupString) {
                         [copy deleteCharactersInRange:NSMakeRange(i, 1)];
                         i--;
                         c--;
@@ -74,10 +74,10 @@
         }
 
         //check for substring
-        if(!inQuote && !isEscaped) {
-            NSRange r = NSMakeRange(i, MIN(c-(i+1), lengthOfInputString));
+        if (!inQuote && !isEscaped) {
+            NSRange r = NSMakeRange(i, MIN(c- (i+1), lengthOfInputString));
             NSString *substring = [copy substringWithRange:r];
-            if([substring isEqualToString:string]) {
+            if ([substring isEqualToString:string]) {
                 [copy replaceCharactersInRange:r withString:modifiedString];
             }
         }

@@ -19,13 +19,14 @@ typedef enum {
 
 + (instancetype)sharedInstace;
 
-- (BOOL)validateXMLData:(NSData*)data
+- (BOOL)validateXMLData:(NSData *)data
              withSchema:(DDXMLValidatorSchemaType)schema
-             schemaFile:(NSURL*)schemaURL
-                  error:(NSError**)error;
+             schemaFile:(NSURL *)schemaURL
+                  error:(NSError **)error;
 
-- (BOOL)validateXMLFile:(NSURL*)xmlURL
+- (BOOL)validateXMLFile:(NSURL *)xmlURL
              withSchema:(DDXMLValidatorSchemaType)schema
-             schemaFile:(NSURL*)schemaURL
-                  error:(NSError**)error;
+             schemaFile:(NSURL *)schemaURL
+                  error:(NSError **)error;
+
 @end

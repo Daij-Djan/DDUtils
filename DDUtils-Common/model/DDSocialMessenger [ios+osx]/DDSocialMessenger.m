@@ -11,10 +11,10 @@
 
 @implementation DDSocialMessenger
 
-+ (void)postToTwitter:(NSString *)text remaining:(NSMutableArray *)accounts done:(NSMutableArray*)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
++ (void)postToTwitter:(NSString  *)text remaining:(NSMutableArray  *)accounts done:(NSMutableArray *)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
 
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierTwitter];
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
     [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
         if (granted) {
@@ -28,7 +28,7 @@
                 postRequest.account = account;
                 
                 [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                    if(urlResponse.statusCode==200) //all good
+                    if (urlResponse.statusCode==200) //all good
                         [accountsDone addObject:ACAccountTypeIdentifierTwitter];
                     [self broadcast:text remaining:accounts done:accountsDone completion:completion];
                 }];
@@ -40,14 +40,14 @@
     }];
 }
 
-+ (void)postToFacebook:(NSString *)text remaining:(NSMutableArray *)accounts done:(NSMutableArray*)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
++ (void)postToFacebook:(NSString  *)text remaining:(NSMutableArray  *)accounts done:(NSMutableArray *)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
     
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierFacebook];
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     // Specify FB App ID and permissions
     NSString *facebookID = [self facebookAppID];
-    if(!facebookID.length) {
+    if (!facebookID.length) {
         NSLog(@"Skipping Facebook as no AppID is specified");
         [self broadcast:text remaining:accounts done:accountsDone completion:completion];
         return;
@@ -72,7 +72,7 @@
                         postRequest.account = account;
                         
                         [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                            if(urlResponse.statusCode==200) //all good
+                            if (urlResponse.statusCode==200) //all good
                                 [accountsDone addObject:ACAccountTypeIdentifierFacebook];
                             [self broadcast:text remaining:accounts done:accountsDone completion:completion];
                         }];
@@ -88,46 +88,44 @@
     }];
 }
 
-+ (void)broadcast:(NSString *)text remaining:(NSMutableArray *)remaining done:(NSMutableArray*)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
-    if(remaining.count) {
++ (void)broadcast:(NSString  *)text remaining:(NSMutableArray  *)remaining done:(NSMutableArray *)accountsDone completion:(DDSocialMessengerCompletionBlock)completion {
+    if (remaining.count) {
         id identifier = remaining[0];
         [remaining removeObjectAtIndex:0];
         
-        if([identifier isEqualToString:ACAccountTypeIdentifierTwitter]) {
+        if ([identifier isEqualToString:ACAccountTypeIdentifierTwitter]) {
             [self postToTwitter:text remaining:remaining done:accountsDone completion:completion];
-        }
-        else if([identifier isEqualToString:ACAccountTypeIdentifierFacebook]) {
+        } else if ([identifier isEqualToString:ACAccountTypeIdentifierFacebook]) {
             [self postToFacebook:text remaining:remaining done:accountsDone completion:completion];
-        }
-        else {
+        } else {
             NSLog(@"Skipping unknown account type %@", identifier);
             [self broadcast:text remaining:remaining done:accountsDone completion:completion];
         }
-    }
-    else {
-        if(completion) {
+    } else {
+        if (completion) {
             completion(accountsDone);
         }
     }
 }
 
-//---
+#pragma mark -
 
-+ (NSString*)facebookAppID {
++ (NSString *)facebookAppID {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:DDFacebookAppIdKey];
 }
 
-+ (void)postToTwitter:(NSString *)text completion:(DDSocialMessengerCompletionBlock)completion {
++ (void)postToTwitter:(NSString  *)text completion:(DDSocialMessengerCompletionBlock)completion {
     [self broadcast:text remaining:@[ACAccountTypeIdentifierTwitter].mutableCopy done:[NSMutableArray arrayWithCapacity:1] completion:completion];
 }
 
-+ (void)postToFacebook:(NSString *)text completion:(DDSocialMessengerCompletionBlock)completion {
++ (void)postToFacebook:(NSString  *)text completion:(DDSocialMessengerCompletionBlock)completion {
     [self broadcast:text remaining:@[ACAccountTypeIdentifierFacebook].mutableCopy done:[NSMutableArray arrayWithCapacity:1] completion:completion];
 }
 
-+ (void)broadcast:(NSString *)text to:(NSArray *)accounts completion:(DDSocialMessengerCompletionBlock)completion {
++ (void)broadcast:(NSString  *)text to:(NSArray  *)accounts completion:(DDSocialMessengerCompletionBlock)completion {
     NSMutableArray *maccounts = [accounts mutableCopy];
     NSMutableArray *mdone = [NSMutableArray array];
     [self broadcast:text remaining:maccounts done:mdone completion:completion];
 }
+
 @end

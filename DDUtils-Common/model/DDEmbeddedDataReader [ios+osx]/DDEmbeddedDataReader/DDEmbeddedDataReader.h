@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 info.pich. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 /** @file DDEmbeddedDataReader.h */
+
+#import <Foundation/Foundation.h>
 
 /**
  * Based on code from BVPlistExtractor by Bavarious, this class allows easy reading of embedded (linked in) data from any executable. (e.g. a CLI Tool's plist included using the linker flag `-sectcreate __TEXT __info_plist TestInfo.plist`)
@@ -27,7 +27,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (NSData*)dataFromSegment:(NSString*)segment inSection:(NSString*)section ofExecutableAtURL:(NSURL*)url error:(NSError**)error;
++ (NSData *)dataFromSegment:(NSString *)segment inSection:(NSString *)section ofExecutableAtURL:(NSURL *)url error:(NSError **)error;
 
 /**
  * returns the embbedded data for the executable at |path| from a specific section in a specific segment.
@@ -39,7 +39,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (NSData*)dataFromSegment:(NSString*)segment inSection:(NSString*)section ofExecutableAtPath:(NSString*)path error:(NSError**)error;
++ (NSData *)dataFromSegment:(NSString *)segment inSection:(NSString *)section ofExecutableAtPath:(NSString *)path error:(NSError **)error;
 
 /**
  * returns the embbedded data for the CURRENT executable from a specific section in a specific segment.
@@ -50,7 +50,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (NSData*)embeddedDataFromSegment:(NSString*)segment inSection:(NSString*)section error:(NSError**)error;
++ (NSData *)embeddedDataFromSegment:(NSString *)segment inSection:(NSString *)section error:(NSError **)error;
 
 //"__TEXT", "?"
 
@@ -63,7 +63,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (NSData*)dataFromSection:(NSString*)section ofExecutableAtURL:(NSURL*)url error:(NSError**)error;
++ (NSData *)dataFromSection:(NSString *)section ofExecutableAtURL:(NSURL *)url error:(NSError **)error;
 
 /**
  * returns the embbedded data for the executable at |path| from a specific section in the __TEXT segment.
@@ -74,7 +74,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (NSData*)dataFromSection:(NSString*)section ofExecutableAtPath:(NSString*)path error:(NSError**)error;
++ (NSData *)dataFromSection:(NSString *)section ofExecutableAtPath:(NSString *)path error:(NSError **)error;
 
 /**
  * returns the embbedded data for the CURRENT executable from a specific section in the __TEXT segment.
@@ -84,7 +84,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return NSData for anything (zip, txt, png data) or nil
  */
-+ (NSData*)embeddedDataFromSection:(NSString*)section error:(NSError**)error;
++ (NSData *)embeddedDataFromSection:(NSString *)section error:(NSError **)error;
 
 //
 //"__TEXT", "__info_plist"
@@ -98,7 +98,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (id)defaultPlistOfExecutableAtURL:(NSURL*)url error:(NSError**)error;
++ (id)defaultPlistOfExecutableAtURL:(NSURL *)url error:(NSError **)error;
 
 /**
  * returns the CURRENT's executables embbedded plist from where apple embeds it embeds it by default (for Commandline apps that should be codesigned. @see https://developer.apple.com/library/mac/#documentation/security/Conceptual/CodeSigningGuide/Procedures/Procedures.html) )
@@ -108,7 +108,7 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (id)defaultPlistOfExecutableAtPath:(NSString*)path error:(NSError**)error;
++ (id)defaultPlistOfExecutableAtPath:(NSString *)path error:(NSError **)error;
 
 /**
  * returns the CURRENT's executables embbedded plist from where apple embeds it by default (for Commandline apps that should be codesigned. @see https://developer.apple.com/library/mac/#documentation/security/Conceptual/CodeSigningGuide/Procedures/Procedures.html) )
@@ -117,5 +117,6 @@
  * @param error if a parsing error occurs and nil is returned, this is the NSError that occured
  * @return a NSDictionary or nil
  */
-+ (id)defaultEmbeddedPlist:(NSError**)error;
++ (id)defaultEmbeddedPlist:(NSError **)error;
+
 @end

@@ -20,9 +20,9 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
     FSRef par; //path to file for which to open the fork
 	FSRef ref; //ref to fork file
     Boolean dir = false;
-	
-    OSStatus res = FSPathMakeRef((const uint8*)[path fileSystemRepresentation],&par,&dir);
-    if(res!=noErr) {
+
+    OSStatus res = FSPathMakeRef((const uint8 *)[path fileSystemRepresentation],&par,&dir);
+    if (res!=noErr) {
         NSLog(@"Failed to resolve %@", path);
         return NO;
     }
@@ -38,16 +38,16 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
         
         NSString *name = @"Icon\r";
         memset(&info,0,sizeof(info));
-        ((FileInfo*)(&info.finderInfo))->finderFlags = kIsInvisible;
+        ((FileInfo *)(&info.finderInfo))->finderFlags = kIsInvisible;
         
-        OSErr error = FSCreateResourceFile(&par,[name lengthOfBytesUsingEncoding:NSUTF16LittleEndianStringEncoding],(UniChar*)[name cStringUsingEncoding:NSUTF16LittleEndianStringEncoding],kFSCatInfoFinderXInfo,&info,fork.length, fork.unicode,&ref,NULL);
+        OSErr error = FSCreateResourceFile(&par,[name lengthOfBytesUsingEncoding:NSUTF16LittleEndianStringEncoding],(UniChar *)[name cStringUsingEncoding:NSUTF16LittleEndianStringEncoding],kFSCatInfoFinderXInfo,&info,fork.length, fork.unicode,&ref,NULL);
         
-        if( error == dupFNErr )
+        if ( error == dupFNErr )
         {
             // file already exists; prepare to try to open it
             const char *iconFileSystemPath = [[path stringByAppendingPathComponent:@"Icon\r"] fileSystemRepresentation];
             
-            OSStatus status = FSPathMakeRef((const UInt8 *)iconFileSystemPath, &ref, NULL);
+            OSStatus status = FSPathMakeRef((const UInt8  *)iconFileSystemPath, &ref, NULL);
             if (status != noErr)
             {
                 fprintf(stderr, "error: FSPathMakeRef() returned %d for file \"%s\"\n", (int)status, iconFileSystemPath);
@@ -66,7 +66,7 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
         }
         
         //set flags
-        ((FileInfo*)(&info.extFinderInfo))->finderFlags = kIsInvisible;
+        ((FileInfo *)(&info.extFinderInfo))->finderFlags = kIsInvisible;
         res = FSSetCatalogInfo(&ref,kFSCatInfoFinderInfo,&info);
         if (res!=noErr) {
             NSLog(@"Cant make icon file invisible");
@@ -102,9 +102,9 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
                     NSLog(@"FSGetCatalogInfo");
                     return NO;
                 }
-                ((ExtendedFileInfo*)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
+                ((ExtendedFileInfo *)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
                 res = FSSetCatalogInfo(&par,kFSCatInfoFinderXInfo,&info);
-                if(res != noErr) {
+                if (res != noErr) {
                     NSLog(@"FSSetCatalogInfo failed");
                     return NO;
                 }
@@ -149,7 +149,7 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
         NSLog(@"Failed to create new handle for setting icon structure");
         return NO;
     }
-    cbr = (CustomBadgeResource*)*h;
+    cbr = (CustomBadgeResource *)*h;
     memset(cbr,0,sizeof(CustomBadgeResource));
     cbr->version = kCustomBadgeResourceVersion;
     cbr->customBadgeResourceID = _iconIdCounter;
@@ -158,7 +158,7 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
     ReleaseResource(h);
     
     //prepare icon counter
-    if(_iconIdCounter <= 0)
+    if (_iconIdCounter <= 0)
         _iconIdCounter = 100;
     _iconIdCounter++;
     
@@ -176,9 +176,9 @@ BOOL AddBadgeToItem(NSString* path,NSData* tag)
         NSLog(@"FSGetCatalogInfo");
         return NO;
     }
-    ((ExtendedFileInfo*)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagHasCustomBadge;
+    ((ExtendedFileInfo *)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagHasCustomBadge;
     res = FSSetCatalogInfo(&par,kFSCatInfoFinderXInfo,&info);
-    if(res!=noErr) {
+    if (res!=noErr) {
         NSLog(@"FSSetCatalogInfo failed");
         return NO;
     }
@@ -193,8 +193,8 @@ BOOL RemoveBadge(NSString *path)
     FSRef par; //path to file for which to open the fork
 	FSRef ref; //ref to fork file
     Boolean dir = false;
-	
-    OSStatus res = FSPathMakeRef((const uint8*)[path fileSystemRepresentation],&par,&dir);
+
+    OSStatus res = FSPathMakeRef((const uint8 *)[path fileSystemRepresentation],&par,&dir);
     if (res!=noErr) {
         NSLog(@"Failed to resolve %@", path);
         return NO;
@@ -204,7 +204,7 @@ BOOL RemoveBadge(NSString *path)
     HFSUniStr255 fork = {0,{0}};
     ResFileRefNum refnum = kResFileNotOpened;
     FSGetResourceForkName(&fork);
-	if(res!=noErr) {
+	if (res!=noErr) {
         NSLog(@"FSGetResourceForkName failed");
         return NO;
     }
@@ -213,7 +213,7 @@ BOOL RemoveBadge(NSString *path)
     {
         // file already exists; prepare to try to open it
         const char *iconFileSystemPath = [[path stringByAppendingPathComponent:@"Icon\r"] fileSystemRepresentation];
-        OSStatus status = FSPathMakeRef((const UInt8 *)iconFileSystemPath, &ref, NULL);
+        OSStatus status = FSPathMakeRef((const UInt8  *)iconFileSystemPath, &ref, NULL);
         if (status != noErr)
         {
             //return because file doesnt exist
@@ -247,9 +247,9 @@ BOOL RemoveBadge(NSString *path)
             CloseResFile(refnum);
             
             if (FSGetCatalogInfo(&par,kFSCatInfoFinderXInfo,&info,NULL,NULL,NULL)==noErr) {
-                ((ExtendedFileInfo*)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
+                ((ExtendedFileInfo *)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
                 res = FSSetCatalogInfo(&par,kFSCatInfoFinderXInfo,&info);
-                if(res!=noErr) {
+                if (res!=noErr) {
                     NSLog(@"FSSetCatalogInfo failed: %d", res);
                     return NO;
                 }
@@ -258,7 +258,7 @@ BOOL RemoveBadge(NSString *path)
         }
         memcpy(&ref, &par, sizeof(FSRef));
     }
-		
+	
     //open for and save icon
     OSErr errorr = FSOpenResourceFile(&ref,fork.length,fork.unicode,fsRdWrPerm,&refnum);
     if (errorr!=noErr) {
@@ -275,16 +275,16 @@ BOOL RemoveBadge(NSString *path)
     BOOL hasIcon = YES;
     BOOL first = YES;
     while (hasIcon) {
-        CustomBadgeResource **cbr = (CustomBadgeResource**) Get1Resource(kCustomBadgeResourceType,kCustomBadgeResourceID);
+        CustomBadgeResource **cbr = (CustomBadgeResource* *) Get1Resource(kCustomBadgeResourceType,kCustomBadgeResourceID);
         if (!cbr) {
-//            if(first) {
+//            if (first) {
 //                NSLog(@"Failed to find CustomBadgeResource");
 //                return NO;
 //            }
 //            else
                 break;
         }
-        else if(!first) {
+        else if (!first) {
             NSLog(@"Retry to delete icon");
         }
         
@@ -328,7 +328,7 @@ BOOL RemoveBadge(NSString *path)
         NSLog(@"FSGetCatalogInfo failed");
         return NO;
     }
-    ((ExtendedFileInfo*)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
+    ((ExtendedFileInfo *)(&info.extFinderInfo))->extendedFinderFlags = kExtendedFlagsAreInvalid;
     res = FSSetCatalogInfo(&par,kFSCatInfoFinderXInfo,&info);
     if (res!=noErr) {
         NSLog(@"FSSetCatalogInfo failed");
@@ -340,7 +340,7 @@ BOOL RemoveBadge(NSString *path)
     {
         // file already exists; prepare to try to open it
         const char *iconFileSystemPath = [[path stringByAppendingPathComponent:@"Icon\r"] fileSystemRepresentation];
-        OSStatus status = FSPathMakeRef((const UInt8 *)iconFileSystemPath, &ref, NULL);
+        OSStatus status = FSPathMakeRef((const UInt8  *)iconFileSystemPath, &ref, NULL);
         if (status != noErr)
         {
             //fprintf(stderr, "error: FSPathMakeRef() returned %d for file \"%s\"\n", (int)status, iconFileSystemPath);
@@ -355,12 +355,12 @@ BOOL RemoveBadge(NSString *path)
 
 @implementation NSWorkspace (IconBadging)
 
-- (void)setIconBadge:(NSString*)badgePath atFilePath:(NSString*)filePath {
+- (void)setIconBadge:(NSString *)badgePath atFilePath:(NSString *)filePath {
     NSParameterAssert(filePath);
 
     BOOL br = RemoveBadge(filePath);
-    if(!badgePath) {
-        if(br) {
+    if (!badgePath) {
+        if (br) {
             [[NSWorkspace sharedWorkspace] noteFileSystemChanged:filePath];
         }
         return;
@@ -368,21 +368,21 @@ BOOL RemoveBadge(NSString *path)
     
     NSData *data;
 //    static NSMutableDictionary *_cachedData;
-//    if(_cachedData) {
+//    if (_cachedData) {
 //		data = [_cachedData objectForKey:badgePath];
 //	} else {
 //		_cachedData = [[NSMutableDictionary alloc] init];
 //	}
-	
-//	if(!data) {
+
+//	if (!data) {
 //		NSLog(@"Cache miss: Load badge from disk");
 		data = [NSData dataWithContentsOfFile:badgePath];
 //		[_cachedData setObject:data forKey:badgePath];
 //	}
-	
-    if(data) {
+
+    if (data) {
         BOOL br = AddBadgeToItem(filePath, data);
-        if(br) {
+        if (br) {
             [[NSWorkspace sharedWorkspace] noteFileSystemChanged:filePath];
         }
         else {
@@ -391,16 +391,16 @@ BOOL RemoveBadge(NSString *path)
     }
 }
 
-- (void)removeIconBadgeAtFilePath:(NSString*)filePath {
+- (void)removeIconBadgeAtFilePath:(NSString *)filePath {
     NSParameterAssert(filePath);
     
 	BOOL br = RemoveBadge(filePath);
-	if(br) {
+	if (br) {
 		[[NSWorkspace sharedWorkspace] noteFileSystemChanged:filePath];
-	}
-	else {
+	} else {
+
 		NSLog(@"Error: couldnt remove icon badge for file at %@", filePath);
-	}	
+	}
 
 }
 

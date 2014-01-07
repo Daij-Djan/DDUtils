@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DDXcodeProjectFile.h"
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
-    if(argc != 2) {
+    if (argc != 2) {
         NSLog(@"usage: %s %%PATH_TO_XCODEPROJ%%", argv[0]);
         return -1;
     }
@@ -22,7 +22,7 @@ int main(int argc, const char * argv[])
         
         DDXcodeProjectFile *file = [DDXcodeProjectFile xcodeProjectFileWithPath:path error:&error];
         
-        if(!file) {
+        if (!file) {
             NSLog(@"%@", error);
             return -2;
         }

@@ -8,6 +8,6 @@
 
 @interface NSManagedObjectContext (RefreshObjectRecursive)
 
-- (void)refreshObject:(NSManagedObject*)object mergeChanges:(BOOL)mergeChanges recursive:(BOOL)recursive;
+- (void)refreshObject:(NSManagedObject *)object mergeChanges:(BOOL)mergeChanges recursive:(BOOL)recursive;
 
 @end

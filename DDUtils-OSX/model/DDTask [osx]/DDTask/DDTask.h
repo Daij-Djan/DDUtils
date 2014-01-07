@@ -11,7 +11,7 @@
 
 @class DDTask;
 
-typedef void (^DDTaskCompletionHandler)(DDTask *);
+typedef void (^DDTaskCompletionHandler)(DDTask  *);
 typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
 
 /**
@@ -21,10 +21,10 @@ typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
  */
 @interface DDTask : NSObject
 
-@property(copy) NSString * launchPath; //the tool's path
-@property(retain) NSArray * arguments; //array of String to be passed as file args
-@property(retain) NSDictionary * environment; // if not set, use current
-@property(copy) NSString * currentDirectoryPath; // if not set, use current
+@property(copy) NSString *launchPath; //the tool's path
+@property(retain) NSArray *arguments; //array of String to be passed as file args
+@property(retain) NSDictionary *environment; // if not set, use current
+@property(copy) NSString *currentDirectoryPath; // if not set, use current
 @property(assign) NSUInteger numberOfTries; //defines how many times a task is run
 
 /**
@@ -42,8 +42,8 @@ typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
 @property(readonly) NSData *resultData; //the data as read from the pipe or nil if all tries failed or the tool wasnt run
 
 //blocks as callbacks 
-@property (copy) DDTaskCompletionHandler terminationHandler;
-@property (copy) DDTaskErrorHandler errorHandler;//passing us and the child task that failed. The block can return YES pr NO depending on whether he wants to procceed or not
+@property(copy) DDTaskCompletionHandler terminationHandler;
+@property(copy) DDTaskErrorHandler errorHandler;//passing us and the child task that failed. The block can return YES pr NO depending on whether he wants to procceed or not
 
 /**
  * convenience method to run task and the return value (if it ran) as UTF8 String
@@ -52,6 +52,6 @@ typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
  * @param errorHandler
  * @result the 
  */
-+ (NSString*)runTaskWithToolPath:(NSString*)toolpath andArguments:(NSArray*)args andErrorHandler:(DDTaskErrorHandler)errorHandler;
++ (NSString *)runTaskWithToolPath:(NSString *)toolpath andArguments:(NSArray *)args andErrorHandler:(DDTaskErrorHandler)errorHandler;
 
 @end

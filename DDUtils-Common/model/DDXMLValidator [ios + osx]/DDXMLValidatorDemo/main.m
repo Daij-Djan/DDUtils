@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DDXMLValidator.h"
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
-    if(argc != 4) {
+    if (argc != 4) {
         NSLog(@"pass two absolute filepaths! first the xml, then the schema file and THEN an int for the schema type (DTD = 0, XSD = 1, RNG = 2)");
         return -1;
     }
@@ -23,7 +23,7 @@ int main(int argc, const char * argv[])
         NSURL *schemaURL = [NSURL fileURLWithPath:@(argv[2])];
         DDXMLValidatorSchemaType schemaType = @(argv[3]).intValue;
         
-        if(![[DDXMLValidator sharedInstace] validateXMLFile:xmlURL
+        if (![[DDXMLValidator sharedInstace] validateXMLFile:xmlURL
                                                  withSchema:schemaType
                                                  schemaFile:schemaURL
                                                       error:&error]) {

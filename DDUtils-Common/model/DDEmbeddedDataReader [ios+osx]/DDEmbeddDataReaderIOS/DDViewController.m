@@ -11,8 +11,7 @@
 
 @implementation DDViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     //plist 1

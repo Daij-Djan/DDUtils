@@ -14,16 +14,16 @@
 + (id)sharedController;
 
 - (void)setupToolbar;
-- (void)addViewController:(NSViewController *)view label:(NSString *)label image:(NSImage *)image;
-- (void)addViewController:(NSViewController *)view item:(NSToolbarItem*)item;
+- (void)addViewController:(NSViewController  *)view label:(NSString  *)label image:(NSImage  *)image;
+- (void)addViewController:(NSViewController  *)view item:(NSToolbarItem *)item;
 
 @property(assign) BOOL crossFade;
 @property(assign) BOOL shiftSlowsAnimation;
 
-- (void)toggleActivePreferenceView:(NSToolbarItem *)toolbarItem;
-- (void)displayViewForIdentifier:(NSString *)identifier animate:(BOOL)animate;
-- (void)crossFadeView:(NSView *)oldView withView:(NSView *)newView;
-- (NSRect)frameForView:(NSView *)view;
+- (void)toggleActivePreferenceView:(NSToolbarItem  *)toolbarItem;
+- (void)displayViewForIdentifier:(NSString  *)identifier animate:(BOOL)animate;
+- (void)crossFadeView:(NSView  *)oldView withView:(NSView  *)newView;
+- (NSRect)frameForView:(NSView  *)view;
 
 
 @end

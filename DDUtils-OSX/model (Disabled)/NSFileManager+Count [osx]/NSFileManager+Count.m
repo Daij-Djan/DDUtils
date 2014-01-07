@@ -6,7 +6,7 @@ FSRef convertNSStringToFSRef(NSString * theString) {
     FSRef output;
     const char *filePathAsCString = [theString UTF8String];
     CFURLRef url = CFURLCreateWithBytes(kCFAllocatorDefault, 
-                                        (const UInt8 *)filePathAsCString, 
+                                        (const UInt8  *)filePathAsCString, 
                                         strlen(filePathAsCString),
                                         kCFStringEncodingUTF8,
                                         NULL);
@@ -15,11 +15,11 @@ FSRef convertNSStringToFSRef(NSString * theString) {
     return output;
 }
 
-- (NSInteger) countOfFilesInDirectory:(NSString *) inPath
+- (NSInteger) countOfFilesInDirectory:(NSString  *) inPath
 {
 	FSRef ref = convertNSStringToFSRef(inPath);
 	FSCatalogInfo catInfo;
-	
+
     //deprecated but fast
 	OSErr  err    = FSGetCatalogInfo(&ref, kFSCatInfoValence,
 									 &catInfo, NULL, NULL, NULL);
@@ -27,7 +27,7 @@ FSRef convertNSStringToFSRef(NSString * theString) {
 		return catInfo.valence;
 	else
 		NSLog(@"get cat info error: %hi", err);
-	
+
 	return NSNotFound;
 }
 

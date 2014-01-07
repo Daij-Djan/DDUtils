@@ -17,7 +17,7 @@
  **/
 @property(nonatomic, readonly) NSUInteger numberOfPresentedNotifications;
 
-- (BOOL)start:(NSError**)pError;
+- (BOOL)start:(NSError **)pError;
 - (void)stop;
 
 @end

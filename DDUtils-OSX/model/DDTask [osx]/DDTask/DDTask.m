@@ -8,14 +8,16 @@
 #import "DDTask.h"
 
 @interface DDTask ()
+
 @property(readwrite) int terminationStatus;
 @property(readwrite) NSTaskTerminationReason terminationReason;
 @property(readwrite) NSTimeInterval durationSpent;
 @property(readwrite) NSTimeInterval triesMade;
 @property(readwrite) NSData *resultData;
+
 @end
 
-@implementation DDTask 
+@implementation DDTask
 
 @synthesize launchPath; //the tool's path
 @synthesize arguments; //array of String to be passed as file args
@@ -41,7 +43,7 @@
     NSTimeInterval aDuration = 0;
 
     do {
-        NSLog(@"%lu. try tu run %@", tries+1, name);
+        NSLog(@"%lu. try tu run %@", tries + 1, name);
 
         @autoreleasepool {
             //prepare pipe
@@ -52,9 +54,9 @@
             //setup tool (cant run same task twice
             NSTask *task = [[NSTask alloc] init];
             [task setLaunchPath:self.launchPath];
-            if(self.arguments.count)
+            if (self.arguments.count)
                 [task setArguments:self.arguments];
-            [task setStandardOutput: pipe];
+            [task setStandardOutput:pipe];
 
             NSDate *before = [NSDate date];
             
@@ -73,10 +75,10 @@
             aTerminationReason = [task terminationReason];
             
             //call error block if try failed
-            if(aTerminationStatus!=0) {
-                if(self.errorHandler) {
-                    if(!self.errorHandler(self, task, tries+1)) {
-                        NSLog(@"Cancel running of %@ after %lu tries.", name, tries+1);
+            if (aTerminationStatus!=0) {
+                if (self.errorHandler) {
+                    if (!self.errorHandler(self, task, tries + 1)) {
+                        NSLog(@"Cancel running of %@ after %lu tries.", name, tries + 1);
                         break;
                     }
                 }
@@ -97,7 +99,7 @@
     self.resultData = readData;
     
     //call completion block
-    if(self.terminationHandler) {
+    if (self.terminationHandler) {
         self.terminationHandler(self);
     }
 }
@@ -105,7 +107,7 @@
 #pragma mark convenience
 
 //convenience
-+ (NSString*)runTaskWithToolPath:(NSString*)toolpath andArguments:(NSArray*)args andErrorHandler:(DDTaskErrorHandler)errorHandler {
++ (NSString *)runTaskWithToolPath:(NSString *)toolpath andArguments:(NSArray *)args andErrorHandler:(DDTaskErrorHandler)errorHandler {
     DDTask *task = [[DDTask alloc] init];
     task.launchPath = toolpath;
     task.arguments = args;
@@ -113,9 +115,10 @@
     
     [task run];
     
-    if(task.terminationStatus==0) {
+    if (task.terminationStatus==0) {
         return [[NSString alloc] initWithData:task.resultData encoding:NSUTF8StringEncoding];
     }
     return nil;
 }
+
 @end

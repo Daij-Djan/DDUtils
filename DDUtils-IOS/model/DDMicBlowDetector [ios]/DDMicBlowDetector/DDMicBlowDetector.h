@@ -11,7 +11,7 @@
 
 @interface DDMicBlowDetector : NSObject
 
-+ (DDMicBlowDetector*)sharedDetector;
++ (DDMicBlowDetector *)sharedDetector;
 + (BOOL)microphoneAvailable;
 
 @property(nonatomic, assign) BOOL monitoring;

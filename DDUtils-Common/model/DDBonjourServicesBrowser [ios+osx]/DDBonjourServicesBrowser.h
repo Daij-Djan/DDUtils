@@ -23,11 +23,11 @@ extern NSString *DDBonjourServicesBrowserDidChangeServices;
 /**
  * Class that can monitor the network and search/listen for bonjour services of a specific type
  */
-@interface DDBonjourServicesBrowser : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate> {
+@interface DDBonjourServicesBrowser : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate> {
 	NSString *type;
 	NSMutableArray *services;
-	NSNetServiceBrowser *browser;	
-	
+	NSNetServiceBrowser *browser;
+
 	NSNetService *stopAfterResoleOf;
 }
 /**
@@ -38,9 +38,9 @@ extern NSString *DDBonjourServicesBrowserDidChangeServices;
 
 /**
  * starts the monitor for a certain type. stopping any the old search, discarding old array
- * @param type the type of the services to search for
+ * @param aName the type of the services to search for
  */
-- (void)beginSearchForType:(NSString*)aName;
+- (void)beginSearchForType:(NSString *)aName;
 
 /**
  * starts the monitor for a certain type. stopping any the old search, discarding old array
@@ -63,4 +63,5 @@ extern NSString *DDBonjourServicesBrowserDidChangeServices;
  * Instances of NSNetService for every service that gets found.
  */
 @property(readonly) NSMutableArray *services;
+
 @end

@@ -10,11 +10,11 @@
 
 @implementation NSView (findSubview)
 
-- (NSArray *)findSubviewsOfKind:(Class)kind withTag:(NSInteger)tag inView:(NSView*)v {
+- (NSArray  *)findSubviewsOfKind:(Class)kind withTag:(NSInteger)tag inView:(NSView *)v {
     NSMutableArray *array = [NSMutableArray array];
 
-    if(kind==nil || [v isKindOfClass:kind]) {
-        if(tag==NSNotFound || v.tag==tag) {
+    if (kind==nil || [v isKindOfClass:kind]) {
+        if (tag==NSNotFound || v.tag==tag) {
             [array addObject:v];
         }
     }
@@ -29,20 +29,20 @@
 
 #pragma mark - 
 
-- (NSArray *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag {
+- (NSArray  *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag {
     return [self findSubviewsOfKind:kind withTag:tag inView:self];
 }
 
-- (NSArray *)subviewsOfKind:(Class)kind {
+- (NSArray  *)subviewsOfKind:(Class)kind {
     return [self findSubviewsOfKind:kind withTag:NSNotFound inView:self];
 }
 
-- (NSView *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag {
+- (NSView  *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag {
     NSArray *views = [self findSubviewsOfKind:kind withTag:tag inView:self];
     return views.count ? [views objectAtIndex:0] : nil;
 }
 
-- (NSView *)firstSubviewOfKind:(Class)kind {
+- (NSView  *)firstSubviewOfKind:(Class)kind {
     return [self firstSubviewOfKind:kind withTag:NSNotFound];
 }
 

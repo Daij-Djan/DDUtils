@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSString+advancedSplit.h"
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         NSString *testShellLineQuoted = @"ls \"/Library/Application Support\"";

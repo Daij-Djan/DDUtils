@@ -10,10 +10,10 @@
 
 @interface NSView (findSubview)
 
-- (NSArray *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag;
-- (NSArray *)subviewsOfKind:(Class)kind;
+- (NSArray  *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag;
+- (NSArray  *)subviewsOfKind:(Class)kind;
 
-- (NSView *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag;
-- (NSView *)firstSubviewOfKind:(Class)kind;
+- (NSView  *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag;
+- (NSView  *)firstSubviewOfKind:(Class)kind;
 
 @end

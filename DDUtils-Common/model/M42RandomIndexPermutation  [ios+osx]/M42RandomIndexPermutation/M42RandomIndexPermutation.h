@@ -17,7 +17,7 @@
 
 - (id)initWithCount:(NSUInteger)cnt usingSeed:(NSTimeInterval)seed;
 - (void)remixUsingSeed:(NSTimeInterval)seed;
-- (NSInteger *)indices;
+- (NSInteger  *)indices;
 - (NSInteger)next;
 - (NSUInteger)count;
 - (BOOL)isValid;

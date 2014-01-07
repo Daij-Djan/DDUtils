@@ -10,8 +10,8 @@
 #import <objc/runtime.h>
 #import <sys/time.h>
 
-static void * const kDDAssociatedStorageDurationStart = (void*)&kDDAssociatedStorageDurationStart;
-static void * const kDDAssociatedStorageDurationEnd = (void*)&kDDAssociatedStorageDurationEnd;
+static void * const kDDAssociatedStorageDurationStart = (void *)&kDDAssociatedStorageDurationStart;
+static void * const kDDAssociatedStorageDurationEnd = (void *)&kDDAssociatedStorageDurationEnd;
 
 @implementation NSOperation (Duration)
 
@@ -38,19 +38,19 @@ static void * const kDDAssociatedStorageDurationEnd = (void*)&kDDAssociatedStora
     }
 }
 
-- (void)setDurationStart:(NSNumber *)duration {
+- (void)setDurationStart:(NSNumber  *)duration {
     objc_setAssociatedObject(self, kDDAssociatedStorageDurationStart, duration, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSNumber *)durationStart {
+- (NSNumber  *)durationStart {
     return objc_getAssociatedObject(self, kDDAssociatedStorageDurationStart);
 }
 
-- (void)setDurationEnd:(NSNumber *)duration {
+- (void)setDurationEnd:(NSNumber  *)duration {
     objc_setAssociatedObject(self, kDDAssociatedStorageDurationEnd, duration, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSNumber *)durationEnd {
+- (NSNumber  *)durationEnd {
     return objc_getAssociatedObject(self, kDDAssociatedStorageDurationEnd);
 }
 
@@ -58,7 +58,7 @@ static void * const kDDAssociatedStorageDurationEnd = (void*)&kDDAssociatedStora
 
 - (id)init_xchg {
     self = [self init_xchg];
-    if(self)
+    if (self)
         [self addObserver:self forKeyPath:@"isExecuting" options:0 context:0];
     return self;
 }
@@ -68,11 +68,11 @@ static void * const kDDAssociatedStorageDurationEnd = (void*)&kDDAssociatedStora
     [self dealloc_xchg];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString  *)keyPath ofObject:(id)object change:(NSDictionary  *)change context:(void  *)context {
     struct timeval watch;
     gettimeofday(&watch, NULL);
 
-    if(self.isExecuting) {
+    if (self.isExecuting) {
         //set start and reset end
         double fstart = (watch.tv_sec * 1000000.0 + watch.tv_usec) / 1000000.0;
         self.durationStart = [NSNumber numberWithDouble:fstart];
@@ -89,7 +89,7 @@ static void * const kDDAssociatedStorageDurationEnd = (void*)&kDDAssociatedStora
 - (NSTimeInterval)duration {
     double fstart = self.durationStart.doubleValue;
     double fend = self.durationEnd.doubleValue;
-    if(fstart < 0 || fend < 0 || fstart > fend) {
+    if (fstart < 0 || fend < 0 || fstart > fend) {
         printf("*** TIMINGS BROKEN***");
     }
     return fend - fstart;

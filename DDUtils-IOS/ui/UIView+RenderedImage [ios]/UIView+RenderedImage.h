@@ -7,6 +7,6 @@
 
 @interface UIView (RenderedImage)
 
-- (UIImage*)renderedImage;
+- (UIImage *)renderedImage;
 
 @end

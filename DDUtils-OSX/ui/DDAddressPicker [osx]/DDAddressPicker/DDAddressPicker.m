@@ -16,9 +16,11 @@
 @interface DDAddressPicker () {
 	BOOL selectMeOnLoad;
 }
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)ok:(id)sender;
 - (IBAction)selectMe:(id)sender;
+
 @end
 
 @implementation DDAddressPicker
@@ -28,41 +30,42 @@
 }
 
 - (void)windowDidLoad {
-	if(selectMeOnLoad) {
+	if (selectMeOnLoad) {
 		[self selectMe:nil];
 		selectMeOnLoad = NO;
 	}
 }
+
 #pragma mark actions
 
 - (IBAction)cancel:(id)sender {
     [_peoplePickerView deselectAll:nil];
     
     BOOL br = YES;
-    if([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
+    if ([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
         br = [_delegate addressPicker:self canEndWithReturnCode:NSCancelButton];
     }
-    if(br)
+    if (br)
         [NSApp stopModalWithCode:NSCancelButton];
 }
 
 - (IBAction)ok:(id)sender {
-    if(self.needsSelection && !self.persons.count) {
+    if (self.needsSelection && !self.persons.count) {
         return ;
     }
     
     BOOL br = YES;
-    if([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
+    if ([_delegate respondsToSelector:@selector(addressPicker:canEndWithReturnCode:)]) {
         br = [_delegate addressPicker:self canEndWithReturnCode:NSOKButton];
     }
-    if(br)
+    if (br)
         [NSApp stopModalWithCode:NSOKButton];
 }
 
--(IBAction)selectMe:(id)sender {
-    if(_peoplePickerView) {
+- (IBAction)selectMe:(id)sender {
+    if (_peoplePickerView) {
         ABPerson *person = [[ABAddressBook sharedAddressBook] me];
-        if(person) {
+        if (person) {
             [_peoplePickerView selectIdentifier:kABEmailProperty forPerson:person byExtendingSelection:NO];
             //=-> bug: tableView isnt scrolled!
             
@@ -77,7 +80,7 @@
             id view = [_peoplePickerView firstSubviewOfKind:NSClassFromString(@"ABPeoplePickerTableView")];
             
             //scroll
-            if([view respondsToSelector:@selector(scrollRowToVisible:)]
+            if ([view respondsToSelector:@selector(scrollRowToVisible:)]
                && [view respondsToSelector:@selector(selectedRow)]) {
                 
                 [view scrollRowToVisible:[view selectedRow]];
@@ -92,7 +95,7 @@
 
 #pragma mark -
 
-- (NSArray *)persons {
+- (NSArray  *)persons {
     return _peoplePickerView.selectedValues.count ? _peoplePickerView.selectedValues : nil;
 }
 
@@ -101,9 +104,11 @@
 }
 
 - (void)selectMe {
-	if(_peoplePickerView)
+	if (_peoplePickerView) {
 		[self selectMe:nil];
-	else
+	} else {
 		selectMeOnLoad = YES;
+    }
 }
+
 @end

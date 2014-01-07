@@ -11,29 +11,29 @@
 
 @implementation SKPaymentQueue (TransactionForProduct)
 
-- (SKPaymentTransaction*)anyTransactionForProductIdentifier:(NSString*)identifier {
+- (SKPaymentTransaction *)anyTransactionForProductIdentifier:(NSString *)identifier {
 	for(SKPaymentTransaction *transaction in self.transactions) {
-		if([transaction.payment.productIdentifier isEqualToString:identifier]) {
+		if ([transaction.payment.productIdentifier isEqualToString:identifier]) {
             return transaction;
 		}
-		else if(transaction.transactionState == SKPaymentTransactionStateRestored && [transaction.originalTransaction.payment.productIdentifier isEqualToString:identifier]) {
+		else if (transaction.transactionState == SKPaymentTransactionStateRestored && [transaction.originalTransaction.payment.productIdentifier isEqualToString:identifier]) {
             return transaction;
 		}
 	}
-	
+
 	return nil;
 }
 
-- (SKPaymentTransaction*)successfulTransactionForProductIdentifier:(NSString*)identifier {
+- (SKPaymentTransaction *)successfulTransactionForProductIdentifier:(NSString *)identifier {
 	for(SKPaymentTransaction *transaction in self.transactions) {
-		if(transaction.transactionState == SKPaymentTransactionStatePurchased && [transaction.payment.productIdentifier isEqualToString:identifier]) {
+		if (transaction.transactionState == SKPaymentTransactionStatePurchased && [transaction.payment.productIdentifier isEqualToString:identifier]) {
 				return transaction;
 		}
-		else if(transaction.transactionState == SKPaymentTransactionStateRestored && [transaction.originalTransaction.payment.productIdentifier isEqualToString:identifier]) {
+		else if (transaction.transactionState == SKPaymentTransactionStateRestored && [transaction.originalTransaction.payment.productIdentifier isEqualToString:identifier]) {
 				return transaction;
 		}
 	}
-	
+
 	return nil;
 }
 

@@ -20,22 +20,20 @@ NSString *NSStringFromDDPowerMode(DDPowerMode mode) {
             return @"Battery Power";
     }
 }
+
 DDPowerMode DDPowerModeFromNSString(NSString *modeString) {
     if ([modeString isEqualToString:@"AC Power (Charging)"]) {
         return DDPowerModeACLoading;
-    }
-    else if ([modeString isEqualToString:@"AC Power"]) {
+    } else if ([modeString isEqualToString:@"AC Power"]) {
         return DDPowerModeAC;
-    }
-    else { //if ([modeString isEqualToString:@"Battery Power"]) {
+    } else { //if ([modeString isEqualToString:@"Battery Power"]) {
         return DDPowerModeBattery;
     }
-    
 }
 
 //prototypes
-void SleepWatcher( void * refCon, io_service_t service, natural_t messageType, void * messageArgument );
-static void powerSourceChanged(void * refCon);
+void SleepWatcher( void *refCon, io_service_t service, natural_t messageType, void *messageArgument );
+static void powerSourceChanged(void *refCon);
 
 @implementation DDPowerMonitor {
     io_connect_t root_port;
@@ -47,20 +45,18 @@ static void powerSourceChanged(void * refCon);
 }
 
 - (void)setMonitorPowerMode:(BOOL)monitorPowerMode {
-    if(monitorPowerMode && !_monitorPowerMode) {
+    if (monitorPowerMode && !_monitorPowerMode) {
         [self registerForPowerChange];
-    }
-    else if(!monitorPowerMode && _monitorPowerMode) {
+    } else if (!monitorPowerMode && _monitorPowerMode) {
         [self deregisterForPowerChange];
     }
     _monitorPowerMode = monitorPowerMode;
 }
 
 - (void)setMonitorSleepWake:(BOOL)monitorSleepWake {
-    if(monitorSleepWake && !_monitorSleepWake) {
+    if (monitorSleepWake && !_monitorSleepWake) {
         [self registerForSleepWakeNotification];
-    }
-    else if(!monitorSleepWake && _monitorSleepWake) {
+    } else if (!monitorSleepWake && _monitorSleepWake) {
         [self deregisterForSleepWakeNotification];
     }
     _monitorSleepWake = monitorSleepWake;
@@ -68,24 +64,19 @@ static void powerSourceChanged(void * refCon);
 
 #pragma mark register/deregister
 
-- (void)registerForSleepWakeNotification
-{
-	root_port = IORegisterForSystemPower((__bridge void *)(self), &notificationPort, SleepWatcher, &notifier);
+- (void)registerForSleepWakeNotification {
+	root_port = IORegisterForSystemPower((__bridge void  *)(self), &notificationPort, SleepWatcher, &notifier);
 	CFRunLoopAddSource(CFRunLoopGetCurrent(), IONotificationPortGetRunLoopSource(notificationPort), kCFRunLoopDefaultMode);
 }
 
-
-- (void)registerForPowerChange
-{
-	powerNotifierRunLoopSource = IOPSNotificationCreateRunLoopSource(powerSourceChanged,(__bridge void *)(self));
+- (void)registerForPowerChange {
+	powerNotifierRunLoopSource = IOPSNotificationCreateRunLoopSource(powerSourceChanged, (__bridge void  *)(self));
 	if (powerNotifierRunLoopSource) {
 		CFRunLoopAddSource(CFRunLoopGetCurrent(), powerNotifierRunLoopSource, kCFRunLoopDefaultMode);
 	}
 }
 
-
-- (void)deregisterForSleepWakeNotification
-{
+- (void)deregisterForSleepWakeNotification {
 	CFRunLoopRemoveSource( CFRunLoopGetCurrent(),
                          IONotificationPortGetRunLoopSource(notificationPort),
                          kCFRunLoopCommonModes );
@@ -94,19 +85,17 @@ static void powerSourceChanged(void * refCon);
 	IONotificationPortDestroy(notificationPort);
 }
 
-- (void)deregisterForPowerChange{
+- (void)deregisterForPowerChange {
 	CFRunLoopRemoveSource(CFRunLoopGetCurrent(), powerNotifierRunLoopSource, kCFRunLoopDefaultMode);
 	CFRelease(powerNotifierRunLoopSource);
 }
 
 #pragma mark notifications
 
-- (void)powerMessageReceived:(natural_t)messageType withArgument:(void *) messageArgument
-{
+- (void)powerMessageReceived:(natural_t)messageType withArgument:(void  *)messageArgument {
     BOOL br = YES;
     
-	switch (messageType)
-	{
+	switch (messageType) {
 		case kIOMessageSystemWillSleep:
             if ([self.delegate respondsToSelector:@selector(powerMonitorRegisteredSystemWillGoToSleep:)]) {
                 [self.delegate powerMonitorRegisteredSystemWillGoToSleep:self];
@@ -118,10 +107,10 @@ static void powerSourceChanged(void * refCon);
             if ([self.delegate respondsToSelector:@selector(powerMonitorAllowSystemToSleep:)]) {
                 br = [self.delegate powerMonitorAllowSystemToSleep:self];
             }
+            
             if (br) {
                 IOAllowPowerChange(root_port, (long)messageArgument);
-            }
-            else {
+            } else {
                 IOCancelPowerChange(root_port, (long)messageArgument);
             }
             break;
@@ -134,22 +123,20 @@ static void powerSourceChanged(void * refCon);
 	}
 }
 
-- (void)powerSourceMesssageReceived:(NSDictionary *)n_description{
+- (void)powerSourceMesssageReceived:(NSDictionary  *)n_description {
     DDPowerMode newMode;
     
     if ([[n_description objectForKey:@"Power Source State"] isEqualToString:@"AC Power"] &&
          [[n_description objectForKey:@"Is Charging"] intValue]==1) {
         newMode = DDPowerModeACLoading;
-    }
-    else if ([[n_description objectForKey:@"Power Source State"] isEqualToString:@"AC Power"] &&
+    } else if ([[n_description objectForKey:@"Power Source State"] isEqualToString:@"AC Power"] &&
          [[n_description objectForKey:@"Is Charging"] intValue]==0) {
         newMode = DDPowerModeAC;
-    }
-    else { //if ([[n_description objectForKey:@"Power Source State"] isEqualToString:@"Battery Power"]) {
+    } else { //if ([[n_description objectForKey:@"Power Source State"] isEqualToString:@"Battery Power"]) {
         newMode = DDPowerModeBattery;
     }
     
-    if(_currentPowerMode != newMode) {
+    if (_currentPowerMode != newMode) {
         if ([self.delegate respondsToSelector:@selector(powerMonitor:powerModeChanged:)]) {
             [self.delegate powerMonitor:self powerModeChanged:newMode];
         }
@@ -161,22 +148,22 @@ static void powerSourceChanged(void * refCon);
 #pragma mark C-Callbacks
 
 void SleepWatcher( void * refCon, io_service_t service, natural_t messageType, void * messageArgument ) {
-    DDPowerMonitor *monitor = (__bridge DDPowerMonitor*)refCon;
-    [monitor powerMessageReceived: messageType withArgument: messageArgument];
+    DDPowerMonitor *monitor = (__bridge DDPowerMonitor *)refCon;
+    [monitor powerMessageReceived:messageType withArgument:messageArgument];
 }
 
 static void powerSourceChanged(void * refCon) {
 	CFTypeRef	powerBlob = IOPSCopyPowerSourcesInfo();
 	CFArrayRef	powerSourcesList = IOPSCopyPowerSourcesList(powerBlob);
 	NSUInteger	count = CFArrayGetCount(powerSourcesList);
-    DDPowerMonitor *monitor = (__bridge DDPowerMonitor*)refCon;
+    DDPowerMonitor *monitor = (__bridge DDPowerMonitor *)refCon;
 
 	NSUInteger i;
 	for (i = 0U; i < count; ++i) {  //in case we have several powersources
 		CFTypeRef		powerSource = CFArrayGetValueAtIndex(powerSourcesList, i);
 		CFDictionaryRef description = IOPSGetPowerSourceDescription(powerBlob, powerSource);
 
-		NSDictionary *n_description = (__bridge NSDictionary *)description;
+		NSDictionary *n_description = (__bridge NSDictionary  *)description;
 		[monitor powerSourceMesssageReceived:n_description];
 	}
 	CFRelease(powerBlob);

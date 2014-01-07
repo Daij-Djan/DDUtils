@@ -9,16 +9,16 @@
 
 @interface UIView (findSubview)
 
-- (NSArray *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag recursive:(BOOL)recurse;
-- (NSArray *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag; // recursive by default
+- (NSArray  *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag recursive:(BOOL)recurse;
+- (NSArray  *)subviewsOfKind:(Class)kind withTag:(NSInteger)tag; // recursive by default
 
-- (NSArray *)subviewsOfKind:(Class)kind recursive:(BOOL)recurse;
-- (NSArray *)subviewsOfKind:(Class)kind; // recursive by default
+- (NSArray  *)subviewsOfKind:(Class)kind recursive:(BOOL)recurse;
+- (NSArray  *)subviewsOfKind:(Class)kind; // recursive by default
 
-- (UIView *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag recursive:(BOOL)recurse;
-- (UIView *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag; // recursive by default
+- (UIView  *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag recursive:(BOOL)recurse;
+- (UIView  *)firstSubviewOfKind:(Class)kind withTag:(NSInteger)tag; // recursive by default
 
-- (UIView *)firstSubviewOfKind:(Class)kind recursive:(BOOL)recurse;
-- (UIView *)firstSubviewOfKind:(Class)kind; // recursive by default
+- (UIView  *)firstSubviewOfKind:(Class)kind recursive:(BOOL)recurse;
+- (UIView  *)firstSubviewOfKind:(Class)kind; // recursive by default
 
 @end

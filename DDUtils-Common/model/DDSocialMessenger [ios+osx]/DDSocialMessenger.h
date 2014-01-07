@@ -13,11 +13,11 @@ typedef void (^DDSocialMessengerCompletionBlock)(NSArray *accountsNotified);
 
 @interface DDSocialMessenger : NSObject
 
-+ (NSString*)facebookAppID; //read from info.plist
++ (NSString *)facebookAppID; //read from info.plist
 
-+ (void)postToTwitter:(NSString *)text completion:(DDSocialMessengerCompletionBlock)completion;
-+ (void)postToFacebook:(NSString *)text completion:(DDSocialMessengerCompletionBlock)completion;
++ (void)postToTwitter:(NSString  *)text completion:(DDSocialMessengerCompletionBlock)completion;
++ (void)postToFacebook:(NSString  *)text completion:(DDSocialMessengerCompletionBlock)completion;
 
-+ (void)broadcast:(NSString*)text to:(NSArray*)accounts completion:(DDSocialMessengerCompletionBlock)completion;
++ (void)broadcast:(NSString *)text to:(NSArray *)accounts completion:(DDSocialMessengerCompletionBlock)completion;
 
 @end

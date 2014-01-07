@@ -16,7 +16,7 @@
     NSNumber *_number;
 }
 
-- (NSNumber*)number {
+- (NSNumber *)number {
     return _number;
 }
 
@@ -24,9 +24,9 @@
     return _number.intValue%2 + 1;
 }
 
-- (id)initWithNumber:(NSNumber*)number {
+- (id)initWithNumber:(NSNumber *)number {
     self = [super init];
-    if(self)
+    if (self)
         _number = number;
     return self;
 }
@@ -37,7 +37,7 @@
 
 @end
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[])
             __block NSTestOperation *o = operation;
             operation.completionBlock = ^{
                 NSLog(@"operation with %@ (sleeps %d) took: ~ %f seconds", o.number, o.sleepTime, o.duration);
-                if(queue.operationCount==0)
+                if (queue.operationCount==0)
                     exit(1);
             };
             [queue addOperation:operation];
@@ -58,11 +58,11 @@ int main(int argc, const char * argv[])
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.google.de"]]];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"download of %@ took: ~ %f seconds", operation.request.URL, operation.duration);
-            if(queue.operationCount==0)
+            if (queue.operationCount==0)
                 exit(1);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"download of %@ failed after: ~ %f seconds", operation.request.URL, operation.duration);
-            if(queue.operationCount==0)
+            if (queue.operationCount==0)
                 exit(1);
         }];
         [queue addOperation:operation];

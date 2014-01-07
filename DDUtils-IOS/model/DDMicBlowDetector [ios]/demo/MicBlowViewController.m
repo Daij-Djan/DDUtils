@@ -33,7 +33,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    if([DDMicBlowDetector sharedDetector].monitoring)
+    if ([DDMicBlowDetector sharedDetector].monitoring)
         [self toggleMonitor:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:DDMicBlowDetectorDidDetectStart object:nil];
@@ -59,7 +59,7 @@
 }
 
 - (IBAction)toggleMonitor:(id)sender {
-    if(![DDMicBlowDetector sharedDetector].monitoring) {
+    if (![DDMicBlowDetector sharedDetector].monitoring) {
         [DDMicBlowDetector sharedDetector].minDuration = self.minDuration.text.doubleValue;
         [DDMicBlowDetector sharedDetector].maxDuration = self.maxDuration.text.doubleValue;
         [DDMicBlowDetector sharedDetector].monitoring = YES;
@@ -79,26 +79,26 @@
 
 #pragma mark -
 
--(void)micBlowStarted:(NSNotification*)note {
+- (void)micBlowStarted:(NSNotification *)note {
     self.dectedState.text = @"Started";
     self.detectedDuration.text = [NSString stringWithFormat:@"%.2f", [note.userInfo[DDMicBlowDetectorDuration] doubleValue]];
 }
 
--(void)micBlowContinued:(NSNotification*)note {
+- (void)micBlowContinued:(NSNotification *)note {
     self.detectedDuration.text = [NSString stringWithFormat:@"%.2f", [note.userInfo[DDMicBlowDetectorDuration] doubleValue]];
 }
 
--(void)micBlowStopped:(NSNotification*)note {
+- (void)micBlowStopped:(NSNotification *)note {
     self.dectedState.text = @"Stopped";
     self.detectedDuration.text = [NSString stringWithFormat:@"%.2f", [note.userInfo[DDMicBlowDetectorDuration] doubleValue]];
 }
 
--(void)micBlowWasTooShort:(NSNotification*)note {
+- (void)micBlowWasTooShort:(NSNotification *)note {
     self.dectedState.text = @"Too Short";
     self.detectedDuration.text = [NSString stringWithFormat:@"%.2f", [note.userInfo[DDMicBlowDetectorDuration] doubleValue]];
 }
 
--(void)micBlowIsTooLong:(NSNotification*)note {
+- (void)micBlowIsTooLong:(NSNotification *)note {
     self.dectedState.text = @"Too Long";
     self.detectedDuration.text = [NSString stringWithFormat:@"%.2f", [note.userInfo[DDMicBlowDetectorDuration] doubleValue]];
 }

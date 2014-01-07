@@ -13,20 +13,21 @@
 #import <libxml/relaxng.h>
 
 @interface DDXMLValidator ()
-- (void)appendErrorString:(NSString*)errorString;
+
+- (void)appendErrorString:(NSString *)errorString;
+
 @end
 
 void myGenericErrorFunc(id self, const char *msg, ...);
-void myGenericErrorFunc(id self, const char *msg, ...)
-{
+void myGenericErrorFunc(id self, const char *msg, ...) {
 	va_list vargs;
 	va_start(vargs, msg);
-	
+
 	NSString *format = [NSString stringWithUTF8String:msg];
 	NSMutableString *str = [[NSMutableString alloc] initWithFormat:format arguments:vargs];
-	
+
 	[self appendErrorString:str];
-	
+
 	va_end(vargs);
 }
 
@@ -43,7 +44,7 @@ void myGenericErrorFunc(id self, const char *msg, ...)
     return validator;
 }
 
-- (BOOL)validateXMLData:(NSData*)data withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL*)schemaURL error:(NSError *__autoreleasing *)error {
+- (BOOL)validateXMLData:(NSData *)data withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL *)schemaURL error:(NSError *__autoreleasing  *)error {
     NSParameterAssert(data.length);
     NSParameterAssert(schemaURL.isFileURL);
     
@@ -56,13 +57,11 @@ void myGenericErrorFunc(id self, const char *msg, ...)
     }
     
     BOOL br = [self validateXMLDoc:doc withSchema:schema schemaFile:schemaURL error:error];
-    
     xmlFreeDoc(doc);
-    
     return br;
 }
 
-- (BOOL)validateXMLFile:(NSURL*)xmlUrl withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL*)schemaURL error:(NSError *__autoreleasing *)error {
+- (BOOL)validateXMLFile:(NSURL *)xmlUrl withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL *)schemaURL error:(NSError *__autoreleasing  *)error {
     NSParameterAssert(xmlUrl.isFileURL);
     NSParameterAssert(schemaURL.isFileURL);
     
@@ -75,16 +74,14 @@ void myGenericErrorFunc(id self, const char *msg, ...)
     }
 
     BOOL br = [self validateXMLDoc:doc withSchema:schema schemaFile:schemaURL error:error];
-    
     xmlFreeDoc(doc);
-    
     return br;
 }
 
-- (BOOL)validateXMLDoc:(xmlDocPtr)doc withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL*)schemaURL error:(NSError *__autoreleasing *)error {
+- (BOOL)validateXMLDoc:(xmlDocPtr)doc withSchema:(DDXMLValidatorSchemaType)schema schemaFile:(NSURL *)schemaURL error:(NSError *__autoreleasing  *)error {
     //prepare to get errors
     errors = [NSMutableString stringWithString:@""];
-	xmlSetGenericErrorFunc((__bridge void *)self, (xmlGenericErrorFunc)myGenericErrorFunc);
+	xmlSetGenericErrorFunc((__bridge void  *)self, (xmlGenericErrorFunc)myGenericErrorFunc);
     
     //parse
     switch (schema) {
@@ -98,31 +95,29 @@ void myGenericErrorFunc(id self, const char *msg, ...)
             [self doRNGValidation:doc schemaFile:schemaURL.path];
             break;
     }
-		
+	
     if ([errors length]) {
         NSLog(@"'Validate XML Documents' Error: %@", errors);
         *error = [NSError errorWithDomain:@"DDXMLValidator" code:0 userInfo:@{@"errors":errors}];
         return NO;
     }
-
     return YES;
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)appendErrorString:(NSString*)errorString {
-    [errors appendFormat:@"%@\n",errorString];
+- (void)appendErrorString:(NSString *)errorString {
+    [errors appendFormat:@"%@\n", errorString];
 }
 
-- (void)doDTDValidation:(xmlDocPtr)source schemaFile:(NSString*)systemId
-{
+- (void)doDTDValidation:(xmlDocPtr)source schemaFile:(NSString *)systemId {
 	xmlValidCtxtPtr validCtxt = NULL;
 	xmlDtdPtr dtd = NULL;
 	int res;
-	
+
 	validCtxt = xmlNewValidCtxt();
-	
+
 	if (!validCtxt) {
 		[self appendErrorString:@"DTD validation failed due to possible libxml2 error."];
         return;
@@ -130,15 +125,15 @@ void myGenericErrorFunc(id self, const char *msg, ...)
 	   
 	if ([systemId length]) {
         
-		dtd = xmlParseDTD(NULL, (xmlChar *)[systemId UTF8String]);
-		
+		dtd = xmlParseDTD(NULL, (xmlChar  *)[systemId UTF8String]);
+	
 		if (!dtd) {
 			[self appendErrorString:@"Error parsing DTD document."];
             if (validCtxt)
                 xmlFreeValidCtxt(validCtxt);
             return;
 		}
-		
+	
 		res = xmlValidateDtd(validCtxt, source, dtd);
         
 	} else {
@@ -146,45 +141,43 @@ void myGenericErrorFunc(id self, const char *msg, ...)
 		res = xmlValidateDocument(validCtxt, source);
         
 	}
-	
+
 	if (validCtxt)
 		xmlFreeValidCtxt(validCtxt);
 	if (dtd)
 		xmlFreeDtd(dtd);
 }
 
-
-- (void)doXSDValidation:(xmlDocPtr)source schemaFile:(NSString*)loc
-{
+- (void)doXSDValidation:(xmlDocPtr)source schemaFile:(NSString *)loc {
     int res;
 	xmlSchemaParserCtxtPtr parserCtxt = NULL;
-	xmlSchemaPtr schema	= NULL;
+	xmlSchemaPtr schema = NULL;
 	xmlSchemaValidCtxtPtr validCtxt = NULL;
-	
+
 	if ([loc length]) {
 		parserCtxt = xmlSchemaNewParserCtxt([loc UTF8String]);
-		
+	
 		if (!parserCtxt) {
 			[self appendErrorString:@"Could not locate XML Schema document."];
 			goto leave;
 		}
-		
+	
 		schema = xmlSchemaParse(parserCtxt);
-		
+	
 		if (!schema) {
 			[self appendErrorString:@"Error parsing XML Schema document."];
 			goto leave;
 		}
-		
+	
 		validCtxt = xmlSchemaNewValidCtxt(schema);
-		
+	
 		if (!validCtxt) {
 			[self appendErrorString:@"Error parsing XML Schema document."];
 			goto leave;
 		}
-		
+	
 		res = xmlSchemaValidateDoc(validCtxt, source);
-		
+	
 	} else {
 		xmlSchemaValidCtxtPtr validCtxt = xmlSchemaNewValidCtxt(NULL);
         
@@ -192,7 +185,7 @@ void myGenericErrorFunc(id self, const char *msg, ...)
 			[self appendErrorString:@"XML Schema validation failed due to possible libxml2 error."];
 			goto leave;
 		}
-		
+	
 		res = xmlSchemaValidateDoc(validCtxt, source);
 	}
     
@@ -209,41 +202,40 @@ leave:
 		xmlSchemaFreeValidCtxt(validCtxt);
 }
 
-
-- (void)doRNGValidation:(xmlDocPtr)source schemaFile:(NSString*)loc
-{
+- (void)doRNGValidation:(xmlDocPtr)source schemaFile:(NSString *)loc {
 	int res;
-	xmlRelaxNGParserCtxtPtr parserCtxt = NULL;
+	
+    xmlRelaxNGParserCtxtPtr parserCtxt = NULL;
 	xmlRelaxNGPtr schema = NULL;
 	xmlRelaxNGValidCtxtPtr validCtxt = NULL;
-	
+
 	parserCtxt = xmlRelaxNGNewParserCtxt([loc UTF8String]);
-	
+
 	if (!parserCtxt) {
 		[self appendErrorString:@"Could not locate RELAX NG document."];
 		goto leave;
 	}
-	
+
 	schema = xmlRelaxNGParse(parserCtxt);
-	
+
 	if (!schema) {
 		[self appendErrorString:@"Error parsing RELAX NG document."];
 		goto leave;
 	}
-	
+
 	validCtxt = xmlRelaxNGNewValidCtxt(schema);
-	
+
 	if (!validCtxt) {
 		[self appendErrorString:@"Error parsing RELAX NG document."];
 		goto leave;
 	}
-	
+
 	res = xmlRelaxNGValidateDoc(validCtxt, source);
-	
+
 	if (res) {
 		[self appendErrorString:@"RELAX NG validation failed."];
 	}
-	
+
 leave:
 	//xmlRelaxNGCleanupTypes();
 	if (parserCtxt)

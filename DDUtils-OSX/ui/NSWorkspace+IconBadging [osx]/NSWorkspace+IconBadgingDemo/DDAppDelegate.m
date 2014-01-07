@@ -9,7 +9,7 @@
 
 @implementation DDAppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+- (void)applicationDidFinishLaunching:(NSNotification  *)notification {
     id path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IconsToBeBadged"];
     [self.demoPathField setStringValue:path];
 }
@@ -35,7 +35,7 @@
     //apply badge
     id root = self.demoPathField.stringValue;
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:root error:nil];
-    for(id file in files) {
+    for (id file in files) {
         id child = [root stringByAppendingPathComponent:file];
         [[NSWorkspace sharedWorkspace] setIconBadge:path atFilePath:child];
     }

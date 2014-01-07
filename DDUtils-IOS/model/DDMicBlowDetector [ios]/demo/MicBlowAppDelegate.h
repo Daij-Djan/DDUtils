@@ -11,7 +11,7 @@
 @class MicBlowViewController;
 
 @interface MicBlowAppDelegate : NSObject <UIApplicationDelegate>
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) IBOutlet MicBlowViewController *viewController;
+@property(nonatomic, retain) UIWindow *window;
+@property(nonatomic, retain) IBOutlet MicBlowViewController *viewController;
 @end
 

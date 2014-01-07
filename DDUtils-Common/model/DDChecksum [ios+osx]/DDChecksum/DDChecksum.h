@@ -12,6 +12,6 @@ typedef enum _DDChecksumType {
 
 @interface DDChecksum : NSObject
 
-+ (NSString *)checksum:(DDChecksumType)type forData:(NSData*)data;
++ (NSString  *)checksum:(DDChecksumType)type forData:(NSData *)data;
 
 @end

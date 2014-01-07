@@ -93,11 +93,11 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
 #pragma mark -
 
 @interface AFHTTPRequestOperation ()
-@property (readwrite, nonatomic, strong) NSURLRequest *request;
-@property (readwrite, nonatomic, strong) NSHTTPURLResponse *response;
-@property (readwrite, nonatomic, strong) NSError *HTTPError;
-@property (assign) long long totalContentLength;
-@property (assign) long long offsetContentLength;
+@property(readwrite, nonatomic, strong) NSURLRequest *request;
+@property(readwrite, nonatomic, strong) NSHTTPURLResponse *response;
+@property(readwrite, nonatomic, strong) NSError *HTTPError;
+@property(assign) long long totalContentLength;
+@property(assign) long long offsetContentLength;
 @end
 
 @implementation AFHTTPRequestOperation
@@ -125,7 +125,7 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
     }
 }
 
-- (NSError *)error {
+- (NSError  *)error {
     if (self.response && !self.HTTPError) {
         if (![self hasAcceptableStatusCode] || ![self hasAcceptableContentType]) {
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
@@ -264,11 +264,11 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
 
 #pragma mark - AFHTTPRequestOperation
 
-+ (NSIndexSet *)acceptableStatusCodes {
++ (NSIndexSet  *)acceptableStatusCodes {
     return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 100)];
 }
 
-+ (void)addAcceptableStatusCodes:(NSIndexSet *)statusCodes {
++ (void)addAcceptableStatusCodes:(NSIndexSet  *)statusCodes {
     NSMutableIndexSet *mutableStatusCodes = [[NSMutableIndexSet alloc] initWithIndexSet:[self acceptableStatusCodes]];
     [mutableStatusCodes addIndexes:statusCodes];
     AFSwizzleClassMethodWithClassAndSelectorUsingBlock([self class], @selector(acceptableStatusCodes), ^(id _self) {
@@ -276,11 +276,11 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
     });
 }
 
-+ (NSSet *)acceptableContentTypes {
++ (NSSet  *)acceptableContentTypes {
     return nil;
 }
 
-+ (void)addAcceptableContentTypes:(NSSet *)contentTypes {
++ (void)addAcceptableContentTypes:(NSSet  *)contentTypes {
     NSMutableSet *mutableContentTypes = [[NSMutableSet alloc] initWithSet:[self acceptableContentTypes] copyItems:YES];
     [mutableContentTypes unionSet:contentTypes];
     AFSwizzleClassMethodWithClassAndSelectorUsingBlock([self class], @selector(acceptableContentTypes), ^(id _self) {
@@ -288,7 +288,7 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
     });
 }
 
-+ (BOOL)canProcessRequest:(NSURLRequest *)request {
++ (BOOL)canProcessRequest:(NSURLRequest  *)request {
     if ([[self class] isEqual:[AFHTTPRequestOperation class]]) {
         return YES;
     }
@@ -298,10 +298,10 @@ static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL 
 
 #pragma mark - NSURLConnectionDelegate
 
-- (void)connection:(NSURLConnection *)connection 
-didReceiveResponse:(NSURLResponse *)response 
+- (void)connection:(NSURLConnection  *)connection 
+didReceiveResponse:(NSURLResponse  *)response 
 {
-    self.response = (NSHTTPURLResponse *)response;
+    self.response = (NSHTTPURLResponse  *)response;
     
     // Set Content-Range header if status code of response is 206 (Partial Content)
     // See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.7

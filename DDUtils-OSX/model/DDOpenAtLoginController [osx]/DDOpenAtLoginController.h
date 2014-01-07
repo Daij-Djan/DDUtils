@@ -7,6 +7,6 @@
 
 @interface DDOpenAtLoginController : NSObject
 
-@property (nonatomic, assign) NSNumber *appStartsAtLogin; //bool for binding
+@property(nonatomic, assign) NSNumber *appStartsAtLogin; //bool for binding
 
 @end

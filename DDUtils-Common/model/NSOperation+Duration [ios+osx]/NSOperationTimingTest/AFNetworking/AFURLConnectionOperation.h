@@ -82,7 +82,7 @@
 /**
  The run loop modes in which the operation will run on the network thread. By default, this is a single-member set containing `NSRunLoopCommonModes`.
  */
-@property (nonatomic, strong) NSSet *runLoopModes;
+@property(nonatomic, strong) NSSet *runLoopModes;
 
 ///-----------------------------------------
 /// @name Getting URL Connection Information
@@ -91,17 +91,17 @@
 /**
  The request used by the operation's connection.
  */
-@property (readonly, nonatomic, strong) NSURLRequest *request;
+@property(readonly, nonatomic, strong) NSURLRequest *request;
 
 /**
  The last response received by the operation's connection.
  */
-@property (readonly, nonatomic, strong) NSURLResponse *response;
+@property(readonly, nonatomic, strong) NSURLResponse *response;
 
 /**
  The error, if any, that occurred in the lifecycle of the request.
  */
-@property (readonly, nonatomic, strong) NSError *error;
+@property(readonly, nonatomic, strong) NSError *error;
 
 ///----------------------------
 /// @name Getting Response Data
@@ -110,14 +110,14 @@
 /**
  The data received during the request. 
  */
-@property (readonly, nonatomic, strong) NSData *responseData;
+@property(readonly, nonatomic, strong) NSData *responseData;
 
 /**
  The string representation of the response data.
  
  @discussion This method uses the string encoding of the response, or if UTF-8 if not specified, to construct a string from the response data.
  */
-@property (readonly, nonatomic, copy) NSString *responseString;
+@property(readonly, nonatomic, copy) NSString *responseString;
 
 ///------------------------
 /// @name Accessing Streams
@@ -128,14 +128,14 @@
  
  @discussion This property acts as a proxy to the `HTTPBodyStream` property of `request`.
  */
-@property (nonatomic, strong) NSInputStream *inputStream;
+@property(nonatomic, strong) NSInputStream *inputStream;
 
 /**
  The output stream that is used to write data received until the request is finished.
  
  @discussion By default, data is accumulated into a buffer that is stored into `responseData` upon completion of the request. When `outputStream` is set, the data will not be accumulated into an internal buffer, and as a result, the `responseData` property of the completed request will be `nil`. The output stream will be scheduled in the network thread runloop upon being set.
  */
-@property (nonatomic, strong) NSOutputStream *outputStream;
+@property(nonatomic, strong) NSOutputStream *outputStream;
 
 ///------------------------------------------------------
 /// @name Initializing an AFURLConnectionOperation Object
@@ -148,7 +148,7 @@
  
  @discussion This is the designated initializer.
  */
-- (id)initWithRequest:(NSURLRequest *)urlRequest;
+- (id)initWithRequest:(NSURLRequest  *)urlRequest;
 
 ///----------------------------------
 /// @name Pausing / Resuming Requests
@@ -254,8 +254,8 @@
  
  These keys may exist in the user info dictionary, in addition to those defined for NSError.
  
- - `NSString * const AFNetworkingOperationFailingURLRequestErrorKey`
- - `NSString * const AFNetworkingOperationFailingURLResponseErrorKey`
+ - `NSString *const AFNetworkingOperationFailingURLRequestErrorKey`
+ - `NSString *const AFNetworkingOperationFailingURLResponseErrorKey`
  
  ### Constants
  
@@ -269,16 +269,16 @@
  
  The following error domain is predefined.
  
- - `NSString * const AFNetworkingErrorDomain`
+ - `NSString *const AFNetworkingErrorDomain`
  
  ### Constants
  
  `AFNetworkingErrorDomain`
  AFNetworking errors. Error codes for `AFNetworkingErrorDomain` correspond to codes in `NSURLErrorDomain`.
  */
-extern NSString * const AFNetworkingErrorDomain;
-extern NSString * const AFNetworkingOperationFailingURLRequestErrorKey;
-extern NSString * const AFNetworkingOperationFailingURLResponseErrorKey;
+extern NSString *const AFNetworkingErrorDomain;
+extern NSString *const AFNetworkingOperationFailingURLRequestErrorKey;
+extern NSString *const AFNetworkingOperationFailingURLResponseErrorKey;
 
 ///--------------------
 /// @name Notifications
@@ -287,9 +287,9 @@ extern NSString * const AFNetworkingOperationFailingURLResponseErrorKey;
 /**
  Posted when an operation begins executing.
  */
-extern NSString * const AFNetworkingOperationDidStartNotification;
+extern NSString *const AFNetworkingOperationDidStartNotification;
 
 /**
  Posted when an operation finishes.
  */
-extern NSString * const AFNetworkingOperationDidFinishNotification;
+extern NSString *const AFNetworkingOperationDidFinishNotification;

@@ -9,15 +9,15 @@
 #import "NSOperation+UserInfo.h"
 #import <objc/runtime.h>
 
-static void * const kDDAssociatedStorageUserInfo = (void*)&kDDAssociatedStorageUserInfo;
+static void * const kDDAssociatedStorageUserInfo = (void *)&kDDAssociatedStorageUserInfo;
 
 @implementation NSOperation (UserInfo)
 
-- (void)setUserInfo:(NSDictionary *)userInfo {
+- (void)setUserInfo:(NSDictionary  *)userInfo {
     objc_setAssociatedObject(self, kDDAssociatedStorageUserInfo, [userInfo copy], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSDictionary *)userInfo {
+- (NSDictionary  *)userInfo {
     return objc_getAssociatedObject(self, kDDAssociatedStorageUserInfo);
 }
 

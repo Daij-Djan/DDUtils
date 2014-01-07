@@ -13,11 +13,11 @@
 
 #define kUserInfoKey     @"DDUserInfo"
 
-- (void)setUserInfo:(NSDictionary *)userInfo {
+- (void)setUserInfo:(NSDictionary  *)userInfo {
     objc_setAssociatedObject(self, kUserInfoKey, userInfo, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (NSDictionary *)userInfo {
+- (NSDictionary  *)userInfo {
     return objc_getAssociatedObject(self, kUserInfoKey);
 }
 

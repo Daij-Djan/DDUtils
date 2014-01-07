@@ -21,8 +21,8 @@
 
 @implementation M42WebviewTableViewCell
 
-- (void)setHtmlFromURL:(NSURL *)newHtmlURL {
-    if(self.webView) {
+- (void)setHtmlFromURL:(NSURL  *)newHtmlURL {
+    if (self.webView) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         [self.webView stopLoading];
     }
@@ -39,8 +39,8 @@
 	[self.webView loadRequest:[NSURLRequest requestWithURL:newHtmlURL]];
 }
 
-- (void)setHtml:(NSString *)newHtml AndBaseURL:(NSURL*)newBaseURL {
-    if(self.webView) {
+- (void)setHtml:(NSString  *)newHtml AndBaseURL:(NSURL *)newBaseURL {
+    if (self.webView) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         [self.webView stopLoading];
     }
@@ -68,10 +68,10 @@
         v.alpha = (v==_webView);
     }
 	CGRect f = self.contentView.bounds;
-	if(!self.ready) {
+	if (!self.ready) {
 		f.size.height = 5;
     }
-	
+
 	self.webView.frame = f;
 }
 
@@ -111,18 +111,18 @@
 
 #pragma mark - UIWebViewDelegate
 
-- (void)webView:(UIWebView *)aWebView didFailLoadWithError:(NSError *)error {
-	if([error code] != 102 && [error code] != -999) {
+- (void)webView:(UIWebView  *)aWebView didFailLoadWithError:(NSError  *)error {
+	if ([error code] != 102 && [error code] != -999) {
 		NSLog(@"webView failed to load %@. Error message: %@", aWebView.request.URL, error);
     }
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)aWebView {
+- (void)webViewDidFinishLoad:(UIWebView  *)aWebView {
 	[self performSelector:@selector(didLoadData) withObject:nil afterDelay:0.0];
 }
-						
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-	if([self.delegate respondsToSelector:@selector(tableCell:shouldStartLoadWithRequest:navigationType:)]) {
+					
+- (BOOL)webView:(UIWebView  *)webView shouldStartLoadWithRequest:(NSURLRequest  *)request navigationType:(UIWebViewNavigationType)navigationType {
+	if ([self.delegate respondsToSelector:@selector(tableCell:shouldStartLoadWithRequest:navigationType:)]) {
        return [self.delegate tableCell:self shouldStartLoadWithRequest:request navigationType:navigationType];
     }
     return YES;

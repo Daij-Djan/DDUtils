@@ -7,15 +7,15 @@
 
 @implementation UIImage (DefaultImage)
 
-+ (UIImage*)defaultImage {
++ (UIImage *)defaultImage {
     return [self defaultImageForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
 
-+ (UIImage *)defaultImageForOrientation:(UIInterfaceOrientation)orient {
++ (UIImage  *)defaultImageForOrientation:(UIInterfaceOrientation)orient {
     // choose the correct launch image for orientation, device and scale
     NSMutableString *launchImageName = [[NSMutableString alloc] initWithString:@"Default"];
     BOOL isPad = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad );
-    if( isPad ) {
+    if ( isPad ) {
         BOOL isLandscape = UIInterfaceOrientationIsLandscape(orient);
         NSString *imageOrientation = (isLandscape) ? @"Landscape" : @"Portrait";
         
@@ -28,7 +28,7 @@
         // Default-Portrait@2x~ipad.png
         launchImageName = [NSMutableString stringWithFormat:@"%@-%@%@.png", launchImageName, imageOrientation, scaleString];       
     } else {
-        if( CGRectGetHeight([UIScreen mainScreen].bounds) > 480.f) {
+        if ( CGRectGetHeight([UIScreen mainScreen].bounds) > 480.f) {
             // Default-568h.png
             launchImageName = [NSMutableString stringWithFormat:@"%@-568h.png", launchImageName];
         } else {

@@ -12,7 +12,7 @@
 
 @implementation NSWindow (Fade)
 
-- (void)fadeInWithDuration:(NSNumber*)d
+- (void)fadeInWithDuration:(NSNumber *)d
 {
     [self setAlphaValue:0.f];
     [self makeKeyAndOrderFront:nil];
@@ -27,7 +27,7 @@
     [self fadeInWithDuration:@(kWindowAnimationDuration)];
 }
 
-- (void)fadeOutWithDuration:(NSNumber*)d
+- (void)fadeOutWithDuration:(NSNumber *)d
 {
     [NSAnimationContext beginGrouping];
     __block NSWindow *bself = self;

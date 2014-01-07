@@ -8,9 +8,9 @@
 @interface UIImage (DefaultImage)
 
 // uses statusbar orientation
-+ (UIImage*)defaultImage;
++ (UIImage *)defaultImage;
 
 //uses given orientation
-+ (UIImage*)defaultImageForOrientation:(UIInterfaceOrientation)orient;
++ (UIImage *)defaultImageForOrientation:(UIInterfaceOrientation)orient;
 
 @end

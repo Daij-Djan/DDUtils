@@ -35,7 +35,7 @@
 /**
  The last HTTP response received by the operation's connection.
  */
-@property (readonly, nonatomic, strong) NSHTTPURLResponse *response;
+@property(readonly, nonatomic, strong) NSHTTPURLResponse *response;
 
 ///----------------------------------------------------------
 /// @name Managing And Checking For Acceptable HTTP Responses
@@ -44,22 +44,22 @@
 /**
  A Boolean value that corresponds to whether the status code of the response is within the specified set of acceptable status codes. Returns `YES` if `acceptableStatusCodes` is `nil`.
  */
-@property (readonly) BOOL hasAcceptableStatusCode;
+@property(readonly) BOOL hasAcceptableStatusCode;
 
 /**
  A Boolean value that corresponds to whether the MIME type of the response is among the specified set of acceptable content types. Returns `YES` if `acceptableContentTypes` is `nil`.
  */
-@property (readonly) BOOL hasAcceptableContentType;
+@property(readonly) BOOL hasAcceptableContentType;
 
 /** 
  The callback dispatch queue on success. If `NULL` (default), the main queue is used.
  */
-@property (nonatomic, assign) dispatch_queue_t successCallbackQueue;
+@property(nonatomic, assign) dispatch_queue_t successCallbackQueue;
 
 /** 
  The callback dispatch queue on failure. If `NULL` (default), the main queue is used.
  */
-@property (nonatomic, assign) dispatch_queue_t failureCallbackQueue;
+@property(nonatomic, assign) dispatch_queue_t failureCallbackQueue;
 
 ///------------------------------------------------------------
 /// @name Managing Acceptable HTTP Status Codes & Content Types
@@ -70,28 +70,28 @@
  
  By default, this is the range 200 to 299, inclusive.
  */
-+ (NSIndexSet *)acceptableStatusCodes;
++ (NSIndexSet  *)acceptableStatusCodes;
 
 /**
  Adds status codes to the set of acceptable HTTP status codes returned by `+acceptableStatusCodes` in subsequent calls by this class and its descendants.
  
  @param statusCodes The status codes to be added to the set of acceptable HTTP status codes
  */
-+ (void)addAcceptableStatusCodes:(NSIndexSet *)statusCodes;
++ (void)addAcceptableStatusCodes:(NSIndexSet  *)statusCodes;
 
 /**
  Returns an `NSSet` object containing the acceptable MIME types. When non-`nil`, the operation will set the `error` property to an error in `AFErrorDomain`. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 
  
  By default, this is `nil`.
  */
-+ (NSSet *)acceptableContentTypes;
++ (NSSet  *)acceptableContentTypes;
 
 /**
  Adds content types to the set of acceptable MIME types returned by `+acceptableContentTypes` in subsequent calls by this class and its descendants.
 
  @param contentTypes The content types to be added to the set of acceptable MIME types
  */
-+ (void)addAcceptableContentTypes:(NSSet *)contentTypes;
++ (void)addAcceptableContentTypes:(NSSet  *)contentTypes;
 
 
 ///-----------------------------------------------------
@@ -103,7 +103,7 @@
  
  @param urlRequest The request that is determined to be supported or not supported for this class.
  */
-+ (BOOL)canProcessRequest:(NSURLRequest *)urlRequest;
++ (BOOL)canProcessRequest:(NSURLRequest  *)urlRequest;
 
 ///-----------------------------------------------------------
 /// @name Setting Completion Block Success / Failure Callbacks

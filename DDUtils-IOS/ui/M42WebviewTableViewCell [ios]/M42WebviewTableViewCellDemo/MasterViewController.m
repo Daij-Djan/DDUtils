@@ -48,17 +48,17 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView  *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView  *)tableView numberOfRowsInSection:(NSInteger)section {
     return _objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell  *)tableView:(UITableView  *)tableView cellForRowAtIndexPath:(NSIndexPath  *)indexPath {
     M42WebviewTableViewCell *cell = _loadedCells[@(indexPath.row)];
-    if(!cell) {
+    if (!cell) {
         cell = [[M42WebviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 
         NSString *object = _objects[indexPath.row];
@@ -69,7 +69,7 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView  *)tableView heightForRowAtIndexPath:(NSIndexPath  *)indexPath {
     //if a cell isnt ready, it wont be there and the method will return 0
     M42WebviewTableViewCell *cell = _loadedCells[@(indexPath.row)];
     return cell.height;
@@ -77,7 +77,7 @@
 
 #pragma mark - M42WebviewTableViewCellDelegate
 
-- (void)tableCellDidLoadContent:(M42WebviewTableViewCell*)cell {
+- (void)tableCellDidLoadContent:(M42WebviewTableViewCell *)cell {
     if (!_loadedCells) {
         _loadedCells = [[NSMutableDictionary alloc] init];
     }

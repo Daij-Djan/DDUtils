@@ -7,8 +7,8 @@
 
 @interface UIView (Border)
 
-- (void)setBorderColor:(UIColor*)color;
-- (void)setBorderColor:(UIColor*)color withWidth:(CGFloat)width;
-- (UIColor*)borderColor;
+- (void)setBorderColor:(UIColor *)color;
+- (void)setBorderColor:(UIColor *)color withWidth:(CGFloat)width;
+- (UIColor *)borderColor;
 
 @end

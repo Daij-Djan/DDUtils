@@ -11,7 +11,7 @@
 
 @interface SKPaymentQueue (TransactionForProduct)
 
-- (SKPaymentTransaction*)anyTransactionForProductIdentifier:(NSString*)identifier;
-- (SKPaymentTransaction*)successfulTransactionForProductIdentifier:(NSString*)identifier;
-	
+- (SKPaymentTransaction *)anyTransactionForProductIdentifier:(NSString *)identifier;
+- (SKPaymentTransaction *)successfulTransactionForProductIdentifier:(NSString *)identifier;
+
 @end

@@ -16,11 +16,11 @@
     [self swizzleInstanceMethodWithSelector:@selector(description) withSelector:@selector(description_xchg)];
     [self swizzleClassMethodWithSelector:@selector(knownTimeZoneNames) withSelector:@selector(knownTimeZoneNames_xchg)];
 }
-- (NSString *)description_xchg {
+- (NSString  *)description_xchg {
     NSString *str = [self description_xchg]; //calls swizzled method!
     return [str stringByAppendingString:@"_myTest"];
 }
-+ (NSArray *)knownTimeZoneNames_xchg {
++ (NSArray  *)knownTimeZoneNames_xchg {
     NSArray *zs = [self knownTimeZoneNames_xchg]; //calls swizzled method!
     NSMutableArray *mzs = [NSMutableArray arrayWithArray:zs];
     [mzs insertObject:@"MyTestZone!!!" atIndex:0];
@@ -28,7 +28,7 @@
 }
 @end
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
         NSTimeZone *timeZone = [NSTimeZone systemTimeZone];

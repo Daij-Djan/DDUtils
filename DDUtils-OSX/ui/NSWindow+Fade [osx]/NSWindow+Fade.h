@@ -10,10 +10,10 @@
 
 @interface NSWindow (Fade)
 
-- (void)fadeInWithDuration:(NSNumber*)d;
+- (void)fadeInWithDuration:(NSNumber *)d;
 - (IBAction)fadeIn:(id)sender;
 
-- (void)fadeOutWithDuration:(NSNumber*)d;
+- (void)fadeOutWithDuration:(NSNumber *)d;
 - (IBAction)fadeOut:(id)sender;
 
 @end

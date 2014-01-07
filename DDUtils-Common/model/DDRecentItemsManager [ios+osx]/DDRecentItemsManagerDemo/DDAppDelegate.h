@@ -11,9 +11,9 @@
 
 @interface DDAppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSTableViewDataSource>
 
-@property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSTextField *textView;
-@property (weak) IBOutlet NSTableView *historyTable;
+@property(assign) IBOutlet NSWindow *window;
+@property(weak) IBOutlet NSTextField *textView;
+@property(weak) IBOutlet NSTableView *historyTable;
 
 - (IBAction)updateHistory:(id)sender;
 - (IBAction)applyEntry:(id)sender;

@@ -8,11 +8,11 @@
 
 @implementation UIView (Border)
 
-- (void)setBorderColor:(UIColor*)color {
+- (void)setBorderColor:(UIColor *)color {
     [self setBorderColor:color withWidth:1.0f];
 }
 
-- (void)setBorderColor:(UIColor*)color withWidth:(CGFloat)width {
+- (void)setBorderColor:(UIColor *)color withWidth:(CGFloat)width {
     if (color) {
         self.layer.borderColor = color.CGColor;
         self.layer.borderWidth = width;
@@ -22,7 +22,7 @@
     }
 }
 
-- (UIColor*)borderColor {
+- (UIColor *)borderColor {
     return [UIColor colorWithCGColor:self.layer.borderColor];
 }
 

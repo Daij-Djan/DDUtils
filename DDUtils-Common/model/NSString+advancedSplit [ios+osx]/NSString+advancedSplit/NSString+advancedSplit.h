@@ -22,6 +22,6 @@ typedef enum _DDAdvancedSplitOptions {
 
 //lastly this method will not deal well with quotes or escapes as the first char of the seperator depending on the options
 
-- (NSArray*)componentsSeparatedByString:(NSString*)string options:(DDAdvancedSplitOptions)options;
+- (NSArray *)componentsSeparatedByString:(NSString *)string options:(DDAdvancedSplitOptions)options;
 
 @end

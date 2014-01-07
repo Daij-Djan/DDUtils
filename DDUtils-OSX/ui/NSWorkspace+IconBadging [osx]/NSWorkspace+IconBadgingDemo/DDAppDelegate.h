@@ -10,9 +10,9 @@
 
 @interface DDAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property(assign) IBOutlet NSWindow *window;
 
-@property (weak) IBOutlet NSTextField *demoPathField;
+@property(weak) IBOutlet NSTextField *demoPathField;
 - (IBAction)apply:(id)sender;
 - (IBAction)show:(id)sender;
 

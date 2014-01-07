@@ -316,6 +316,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B49EBBD2187AED23006FCE45 /* StyleSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		B4DCA6281878CCFC0063A199 /* MethodSwizzleDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MethodSwizzleDemo.xcodeproj; sourceTree = "<group>"; };
 		B4DCA63F1878CF5D0063A199 /* DDRectUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRectUtilities.h; sourceTree = "<group>"; };
 		B4DCA6401878CF5D0063A199 /* DDRectUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRectUtilities.m; sourceTree = "<group>"; };
@@ -940,6 +941,7 @@
 		B4E158151878B0CF00A4573C = {
 			isa = PBXGroup;
 			children = (
+				B49EBBD2187AED23006FCE45 /* StyleSettings.plist */,
 				B4E158721878B22B00A4573C /* Icon.png */,
 				B4E158731878B22B00A4573C /* LICENSE.txt */,
 				B4E158741878B22B00A4573C /* README.md */,
@@ -1437,6 +1439,7 @@
 				B4E1581A1878B0CF00A4573C /* Sources */,
 				B4E1581B1878B0CF00A4573C /* Frameworks */,
 				B4E1581C1878B0CF00A4573C /* Headers */,
+				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -1454,6 +1457,7 @@
 				B4E158481878B12700A4573C /* Sources */,
 				B4E158491878B12700A4573C /* Frameworks */,
 				B4E1584A1878B12700A4573C /* CopyFiles */,
+				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -1747,6 +1751,23 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?DD";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4E1581A1878B0CF00A4573C /* Sources */ = {

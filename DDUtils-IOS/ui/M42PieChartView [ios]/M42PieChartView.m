@@ -27,7 +27,7 @@ double radians(double percentage)
 	CGFloat EndRad    = 0;
 	//---------------------------------------------------------------------------------------
 	CGColorSpaceRef _ColorSpace  = CGColorSpaceCreateDeviceRGB();
-	CGContextRef    _ViewContext = CGBitmapContextCreate (NULL,  2*CenterX, 2*CenterY, 8, 0, _ColorSpace, kCGImageAlphaPremultipliedLast);
+	CGContextRef    _ViewContext = CGBitmapContextCreate (NULL,  2*CenterX, 2*CenterY, 8, 0, _ColorSpace, kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
 	if (_ViewContext == NULL){
 		CGColorSpaceRelease(_ColorSpace);
 		return nil;
@@ -42,21 +42,21 @@ double radians(double percentage)
 		// set the pie part color
 		const CGFloat* RGBComponents = CGColorGetComponents( [[dataSource colorForItem:i inPieChart:self] CGColor] );
 		CGContextSetRGBFillColor(_ViewContext, RGBComponents[0], RGBComponents[1], RGBComponents[2], 1.0 );
-		
+	
 		//-------------------------------------------------------------
 		// Compute the finale angle for the pie part arc
 		EndRad = StartRad + [dataSource percentageForItem:i inPieChart:self];
-		
+	
 		//-------------------------------------------------------------
 		// draw the pie part
 		CGContextMoveToPoint(_ViewContext, CenterX, CenterY);
 		CGContextAddArc(_ViewContext, CenterX, CenterY, PieRadius, radians(StartRad), radians(EndRad), 0);
 		CGContextClosePath(_ViewContext);
 		CGContextFillPath(_ViewContext);
-		
+	
 		StartRad = EndRad;
 	}
-	
+
 	//--------------------------------------------------------------------------------------
 	// Option : to improve rendering, you can add an overlay image on the top of the pie
 	// See bellow for image example.
@@ -64,14 +64,14 @@ double radians(double percentage)
 	NSString *name = isIPad ? @"chart_overlay_iPad.png" : @"chart_overlay.png";
     UIImage *overlay = [UIImage imageNamed: name ];
 #if DEBUG
-    if(!overlay) {
+    if (!overlay) {
         NSLog(@"EXCEPTTION: We need the image %@", name);
     }
 #endif
 	CGImageRef OverlayImage = [overlay CGImage]; //hack: the image name should be get/set
-	CGContextDrawImage(_ViewContext, CGRectMake( 0.0,  0.0, CenterX*2,CenterY*2 ), OverlayImage);	
+	CGContextDrawImage(_ViewContext, CGRectMake( 0.0,  0.0, CenterX*2,CenterY*2 ), OverlayImage);
 	CGImageRef _Result = CGBitmapContextCreateImage(_ViewContext);
-	
+
 	//---------------------------------------------------------------------------------------
 	// free all resource !
 	CGContextRelease(_ViewContext);
@@ -83,34 +83,34 @@ double radians(double percentage)
 #pragma mark UIView
 
 - (void)layoutSubviews {
-	if(image) {
+	if (image) {
 		CGImageRelease(image);
 		image = nil;
 	}
 }
 
 - (void)drawRect:(CGRect)rect {
-	if(!image) {
+	if (!image) {
 		NSLog(@"INFO: pie chart needs to recalc image for rect %@", NSStringFromCGRect(rect));
 		image = [self newPieWithRadiusImage:fminf(rect.size.height, rect.size.width)/2-7 borderWidth:0]; //hack: the border should be get/set
 	}
-	
+
 	rect.origin.x = rect.size.width/2 - CGImageGetWidth(image)/2;
 	rect.origin.y = rect.size.height/2 - CGImageGetHeight(image)/2;
 	rect.size = CGSizeMake(CGImageGetWidth(image), CGImageGetHeight(image));
     CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetShadow(context, CGSizeMake(3, 5), 5);
-    CGContextDrawImage(context, rect, image);	
+    CGContextDrawImage(context, rect, image);
 
-	if(title) {
+	if (title) {
 		rect = CGRectMake(0, 0, self.bounds.size.width, 20);
-		[title drawInRect:rect withFont:[UIFont systemFontOfSize:[UIFont smallSystemFontSize]]];
+		[title drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:[UIFont smallSystemFontSize]]}];
 	}
 }
 
 
 - (void)dealloc {
-	if(image) CGImageRelease(image);
+	if (image) CGImageRelease(image);
 }
 
 

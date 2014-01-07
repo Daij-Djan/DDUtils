@@ -11,6 +11,6 @@
 
 @interface M42PinchableWebView : WebView {
 }
--(IBAction)zoomIn:(id)sender;
--(IBAction)zoomOut:(id)sender;
+- (IBAction)zoomIn:(id)sender;
+- (IBAction)zoomOut:(id)sender;
 @end

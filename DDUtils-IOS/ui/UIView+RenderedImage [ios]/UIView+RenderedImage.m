@@ -9,7 +9,7 @@
 
 @implementation UIView (RenderedImage)
 
-- (UIImage*)renderedImage {
+- (UIImage *)renderedImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [[UIScreen mainScreen] scale]);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();

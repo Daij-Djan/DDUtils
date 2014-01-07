@@ -11,10 +11,10 @@
 
 @implementation UIFont (RegisterURL)
 
-+ (BOOL)sn_registerFontsWithURL:(NSURL*)urlToFont {
++ (BOOL)sn_registerFontsWithURL:(NSURL *)urlToFont {
     BOOL br = NO;
     NSData *inData = [NSData dataWithContentsOfURL:urlToFont];
-    if(inData) {
+    if (inData) {
         CFErrorRef error;
         CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)inData);
         CGFontRef font = CGFontCreateWithDataProvider(provider);
@@ -35,22 +35,22 @@
 
 #pragma mark -
 
-+ (BOOL)registerFontsWithURL:(NSURL*)url {
++ (BOOL)registerFontsWithURL:(NSURL *)url {
     assert(url);
     
     id path = url.path;
     BOOL isDir = NO;
-    if(path && [[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDir] && isDir) {
+    if (path && [[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDir] && isDir) {
         NSArray *items = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
         for (NSString *item in items) {
-            if(![item.pathExtension isEqualToString:@"ttf"]
+            if (![item.pathExtension isEqualToString:@"ttf"]
                && ![item.pathExtension isEqualToString:@"otf"]) {
                 continue;
             }
             
             NSURL *url = [NSURL fileURLWithPath:[path stringByAppendingPathComponent:item]];
             BOOL br = [self sn_registerFontsWithURL:url];
-            if(!br) {
+            if (!br) {
                 NSLog(@"Failed to register %@", url);
                 continue;
             }
@@ -62,15 +62,15 @@
     }
 }
 
-+ (BOOL)registerFontsFromBundle:(NSBundle*)b {
++ (BOOL)registerFontsFromBundle:(NSBundle *)b {
     return [self registerFontsWithURL:b.resourceURL];
 }
 
 #pragma mark -
 
-+ (UIFont *)fontWithName:(NSString *)name size:(CGFloat)size ifNeededLoadURL:(NSURL *)url {
++ (UIFont  *)fontWithName:(NSString  *)name size:(CGFloat)size ifNeededLoadURL:(NSURL  *)url {
     UIFont *f = [UIFont fontWithName:name size:size];
-    if(!f) {
+    if (!f) {
         BOOL br = [self registerFontsWithURL:url];
         f = [UIFont fontWithName:name size:size];
         assert(br || f);

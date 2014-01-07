@@ -12,9 +12,9 @@
 
 @protocol M42PieChartViewDataSource
 
-- (NSUInteger)numberOfItemsInPieChart:(M42PieChartView*)chart;
-- (UIColor*)colorForItem:(NSUInteger)itemIndex inPieChart:(M42PieChartView*)chart;
-- (double)percentageForItem:(NSUInteger)itemIndex inPieChart:(M42PieChartView*)chart;
+- (NSUInteger)numberOfItemsInPieChart:(M42PieChartView *)chart;
+- (UIColor *)colorForItem:(NSUInteger)itemIndex inPieChart:(M42PieChartView *)chart;
+- (double)percentageForItem:(NSUInteger)itemIndex inPieChart:(M42PieChartView *)chart;
 
 @end
 

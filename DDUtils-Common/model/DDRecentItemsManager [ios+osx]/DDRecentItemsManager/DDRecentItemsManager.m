@@ -22,7 +22,7 @@
 #endif
 }
 
-+ (DDRecentItemsManager*)sharedManager {
++ (DDRecentItemsManager *)sharedManager {
     static DDRecentItemsManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -33,12 +33,12 @@
 
 - (id)init {
     self = [super init];
-    if(self)
+    if (self)
         self.maximumSavesCount = [[self class] defaultMaxiumSavesCount];
     return self;
 }
 
-- (BOOL)saveSearch:(NSDictionary*)search forIdentifier:(NSString*)identifier error:(NSError**)pError {
+- (BOOL)saveSearch:(NSDictionary *)search forIdentifier:(NSString *)identifier error:(NSError **)pError {
     NSParameterAssert(search);
     NSParameterAssert(identifier);
 
@@ -56,18 +56,18 @@
                                                                   mutabilityOption:NSPropertyListMutableContainers
                                                                             format:nil
                                                                   errorDescription:nil];
-    if(!plist)
+    if (!plist)
         plist = [NSMutableDictionary dictionaryWithCapacity:1];
     
     //get array
     NSMutableArray *saves = [plist objectForKey:identifier];
-    if(![saves isKindOfClass:[NSMutableArray class]]) {
+    if (![saves isKindOfClass:[NSMutableArray class]]) {
         saves = [NSMutableArray arrayWithCapacity:1];
         [plist setObject:saves forKey:identifier];
     }
     
     //get rid of duplicates
-    while([saves containsObject:search]) {
+    while ([saves containsObject:search]) {
         [saves removeObject:search];
     }
     
@@ -75,9 +75,9 @@
     [saves addObject:search];
     
     //if bigger than maximum, trim
-    if(saves.count > self.maximumSavesCount) {
+    if (saves.count > self.maximumSavesCount) {
         NSUInteger l = self.maximumSavesCount;
-        NSLog(@"trim to %lu",(unsigned long)l);
+        NSLog(@"trim to %lu", (unsigned long)l);
         NSUInteger c = saves.count - self.maximumSavesCount;
         NSArray *newsaves = [saves subarrayWithRange:NSMakeRange(c, l)];
         [plist setObject:newsaves forKey:identifier];
@@ -90,7 +90,7 @@
     return [data writeToFile:file atomically:YES];
 }
 
-- (NSArray*)savedSearchesforIdentifier:(NSString*)identifier {
+- (NSArray *)savedSearchesforIdentifier:(NSString *)identifier {
     NSParameterAssert(identifier);
     
     //Error handling

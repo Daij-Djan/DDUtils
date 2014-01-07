@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DDTask.h"
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
 
     @autoreleasepool {
@@ -40,7 +40,7 @@ int main(int argc, const char * argv[])
         //---
         
         task.terminationHandler = ^(DDTask *t) {
-            if(t.terminationStatus==0) {
+            if (t.terminationStatus==0) {
                 id result = [[NSString alloc] initWithData:t.resultData encoding:NSUTF8StringEncoding];
                 NSLog(@"dispatched got %@, took %f", result, t.durationSpent);        
             }

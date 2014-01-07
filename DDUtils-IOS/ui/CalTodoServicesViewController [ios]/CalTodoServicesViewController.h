@@ -16,7 +16,7 @@
 	IBOutlet UIActivityIndicatorView *activityIndicatorView;
 	IBOutlet UILabel *activityLabelView;
 }
-- (void)serviceChosen:(NSNetService*)service; //can be used by subclass
+- (void)serviceChosen:(NSNetService *)service; //can be used by subclass
 @property(nonatomic, strong) DDBonjourServicesBrowser *browser;
 
 @end

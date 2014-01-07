@@ -4,9 +4,10 @@
 //  Created by Dominik Pich on 9/7/12.
 //  Copyright (c) 2012 Dominik Pich. All rights reserved.
 //
-#import <Foundation/Foundation.h>
 
 /** @file DDRecentItemsManager.h */
+
+#import <Foundation/Foundation.h>
 
 /**
  * can save and restore an array of saved search from files or tags. Can also SAVE and APPLY a saved search FROM and TO a query.
@@ -22,7 +23,7 @@
 /**
  * the default instance
  */
-+ (DDRecentItemsManager*)sharedManager;
++ (DDRecentItemsManager *)sharedManager;
 
 /**
  * the maximum number of items saved by this manager.
@@ -37,13 +38,13 @@
  * @param pError filled with an NSError when the function fails
  * @return YES or NO on error.
  */
-- (BOOL)saveSearch:(NSDictionary*)search forIdentifier:(NSString*)identifier error:(NSError**)pError;
+- (BOOL)saveSearch:(NSDictionary *)search forIdentifier:(NSString *)identifier error:(NSError **)pError;
 
 /**
  * returns all saved searches for the given identifier
  * @param identifier the identifier to associate with the search
  * @return an array of search dictionaries
  */
-- (NSArray*)savedSearchesforIdentifier:(NSString*)identifier;
+- (NSArray *)savedSearchesforIdentifier:(NSString *)identifier;
 
 @end
