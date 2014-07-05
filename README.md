@@ -76,6 +76,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>DDXMLValidator [ios + osx] + demo</b> - Component that validates a given XML file (local or remote) against a Schema (which can be XSD, DTD or RNG.) (It uses libxml2 for the validation and is based on code by Todd Ditchendorfer.)
 
+<li><b>DDAppStoreInfo [ios+osx] + demo</b> - Component that shows how to easily fetch information from the appstore via the Apple iTunes Lookup API
+
+<li><b>NSObject+isValidPlist [ios+osx]</b> - Quick category on NSObject to see if it a plist type and if it is an array or dictionary if it only contains plist objects
 
 </ul>
 
@@ -105,6 +108,8 @@ screen
 <li><b>NSWindow+Fade [osx]</b> - Category on NSWindow that adds fadeIn and fadeOut actions that work like animated order in order out
 
 <li><b>NSView+findSubview [osx]</b> - Category on NSView that provides aa method to find a(or many) subview (by class and or tag) in its subview-tree.
+
+<li><b>UIView+didAddSubview [ios]</b> - Category on UIView that swizzles in a delegate that gets always called after the view's own didAddSubview method. You no longer have to subclass a view because you need didAddSubview! (needs NSObject+MethodSwizzle!)
 
 <li><b>UIView+findSubview [ios]</b> - Category on UIView that provides methods to find a(or many) subview (by class and or tag) in its subview-tree.
 
