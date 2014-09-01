@@ -54,4 +54,14 @@ typedef BOOL (^DDTaskErrorHandler)(DDTask *, NSTask *, NSUInteger currentTry);
  */
 + (NSString *)runTaskWithToolPath:(NSString *)toolpath andArguments:(NSArray *)args andErrorHandler:(DDTaskErrorHandler)errorHandler;
 
+/**
+ * convenience method to run task and the return value (if it ran) as UTF8 String
+ * @param toolpath
+ * @param args
+ * @param currentDirectoryPath
+ * @param errorHandler
+ * @result the
+ */
++ (NSString *)runTaskWithToolPath:(NSString *)toolpath andArguments:(NSArray *)args currentDirectoryPath:(NSString*)currentDirectoryPath andErrorHandler:(DDTaskErrorHandler)errorHandler;
+
 @end
