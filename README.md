@@ -3,13 +3,14 @@ this is a VERY loose collection of individual classes and/or components for OSX/
 
 Most of the classes are arent meant or even guaranteed to be feature complete. Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
 
-####I wrapped all class in a static library (1 ios, 1 osx),
-<b>this does not include the demos of course</b>
-<br/>
-<br/>
+####I wrapped all class [without demos] in a ready to use static library (1 for ios, 1 for osx)
+
 ##Individual Classes
 ######model-related:
 <ul>
+<li><b>NSFileManager+DataProtection [ios]</b> - A category  to quickly add data protection to a file</li>
+<li><b>NSFileManager+SkipBackupAttributeToItemAtPath [ios]</b> - A category to exclude a file from an iTunes backup. (With apples storage guidelines, this is often important)
+
 <li><b>DDSocialMessenger [ios+osx]</b> - provides easy-to-use methods to post to twitter or facebook or both! It encapsulates all dealings with accounts and social framework
 
 <li><b>BonjourServicesBrowser [ios+osx]</b> - asynchronously finds services using NSNetServiceBrowser
@@ -50,8 +51,6 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>NSDictionary+PostData [ios+osx]</b> - Provides a method to get POST Data from a dictionary it supports NSStrings and NSData(!) [it creates multipart post]
 
 <li><b>NSObject+DDDump [ios+osx] + demo</b> - provides a dictionary with reflected information about the class (superclass, protocols, ivars, properties, methods). The category also has a 'dump' method to assemble the data into a NSString that you can output.
-
-<li><b>NSString+Entities [ios+osx]</b> - Escapes Entities so the NSString is valid for xml content
 
 <li><b>NSString+ValidateEmail [ios+osx] + demo</b> - Check if a NSString object represents a valid email. Uses some regex.
 
