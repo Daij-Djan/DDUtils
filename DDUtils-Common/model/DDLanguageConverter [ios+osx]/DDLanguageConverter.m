@@ -12,14 +12,14 @@
 
 - (id)init {
     self = [super init];
-    if(self) {
+    if (self) {
         NSString *languageBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:@"iso-639 languages" ofType:@"plist"];
         NSDictionary *languageCodes = [[self class] codeMapWithPath:languageBundlePath];
 
         NSString *countryBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:@"iso-3166 countries" ofType:@"plist"];
         NSDictionary *countryCodes = [[self class] codeMapWithPath:countryBundlePath];
 
-        if(languageCodes && countryCodes) {
+        if (languageCodes && countryCodes) {
             self->_languageCodes = languageCodes;
             self->_countryCodes = countryCodes;
             return self;
@@ -28,7 +28,7 @@
     return nil;
 }
      
-+ (NSDictionary*)codeMapWithPath:(NSString*)archive_path {
++ (NSDictionary *)codeMapWithPath:(NSString *)archive_path {
 	// Try to load cached archive
     id codes = nil;
 	NSData *archive_data = [NSData dataWithContentsOfFile:archive_path];
@@ -41,29 +41,28 @@
                                                  errorDescription:&archive_error];
         
 		if (archive_error) {
-			DebugLog(@"code data couldn't be read");
+			NSLog(@"code data couldn't be read");
 		} else {
 			codes = archive;
 		}
-    }
-    else {
-        DebugLog(@"code file couldn't be read");
+    } else {
+        NSLog(@"code file couldn't be read");
     }
     return codes;
 }
     
-- (NSString*)iso6392fromAppleLanguageCode:(NSString*)code {
+- (NSString *)iso6392fromAppleLanguageCode:(NSString *)code {
     //dont map it
-    if(code.length != 2)
+    if (code.length != 2)
         return code;
     
     //map
     return _languageCodes[code];
 }
 
-- (NSString*)iso3166a3fromAppleCountryCode:(NSString*)code {
+- (NSString *)iso3166a3fromAppleCountryCode:(NSString *)code {
     //dont map it
-    if(code.length != 2)
+    if (code.length != 2)
         return code;
     
     //map

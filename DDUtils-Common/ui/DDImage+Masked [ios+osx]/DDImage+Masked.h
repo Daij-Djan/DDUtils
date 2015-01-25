@@ -16,6 +16,6 @@
 
 @interface DDImage (Masked)
 
-- (DDImage*) imageMaskedWith:(DDImage *) mask;
+- (DDImage *)imageMaskedWith:(DDImage *)mask;
 
 @end

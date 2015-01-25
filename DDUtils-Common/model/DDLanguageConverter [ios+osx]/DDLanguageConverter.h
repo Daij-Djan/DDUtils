@@ -12,13 +12,13 @@
  * @param code the lanuage from the NSLocale 
  * @return the iso code
  */
-- (NSString*)iso6392fromAppleLanguageCode:(NSString*)code;
+- (NSString *)iso6392fromAppleLanguageCode:(NSString *)code;
 
 /**
  * converts an apple country code (iso 3166 alpha 2) to iso 3166 alpha 3
  * @param code the country from the NSLocale
  * @return the iso code
  */
-- (NSString*)iso3166a3fromAppleCountryCode:(NSString*)code;
+- (NSString *)iso3166a3fromAppleCountryCode:(NSString *)code;
 
 @end

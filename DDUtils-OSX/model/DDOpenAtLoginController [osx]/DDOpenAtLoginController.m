@@ -13,7 +13,7 @@
 NSArray *SDSharedFileArray(LSSharedFileListRef list);
 void SDAppDelegateSharedFileListObservance(LSSharedFileListRef inList, void *context);
 
-- (void)setAppStartsAtLogin:(NSNumber  *)numberForAppStartsAtLogin {
+- (void)setAppStartsAtLogin:(NSNumber *)numberForAppStartsAtLogin {
     [self willChangeValueForKey:@"appStartsAtLogin"];
     BOOL appStartsAtLogin = numberForAppStartsAtLogin.boolValue;
 

@@ -16,27 +16,26 @@ int __DDRunTaskExt(NSString *cwd, NSString **output, NSString *command, NSMutabl
         NSData *data = nil;
         NSTask *task = [[NSTask alloc] init];
         [task setLaunchPath:command];
-        if(args.count) {
+        
+        if (args.count) {
             [task setArguments:args];
         }
-        if(cwd.length) {
+        if (cwd.length) {
             [task setCurrentDirectoryPath:cwd];
         }
-        [task setStandardOutput: pipe];
+        
+        [task setStandardOutput:pipe];
         [readData setLength:0];
         [task launch];
-        while ((task != nil) && ([task isRunning]))	{
+        while ((task != nil) && ([task isRunning])) {
             data = [fileHandle availableData];
             [readData appendData:data];
         }
-        if(output) {
+        if (output) {
             *output = [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
-        }
-#if DEBUG
-        else {
+        } else {
             NSLog(@"%@", [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding]);
         }
-#endif
         return task.terminationStatus;
     }
 }
@@ -45,16 +44,14 @@ NSMutableArray *__DDRunTaskArgs( va_list varargs ) {
     id arg = nil;
     NSMutableArray *args = [NSMutableArray array];
     
-    while ((arg = va_arg(varargs,id))) {
-        if([arg isKindOfClass:[NSArray class]])
-        {
+    while ((arg = va_arg(varargs, id))) {
+        if ([arg isKindOfClass:[NSArray class]]) {
             for (id childArg in arg) {
                 id argString = [childArg respondsToSelector:@selector(path)] ? [childArg path] : [childArg description];
                 argString = [argString stringByExpandingTildeInPath];
                 [args addObject:argString];
             }
-        }
-        else {
+        } else {
             id argString = [arg respondsToSelector:@selector(path)] ? [arg path] : [arg description];
             argString = [argString stringByExpandingTildeInPath];
             [args addObject:argString];
@@ -75,8 +72,7 @@ NSString *DDRunTask(NSString *command, ...) {
     va_end(varargs);
     
     int status = __DDRunTaskExt(nil, &output, command, args);
-    
-    return status==0?output:nil;
+    return status==0 ? output : nil;
 }
 
 int DDRunTaskExt(NSString *cwd, NSString **output, NSString *command, ...) {
@@ -85,6 +81,5 @@ int DDRunTaskExt(NSString *cwd, NSString **output, NSString *command, ...) {
     va_start(varargs, command);
     NSMutableArray *args = __DDRunTaskArgs(varargs);
     va_end(varargs);
-    
     return __DDRunTaskExt(cwd, output, command, args);
 }

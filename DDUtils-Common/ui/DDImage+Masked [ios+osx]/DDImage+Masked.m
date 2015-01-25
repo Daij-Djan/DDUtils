@@ -9,9 +9,8 @@
 
 @implementation DDImage (Masked)
 
-- (DDImage*) imageMaskedWith:(DDImage *) mask
-{
-    DDImage* newImage = nil;
+- (DDImage *)imageMaskedWith:(DDImage *)mask {
+    DDImage *newImage = nil;
     NSParameterAssert(mask);
     
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE

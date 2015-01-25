@@ -45,9 +45,9 @@ const NSInteger BVPlistExtractorErrorEmptyFile = 2;
 const NSInteger BVPlistExtractorErrorCorruptMachO = 3;
 
 #pragma mark - Definition of private functions
-NSData *_BVMachOSection(NSURL *url,
-                        char *segname,
-                        char *sectname,
+NSData * _BVMachOSection(NSURL * url,
+                        char * segname,
+                        char * sectname,
                         NSError **error) {
     NSData *data = nil;
     int fd;

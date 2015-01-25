@@ -7,36 +7,7 @@
 //
 
 #import "NSWorkspace+runFileAtPath.h"
-
-int DDRunTask(NSString *command, NSMutableArray *args) {
-    //add env if needed
-    if (![command hasPrefix:@"./"] && ![command hasPrefix:@"/"]) {
-        [args insertObject:command atIndex:0];
-        command = @"/usr/bin/env";
-    }
-    
-    //setup task and run it - reading its stdout
-    @autoreleasepool {
-        NSMutableData *readData = [[NSMutableData alloc] init];
-        NSPipe *pipe = [NSPipe pipe];
-        NSFileHandle *fileHandle = [pipe fileHandleForReading];
-        NSData *data = nil;
-        NSTask *task = [[NSTask alloc] init];
-        [task setLaunchPath:command];
-        if (args.count) {
-            [task setArguments:args];
-        }
-        [task setStandardOutput: pipe];
-        [readData setLength:0];
-        [task launch];
-        while ((task != nil) && ([task isRunning]))	{
-            data = [fileHandle availableData];
-            [readData appendData:data];
-        }
-        return task.terminationStatus;
-    }
-    return -1;
-}
+#import "DDRunTask.h"
 
 @implementation NSWorkspace (runFileAtPath)
 

@@ -15,7 +15,7 @@
     dispatch_once(&onceToken, ^{
         converter = [[DDLanguageConverter alloc] init];
         if(!converter) {
-            DebugLog(@"Cant init iso converter");
+            NSLog(@"Cant init iso converter");
         }
     });
     

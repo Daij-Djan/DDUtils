@@ -9,7 +9,7 @@
 
 @implementation DDAppStoreInfo {
     NSDictionary *_info;
-    UIImage *_smallArtwork;
+    DDImage *_smallArtwork;
 }
 
 - (NSString *)name {
@@ -20,7 +20,7 @@
     return _info[@"description"];
 }
 
-- (UIImage *)smallArtwork {
+- (DDImage *)smallArtwork {
     return _smallArtwork;
 }
 
@@ -31,9 +31,10 @@
 - (NSDictionary *)json {
     return _info;
 }
+
 #pragma mark -
 
-+ (void)appStoreInfoForID:(NSString*)idString completion:(void (^)(DDAppStoreInfo *appstoreInfo))completion {
++ (void)appStoreInfoForID:(NSString *)idString completion:(void (^)(DDAppStoreInfo *appstoreInfo))completion {
     NSParameterAssert([idString hasPrefix:@"id"]);
 
     NSString *numericIDStr = [idString substringFromIndex:2];
@@ -53,7 +54,7 @@
         [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:artworkURL]
                                            queue:[NSOperationQueue mainQueue]
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            UIImage *artworkImage = [UIImage imageWithData:data];
+            DDImage *artworkImage = [[DDImage alloc] initWithData:data];
 
             DDAppStoreInfo *storeInfo = [[DDAppStoreInfo alloc] init];
             storeInfo->_info = result;

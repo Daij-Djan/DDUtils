@@ -16,10 +16,11 @@
 
 #define MOD_CHAR '∆'
 #define MOD_STRING @"∆"
+
 - (NSArray*)componentsSeparatedByStringIgnoringAnythingInParanthesesOrAnyingStartingWithDigit:(NSString*)string {
 	NSMutableString *copy = [self mutableCopy];
 	
-	int i, c=[copy length], lengthOfString=[string length];
+	NSUInteger i, c=[copy length], lengthOfString=[string length];
 	char ch, firstCharOfString = [string characterAtIndex:0];
 	BOOL ignore = NO;
 	NSRange searchRange = NSMakeRange(0, lengthOfString);
@@ -56,8 +57,6 @@
 	}
 			
 	NSArray *array = [copy componentsSeparatedByString:modifiedString];
-	[modifiedString release];
-	[copy release];
 	return array;
 }
 
