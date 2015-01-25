@@ -87,7 +87,9 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 ######ui-related:
 <ul>
-<li><b>DDAddressPicker [osx] +demo</b>- A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
+<li><b>DDImage+Masked [ios+osx]</b> - Category for both UIImage and NSImage that simplifies masking one image with another one. (It hides all the 'annoying ;)' CoreGraphics code)
+
+<li><b>DDAddressPicker [osx] +demo</b> - A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
 
 <li><b>M42ActionSheet [ios]]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
 
