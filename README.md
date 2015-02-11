@@ -8,8 +8,11 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ##Individual Classes
 ######model-related:
 <ul>
+<li><b>DDUnits [ios+osx] + demo</b> - A class to quickly convert between formatted strings and numbers for units.</li>
+
 <li><b>NSFileManager+DataProtection [ios]</b> - A category  to quickly add data protection to a file</li>
-<li><b>NSFileManager+SkipBackupAttributeToItemAtPath [ios]</b> - A category to exclude a file from an iTunes backup. (With apples storage guidelines, this is often important)
+
+<li><b>NSFileManager+SkipBackupAttributeToItemAtPath [ios]</b> - A category to exclude a file from an iTunes backup. (With apples storage guidelines, this is often important)
 
 <li><b>DDSocialMessenger [ios+osx]</b> - provides easy-to-use methods to post to twitter or facebook or both! It encapsulates all dealings with accounts and social framework
 
@@ -73,7 +76,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <li><b>DDOpenAtLoginController [osx]</b> - This class provides a single property. 'appStartsAtLogin' It adds/removes the current app from the login items list. That bool is bindable and and reflects the system preferences. 
 
 <li><b>DDLMUService [osx]</b> - A wrapper for the undocumented IOKit LMUService: The 'kernel driver' for the ambient light sensor AND the LED Backlight of Macbooks (only tested under 10.9 on MBP 2011 but should work for any Macbook able to run 10.8+)
-<li><b>DDUserNotificationCenterMonitor [osx]</b> - Component that monitors the global MTNLion notification center. (It uses SCEvents to monitor disk changes and FMDB to read the Notification Center's SQLite database.)
+
+<li><b>DDUserNotificationCenterMonitor [osx]</b> - Component that monitors the global MTNLion notification center. (It uses SCEvents to monitor disk changes and FMDB to read the Notification Center's SQLite database.)
 
 <li><b>DDLanguageConverter [ios+osx]</b>Class to convert between apple language codes to iso6392 language codes or iso3166a3 country codes.<br/> Also includes two categories for NSLocale to ease development.</li>
 
@@ -131,6 +135,8 @@ On OSX there's also attributedStringWithImage.
 <li><b>UIImage+DDBadge [ios]</b> - Category on UIImage that returns a badged copy of an image. The look of the badge is customizable to a certain degree
 
 <li><b>UIImage+DefaultImage</b> - Category on UIImage to easily get the Current App's Default image (the correct version for the Current Device)
+
+<li><b>DDTextField [ios + demo]</b> - Interesting compound class that provides a common interface for single-line UITextFields and multi-line UITextViews. A Demo showing some differently configured textfields is included. (and the class shows how IBDesignable and IBInspectable works)
 </ul>
 
 <br/>

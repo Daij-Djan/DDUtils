@@ -1,5 +1,5 @@
 //
-//  MAXMLValidator.m
+//  DDXMLValidator.m
 //
 //  Created by Dominik Pich on 11.09.13.
 // based mainly on code by Todd Ditchendorfer

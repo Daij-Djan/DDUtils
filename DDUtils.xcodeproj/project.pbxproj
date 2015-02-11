@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31C26291A8A71B800236AA0 /* CGRectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B31C26151A8A71B800236AA0 /* CGRectHelpers.m */; };
+		B31C262A1A8A71B800236AA0 /* DDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B31C26171A8A71B800236AA0 /* DDTextField.m */; };
+		B3EE02FE1A8B64CA0006C04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EE02F81A8B64CA0006C04A /* main.m */; };
+		B3EE02FF1A8B64CA0006C04A /* DDUnits.h in Headers */ = {isa = PBXBuildFile; fileRef = B3EE02F91A8B64CA0006C04A /* DDUnits.h */; };
+		B3EE03001A8B64CA0006C04A /* DDUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EE02FA1A8B64CA0006C04A /* DDUnits.m */; };
 		B4DCA6411878CF5D0063A199 /* DDRectUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B4DCA63F1878CF5D0063A199 /* DDRectUtilities.h */; };
 		B4DCA6421878CF5D0063A199 /* DDRectUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DCA6401878CF5D0063A199 /* DDRectUtilities.m */; };
 		B4DCA6431878CF5D0063A199 /* DDRectUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DCA6401878CF5D0063A199 /* DDRectUtilities.m */; };
@@ -157,6 +162,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B31C26141A8A71B800236AA0 /* CGRectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectHelpers.h; sourceTree = "<group>"; };
+		B31C26151A8A71B800236AA0 /* CGRectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectHelpers.m; sourceTree = "<group>"; };
+		B31C26161A8A71B800236AA0 /* DDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTextField.h; sourceTree = "<group>"; };
+		B31C26171A8A71B800236AA0 /* DDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTextField.m; sourceTree = "<group>"; };
+		B3EE02F81A8B64CA0006C04A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3EE02F91A8B64CA0006C04A /* DDUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUnits.h; sourceTree = "<group>"; };
+		B3EE02FA1A8B64CA0006C04A /* DDUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUnits.m; sourceTree = "<group>"; };
 		B49EBBD2187AED23006FCE45 /* StyleSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		B4DCA63F1878CF5D0063A199 /* DDRectUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRectUtilities.h; sourceTree = "<group>"; };
 		B4DCA6401878CF5D0063A199 /* DDRectUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRectUtilities.m; sourceTree = "<group>"; };
@@ -327,6 +339,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B31C26131A8A71B800236AA0 /* DDTextField [ios] */ = {
+			isa = PBXGroup;
+			children = (
+				B31C26141A8A71B800236AA0 /* CGRectHelpers.h */,
+				B31C26151A8A71B800236AA0 /* CGRectHelpers.m */,
+				B31C26161A8A71B800236AA0 /* DDTextField.h */,
+				B31C26171A8A71B800236AA0 /* DDTextField.m */,
+			);
+			path = "DDTextField [ios]";
+			sourceTree = "<group>";
+		};
+		B3EE02F61A8B64CA0006C04A /* DDUnits [ios + osx] */ = {
+			isa = PBXGroup;
+			children = (
+				B3EE02F71A8B64CA0006C04A /* DDUnits */,
+				B3EE02F91A8B64CA0006C04A /* DDUnits.h */,
+				B3EE02FA1A8B64CA0006C04A /* DDUnits.m */,
+			);
+			name = "DDUnits [ios + osx]";
+			path = "ddutils-common/model/DDUnits [ios + osx]";
+			sourceTree = SOURCE_ROOT;
+		};
+		B3EE02F71A8B64CA0006C04A /* DDUnits */ = {
+			isa = PBXGroup;
+			children = (
+				B3EE02F81A8B64CA0006C04A /* main.m */,
+			);
+			path = DDUnits;
+			sourceTree = "<group>";
+		};
 		B4DCA63E1878CF5D0063A199 /* DDRectUtilities [ios+osx] */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				B4DCA70C1878D4120063A199 /* CalTodoServicesViewController [ios] */,
+				B31C26131A8A71B800236AA0 /* DDTextField [ios] */,
 				B4DCA70F1878D4120063A199 /* M42ActionSheet [ios] */,
 				B4DCA7251878D4130063A199 /* M42LoadingScreenViewController [ios] */,
 				B4DCA7281878D4130063A199 /* M42PieChartView [ios] */,
@@ -745,6 +788,7 @@
 		B4E158751878BB7800A4573C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				B3EE02F61A8B64CA0006C04A /* DDUnits [ios + osx] */,
 				B4FC786A1A756A8300ACDA2C /* DDAppStoreInfo [ios+osx] */,
 				B4FC787D1A756A8300ACDA2C /* DDASLQuery [ios+osx] */,
 				B4FC78921A756A8300ACDA2C /* DDBonjourServicesBrowser [ios+osx] */,
@@ -1189,6 +1233,7 @@
 				B4DCA6C21878D40A0063A199 /* DDTask.h in Headers */,
 				B4E159B71878BB7900A4573C /* NSAttributedString+DDConvenience.h in Headers */,
 				B4FC794C1A756A8400ACDA2C /* DDAppStoreInfo.h in Headers */,
+				B3EE02FF1A8B64CA0006C04A /* DDUnits.h in Headers */,
 				B4FC79E21A756A8400ACDA2C /* NSString+ValidateEmail.h in Headers */,
 				B4FC79901A756A8400ACDA2C /* DDSocialMessenger.h in Headers */,
 				B4DCA6C71878D40A0063A199 /* DDXcodeProjectFile.h in Headers */,
@@ -1269,6 +1314,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B4E158151878B0CF00A4573C;
 			productRefGroup = B4E1581F1878B0CF00A4573C /* Products */;
@@ -1326,9 +1372,11 @@
 				B4FC79A71A756A8400ACDA2C /* NSManagedObjectContext+RefreshObjectRecursive.m in Sources */,
 				B4DCA6CF1878D40A0063A199 /* DDAddressPicker.m in Sources */,
 				B4DCA6DD1878D40A0063A199 /* NSWindow+localize.m in Sources */,
+				B3EE03001A8B64CA0006C04A /* DDUnits.m in Sources */,
 				B4FC79A11A756A8400ACDA2C /* NSArray+DDPerformAfterDelay.m in Sources */,
 				B4FC799C1A756A8400ACDA2C /* M42RandomIndexPermutation.m in Sources */,
 				B4DCA6BB1878D40A0063A199 /* DDLMUService.m in Sources */,
+				B3EE02FE1A8B64CA0006C04A /* main.m in Sources */,
 				B4FC794D1A756A8400ACDA2C /* DDAppStoreInfo.m in Sources */,
 				B4FC797F1A756A8400ACDA2C /* DDLanguageConverter.m in Sources */,
 				B4FC79821A756A8400ACDA2C /* NSLocale+isoCode.m in Sources */,
@@ -1377,6 +1425,7 @@
 				B4DCA7601878D4130063A199 /* M42LoadingScreenViewController.m in Sources */,
 				B4FC7A3C1A756E2C00ACDA2C /* DDImage+Masked.m in Sources */,
 				B4FC79761A756A8400ACDA2C /* DDEmbeddedDataReader.m in Sources */,
+				B31C262A1A8A71B800236AA0 /* DDTextField.m in Sources */,
 				B4DCA7591878D4130063A199 /* UIFont+RegisterURL.m in Sources */,
 				B4FC79E41A756A8400ACDA2C /* NSString+ValidateEmail.m in Sources */,
 				B4FC799D1A756A8400ACDA2C /* M42RandomIndexPermutation.m in Sources */,
@@ -1395,6 +1444,7 @@
 				B4FC79BD1A756A8400ACDA2C /* NSObject+TransparentKVC.m in Sources */,
 				B4FC7A351A756D6500ACDA2C /* NSFileManager+DataProtection.m in Sources */,
 				B4FC79A81A756A8400ACDA2C /* NSManagedObjectContext+RefreshObjectRecursive.m in Sources */,
+				B31C26291A8A71B800236AA0 /* CGRectHelpers.m in Sources */,
 				B4DCA75B1878D4130063A199 /* M42ActionSheet.m in Sources */,
 				B4FC79951A756A8400ACDA2C /* DDXMLValidator.m in Sources */,
 				B4FC79921A756A8400ACDA2C /* DDSocialMessenger.m in Sources */,
