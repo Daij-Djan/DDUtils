@@ -1,6 +1,6 @@
 /**
 @file      DDUnits.m
-@author    Dominik Pich
+@author    Dominik Pich (based heavily on code by M. Zapf)
 @date      2014-05-14
 */
 #import "DDUnits.h"

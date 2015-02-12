@@ -1,6 +1,6 @@
 /**
 @file      DDTextField.m
-@author    Dominik Pich
+@author    Dominik Pich (based heavily on code by M. Zapf)
 @date      2013-01-05
 @copyright AUDI AG, 2014. All Rights Reserved
 */

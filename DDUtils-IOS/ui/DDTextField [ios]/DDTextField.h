@@ -1,6 +1,6 @@
 /**
 @file      DDTextField.h
-@author    Dominik Pich
+@author    Dominik Pich (based heavily on code by M. Zapf)
 @date      2013-01-24
 */
 #import <UIKit/UIKit.h>

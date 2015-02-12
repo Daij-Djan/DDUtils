@@ -1,6 +1,6 @@
 /**
 @file      DDUnits.h
-@author    Dominik Pich
+@author    Dominik Pich (based heavily on code by M. Zapf)
 @date      2014-03-27
 */
 #import <Foundation/Foundation.h>
