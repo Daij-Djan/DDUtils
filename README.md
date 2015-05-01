@@ -3,9 +3,30 @@ this is a VERY loose collection of individual classes and/or components for OSX/
 
 Most of the classes are arent meant or even guaranteed to be feature complete. Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
 
-####I wrapped all class [without demos] in a ready to use static library (1 for ios, 1 for osx)
+- new classes will be in swift (and sometimes in objC as well) but the 'old' objective-C classes are useful and still up to date too and I won't port all old code.
 
 ##Individual Classes
+###Swift
+######model-related:
+<ul>
+<li><b>CLBeaconRegion+Dictionary [ios + osx]</b> - extension to add methods for convert from/to plist compatible dictionary.</li>
+
+<li><b>NSUserDefaults+RunOnce [ios + osx]</b> - extension on user defaults to add a convenience method to run a specified closure only once per user (e.g. some legal info popup needs to be shown only once, or a tutorial or a certain system check).</li>
+
+<li><b>String+FileName [ios + osx]</b> - extension to provide a getter for a valid (saveable) filename from a string (that may contain lots of unsaveable characters).</li>
+
+</ul>
+
+######ui-related:
+<ul>
+<li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
+
+<li><b>NSView+Enable [osx]</b> - Category for NSView to quickly enable/disable it and all its subviews.
+
+<li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation
+</ul>
+
+###ObjC
 ######model-related:
 <ul>
 <li><b>DDUnits [ios+osx] + demo</b> - A class to quickly convert between formatted strings and numbers for units.</li>
@@ -93,6 +114,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 <ul>
 <li><b>DDImage+Masked [ios+osx]</b> - Category for both UIImage and NSImage that simplifies masking one image with another one. (It hides all the 'annoying ;)' CoreGraphics code)
 
+<li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
+
 <li><b>DDAddressPicker [osx] +demo</b> - A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
 
 <li><b>M42ActionSheet [ios]]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
@@ -130,13 +153,14 @@ screen
 On OSX there's also attributedStringWithImage.
 
 <li><b>UIAlertView+UserInfo [ios]</b> - Category on UIAlertView that adds a userInfo NSDictionary property to the alert that you can set and get (like it works for NSTimer)
-</ul>
 
 <li><b>UIImage+DDBadge [ios]</b> - Category on UIImage that returns a badged copy of an image. The look of the badge is customizable to a certain degree
 
 <li><b>UIImage+DefaultImage</b> - Category on UIImage to easily get the Current App's Default image (the correct version for the Current Device)
 
 <li><b>DDTextField [ios + demo]</b> - Interesting compound class that provides a common interface for single-line UITextFields and multi-line UITextViews. A Demo showing some differently configured textfields is included. (and the class shows how IBDesignable and IBInspectable works)
+
+<li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation
 </ul>
 
 <br/>
