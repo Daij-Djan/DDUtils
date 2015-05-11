@@ -6,6 +6,11 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B379A13B1B00EEFA004388C5 /* DDPermutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3047C871B00E7D900E95FD4 /* DDPermutation.swift */; };
+		B379A13C1B00EEFA004388C5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3047C881B00E7D900E95FD4 /* main.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		B36CF8E31B00A02A00B2DF80 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -21,7 +26,7 @@
 /* Begin PBXFileReference section */
 		B3047C871B00E7D900E95FD4 /* DDPermutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPermutation.swift; sourceTree = "<group>"; };
 		B3047C881B00E7D900E95FD4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		B36CF8E51B00A02A00B2DF80 /* M42RandomIndexPermutation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = M42RandomIndexPermutation; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36CF8E51B00A02A00B2DF80 /* M42RandomIndexPermutation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = M42RandomIndexPermutation; path = DDPermutation; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +121,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B379A13C1B00EEFA004388C5 /* main.swift in Sources */,
+				B379A13B1B00EEFA004388C5 /* DDPermutation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

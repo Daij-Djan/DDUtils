@@ -21,7 +21,7 @@ for obj in permutation0 {
 }
 
 println("seed 1")
-var permutation1 = permutate(permutation0, 1)
+var permutation1 = permutate(permutation0, UInt32(NSDate().timeIntervalSince1970))
 idx = permutation1.allIndexes
 i = 0
 for obj in permutation1 {
@@ -37,7 +37,7 @@ for obj in permutation1 {
 }
 
 println("seed 1 (second try")
-var permutation3 = permutate(permutation2, 1)
+var permutation3 = permutate(permutation2, UInt32(NSDate().timeIntervalSince1970))
 idx = permutation3.allIndexes
 i = 0
 for obj in permutation3 {
