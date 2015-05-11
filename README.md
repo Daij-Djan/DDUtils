@@ -9,6 +9,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ###Swift
 ######model-related:
 <ul>
+<li><b>DDPermutation [ios+osx + demo]</b> - adds a Helper to build indexsets that are random but the indices remain unique and the sets reproducable. Wraps around arrays and can be used in a for in loop with arrays via the global method `permutate`</li>
+
 <li><b>CLBeaconRegion+Dictionary [ios + osx]</b> - extension to add methods for convert from/to plist compatible dictionary.</li>
 
 <li><b>NSUserDefaults+RunOnce [ios + osx]</b> - extension on user defaults to add a convenience method to run a specified closure only once per user (e.g. some legal info popup needs to be shown only once, or a tutorial or a certain system check).</li>
