@@ -125,7 +125,7 @@
     }
     
     [self.sliderColor setFill];
-    UIRectFillUsingBlendMode(valueFrame, kCGBlendModeOverlay);
+    UIRectFillUsingBlendMode(valueFrame, kCGBlendModeColorBurn);
 }
 
 

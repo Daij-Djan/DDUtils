@@ -107,6 +107,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="view.png" width="79" height="82"/>
+        <image name="view.png" width="146" height="182"/>
     </resources>
 </document>
