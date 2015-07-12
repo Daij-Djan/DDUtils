@@ -144,6 +144,6 @@ class DDSlidingImageView : UIView {
         }
         
         self.sliderColor.setFill();
-        UIRectFillUsingBlendMode(valueFrame, kCGBlendModeColorBurn);
+        UIRectFillUsingBlendMode(valueFrame, kCGBlendModeSourceIn);
     }
 }

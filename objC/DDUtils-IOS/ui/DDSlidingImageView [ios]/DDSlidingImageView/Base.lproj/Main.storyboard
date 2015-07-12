@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik9-g8-W40" customClass="DDSlidingImageView">
-                                <rect key="frame" x="46" y="20" width="128" height="96"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ov-FX-W55" customClass="DDSlidingImageView">
+                                <rect key="frame" x="222" y="17" width="128" height="96"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="view.png"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
-                                        <color key="value" red="0.098127772082656509" green="0.33333333333333331" blue="0.11198304722864023" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.95294123890000004" green="0.38431376220000002" blue="0.1294117719" alpha="1" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="sliderValue">
                                         <real key="value" value="0.0"/>
@@ -33,53 +33,22 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="sliderDirection">
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderCapColor">
+                                        <color key="value" red="0.3058823645" green="0.90588241820000004" blue="0.33725491169999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderCapThickness">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideCapIfTooThin" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lc7-7M-sfF" customClass="DDSlidingImageView">
-                                <rect key="frame" x="57" y="135" width="117" height="93"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik9-g8-W40" customClass="DDSlidingImageView">
+                                <rect key="frame" x="46" y="20" width="128" height="96"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="view.png"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
-                                        <color key="value" red="0.33333333329999998" green="0.00034232447282977969" blue="0.22036155469117119" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderDuration">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderDirection">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lvz-oZ-xms" customClass="DDSlidingImageView">
-                                <rect key="frame" x="64" y="236" width="92" height="94"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="view.png"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderDuration">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderDirection">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A82-z6-Bkw" customClass="DDSlidingImageView">
-                                <rect key="frame" x="64" y="338" width="92" height="94"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="view.png"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
-                                        <color key="value" red="0.11372549831867218" green="0.55686277151107788" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.95294123890000004" green="0.38431376220000002" blue="0.1294117719" alpha="1" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="sliderValue">
                                         <real key="value" value="0.0"/>
@@ -88,18 +57,23 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="sliderDirection">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideCapIfTooThin" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderCapColor">
+                                        <color key="value" red="0.3058823645" green="0.90588241820000004" blue="0.33725491169999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="sliderCapThickness">
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="slider1" destination="Ik9-g8-W40" id="xMR-4S-yXY"/>
-                        <outlet property="slider2" destination="Lc7-7M-sfF" id="6uz-gG-2Ot"/>
-                        <outlet property="slider3" destination="Lvz-oZ-xms" id="Htf-qG-51U"/>
-                        <outlet property="slider4" destination="A82-z6-Bkw" id="88F-JO-fk1"/>
+                        <outlet property="slider1a" destination="1Ov-FX-W55" id="Mqj-Fd-Aqx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

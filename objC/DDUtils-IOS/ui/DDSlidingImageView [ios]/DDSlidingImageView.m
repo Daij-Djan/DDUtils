@@ -24,8 +24,19 @@
     [self setNeedsDisplay];
     
 }
+
 - (void)setSliderColor:(UIColor *)sliderColor {
     _sliderColor = sliderColor;
+    [self setNeedsDisplay];
+}
+
+- (void)setSliderCapColor:(UIColor *)sliderCapColor {
+    _sliderCapColor = sliderCapColor;
+    [self setNeedsDisplay];
+}
+
+- (void)setSliderCapThickness:(CGFloat)sliderCapThickness {
+    _sliderCapThickness = sliderCapThickness;
     [self setNeedsDisplay];
 }
 
@@ -52,6 +63,10 @@
     [self setNeedsDisplay];
 }
 
+- (void)setHideCapIfTooThin:(BOOL)hideCapIfTooThin {
+    _hideCapIfTooThin = hideCapIfTooThin;
+    [self setNeedsDisplay];
+}
 #pragma mark - animating
 
 - (void)moveSlider {
@@ -104,6 +119,18 @@
 #pragma mark - drawing
 
 - (void)drawRect:(CGRect)rect {
+    UIImage *filled = [self filledImage];
+    [filled drawInRect:self.bounds];
+}
+
+- (UIImage*)filledImage {
+    UIGraphicsBeginImageContext(self.bounds.size);
+    
+    //clear
+    [[UIColor clearColor] setFill];
+    UIRectFill(self.bounds);
+    
+    //get image
     CGRect imageRect = [DDRectUtilities adjustRectOfSize:_image.size forContentOfView:self];
     [_image drawInRect:imageRect];
     
@@ -111,21 +138,74 @@
     CGRect valueFrame = imageRect;
     if(self.sliderDirection % 2 == 0) {
         valueFrame.size.height *= _currentValue;
-
         if(self.sliderDirection == DDSlidingDirectionBottom) {
             valueFrame.origin.y = imageRect.origin.y + imageRect.size.height - valueFrame.size.height;
         }
     }
     else {
         valueFrame.size.width *= _currentValue;
-        
         if(self.sliderDirection == DDSlidingDirectionRight) {
             valueFrame.origin.x = imageRect.origin.x + imageRect.size.width - valueFrame.size.width;
         }
     }
     
+    //draw the image
     [self.sliderColor setFill];
-    UIRectFillUsingBlendMode(valueFrame, kCGBlendModeColorBurn);
+    UIRectFillUsingBlendMode(valueFrame, kCGBlendModeSourceIn);
+
+    //draw a cap if needed
+    if(self.sliderCapThickness > 0) {
+        [self.sliderCapColor setFill];
+        
+//        //check if fully there*2
+        BOOL tooThin = NO;
+//        if(self.hideCapIfTooThin) {
+//            if(self.sliderDirection % 2 == 0) {
+//                if(imageRect.size.height - valueFrame.size.height < self.sliderCapThickness*2) {
+//                    tooThin = YES;
+//                }
+//                else if(valueFrame.size.height  < self.sliderCapThickness*2) {
+//                    tooThin = YES;
+//                }
+//            }
+//            else {
+//                if(imageRect.size.width - valueFrame.size.width < self.sliderCapThickness*2) {
+//                    tooThin = YES;
+//                }
+//                else if(valueFrame.size.width  < self.sliderCapThickness*2) {
+//                    tooThin = YES;
+//                }
+//            }
+//        }
+
+        if(!tooThin) {
+            //prepare frame
+            if(self.sliderDirection % 2 == 0) {
+                if(self.sliderDirection == DDSlidingDirectionBottom) {
+                    valueFrame.origin.y -= self.sliderCapThickness;
+                }
+                else {
+                    valueFrame.origin.y += valueFrame.size.height - self.sliderCapThickness;
+                }
+                valueFrame.size.height = self.sliderCapThickness;
+            }
+            else {
+                if(self.sliderDirection == DDSlidingDirectionRight) {
+                    valueFrame.origin.x -= self.sliderCapThickness;
+                }
+                else {
+                    valueFrame.origin.x += valueFrame.size.width - self.sliderCapThickness;
+                }
+                valueFrame.size.width = self.sliderCapThickness;
+            }
+            UIRectFillUsingBlendMode(valueFrame, kCGBlendModeSourceIn);
+        }
+    }
+
+    id img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 

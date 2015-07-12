@@ -20,6 +20,10 @@ IB_DESIGNABLE
 
 @property(strong, nonatomic) IBInspectable UIImage *image; //honours contentMode
 
+@property(strong, nonatomic) IBInspectable UIColor *sliderCapColor;
+@property(assign, nonatomic) IBInspectable CGFloat sliderCapThickness;
+@property(assign, nonatomic) IBInspectable BOOL hideCapIfTooThin;
+
 @property(strong, nonatomic) IBInspectable UIColor *sliderColor;
 @property(assign, nonatomic) IBInspectable CGFloat sliderValue; //0 - 1
 @property(assign, nonatomic) IBInspectable CGFloat sliderDuration; //s
