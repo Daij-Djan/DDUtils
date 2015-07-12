@@ -9,6 +9,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ###Swift
 ######model-related:
 <ul>
+<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for IOS. the objC verion's demo is for OSX.</li>
+
 <li><b>DDPermutation [ios+osx + demo]</b> - adds a Helper to build indexsets that are random but the indices remain unique and the sets reproducable. Wraps around arrays and can be used in a for in loop with arrays via the global method `permutate`</li>
 
 <li><b>CLBeaconRegion+Dictionary [ios + osx]</b> - extension to add methods for convert from/to plist compatible dictionary.</li>
@@ -31,6 +33,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ###ObjC
 ######model-related:
 <ul>
+<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for OSX. the swift verion's demo is for ios.</li>
+
 <li><b>DDUnits [ios+osx] + demo</b> - A class to quickly convert between formatted strings and numbers for units.</li>
 
 <li><b>NSFileManager+DataProtection [ios]</b> - A category  to quickly add data protection to a file</li>
