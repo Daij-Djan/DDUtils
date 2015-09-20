@@ -118,6 +118,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 ######ui-related:
 <ul>
+<li><b>UIImage+AssertNamed [ios]</b> - Helper that swizzles imageNamed and assert the image can be found! This is meant to be used during development only
+
 <li><b>DDImage+Masked [ios+osx]</b> - Category for both UIImage and NSImage that simplifies masking one image with another one. (It hides all the 'annoying ;)' CoreGraphics code)
 
 <li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
