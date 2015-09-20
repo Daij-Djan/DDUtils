@@ -23,6 +23,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 
 ######ui-related:
 <ul>
+<li><b>UIViewController+Dummy [ios] + demo</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)
+
 <li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
 
 <li><b>NSView+Enable [osx]</b> - Category for NSView to quickly enable/disable it and all its subviews.
