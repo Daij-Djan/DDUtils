@@ -118,6 +118,8 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 ######ui-related:
 <ul>
+<li><b>UIViewController+Dummy [ios] + demo</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)
+
 <li><b>UIImage+AssertNamed [ios]</b> - Helper that swizzles imageNamed and assert the image can be found! This is meant to be used during development only
 
 <li><b>DDImage+Masked [ios+osx]</b> - Category for both UIImage and NSImage that simplifies masking one image with another one. (It hides all the 'annoying ;)' CoreGraphics code)
@@ -126,7 +128,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>DDAddressPicker [osx] +demo</b> - A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
 
-<li><b>M42ActionSheet [ios]]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
+<li><b>M42ActionSheet [ios]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
 
 <li><b>M42ClickableImagview & Label [ios]</b> - Subclasses that have action & target and react to touches
 
