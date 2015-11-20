@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3fC-EH-NRh">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XNj-bd-QSM">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="3fC-EH-NRh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ISp-Af-gcJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dEN-Tl-Gld"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwd-hq-QAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1238" y="-759"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="DDContentZoomSegueDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wz2-1T-kuL">
+                                <rect key="frame" x="20" y="85" width="209" height="74"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="push using zoomSegue">
+                                    <color key="titleColor" red="0.89411764709999997" green="0.1960784314" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dhI-Nx-tOv" kind="custom" identifier="Push" customClass="DDContentZoomSegue" customModule="DDContentZoomSegueDemo" customModuleProvider="target" id="hei-Ch-p4o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfX-6c-xYk">
+                                <rect key="frame" x="384" y="515" width="196" height="65"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="push using zoomSegue">
+                                    <color key="titleColor" red="0.89411764709999997" green="0.1960784314" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dhI-Nx-tOv" kind="custom" identifier="Push2" customClass="DDContentZoomSegue" customModule="DDContentZoomSegueDemo" customModuleProvider="target" id="0WJ-en-QgN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2n-Jb-gJ5">
+                                <rect key="frame" x="11" y="493" width="203" height="87"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="present zoomSegue modally">
+                                    <color key="titleColor" red="0.89411764709999997" green="0.1960784314" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dhI-Nx-tOv" kind="custom" identifier="Present" customClass="DDContentZoomSegue" customModule="DDContentZoomSegueDemo" customModuleProvider="target" id="9zT-xF-pnn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMf-b4-06l">
+                                <rect key="frame" x="179" y="272" width="242" height="55"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="present zoomSegue modally">
+                                    <color key="titleColor" red="0.89411764709999997" green="0.1960784314" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dhI-Nx-tOv" kind="custom" identifier="Present2" customClass="DDContentZoomSegue" customModule="DDContentZoomSegueDemo" customModuleProvider="target" id="JBN-2n-MXW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hv-8W-Zo4">
+                                <rect key="frame" x="338" y="85" width="242" height="55"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="present zoomSegue modally">
+                                    <color key="titleColor" red="0.89411764709999997" green="0.1960784314" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dhI-Nx-tOv" kind="custom" identifier="Present3" customClass="DDContentZoomSegue" customModule="DDContentZoomSegueDemo" customModuleProvider="target" id="Twl-8G-jC6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P2n-Jb-gJ5" secondAttribute="bottom" constant="20" id="6dn-yb-ZMO"/>
+                            <constraint firstItem="LfX-6c-xYk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="AIf-Et-77v"/>
+                            <constraint firstItem="1hv-8W-Zo4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="FS9-Py-2RL"/>
+                            <constraint firstItem="P2n-Jb-gJ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="UG7-dA-z6N"/>
+                            <constraint firstItem="wz2-1T-kuL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Z89-hU-pBT"/>
+                            <constraint firstItem="SMf-b4-06l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a7j-dW-FaP"/>
+                            <constraint firstItem="wz2-1T-kuL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="hWO-VP-zDs"/>
+                            <constraint firstItem="1hv-8W-Zo4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="ke0-LP-1Wt"/>
+                            <constraint firstItem="SMf-b4-06l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qqx-c3-77S"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LfX-6c-xYk" secondAttribute="bottom" constant="20" id="rtR-r8-WpQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hUq-Vn-Ncd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-440" y="-766"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="1G0-47-fJV">
+            <objects>
+                <viewController id="dhI-Nx-tOv" customClass="ImageViewController" customModule="DDContentZoomSegueDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MgH-Fe-P8R"/>
+                        <viewControllerLayoutGuide type="bottom" id="fNV-9P-9c2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ssB-Gt-fHW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="city-sf-bay_bridge" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-3D-c55">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCS-4F-uWh">
+                                <rect key="frame" x="20" y="28" width="51" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="popOrDismiss:" destination="dhI-Nx-tOv" eventType="touchUpInside" id="Pvq-ee-CSh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5FJ-3D-c55" firstAttribute="top" secondItem="ssB-Gt-fHW" secondAttribute="topMargin" id="4UV-kc-Snr"/>
+                            <constraint firstItem="fNV-9P-9c2" firstAttribute="top" secondItem="5FJ-3D-c55" secondAttribute="bottom" id="QFS-ao-xUn"/>
+                            <constraint firstItem="5FJ-3D-c55" firstAttribute="leading" secondItem="ssB-Gt-fHW" secondAttribute="leadingMargin" id="mp5-x3-9T3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5FJ-3D-c55" secondAttribute="trailing" id="n6l-VI-fks"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PG4-1Z-Qq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="-751"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="city-sf-bay_bridge" width="1500" height="1000"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0WJ-en-QgN"/>
+    </inferredMetricsTieBreakers>
+</document>
