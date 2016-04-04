@@ -9,6 +9,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ###Swift
 ######model-related:
 <ul>
+<li><b>CollectionType+Shuffle [ios+osx]</b> - A Category that adds the ability to shuffle (reproducably) any Collection that uses Integer-based Indices.
+ 
 <li><b>DDRequestQueue [ios+osx] + demo</b> - An easy class to queue up NSURLRequests that are processed when the app has a valid network connection. The requests are even persisted and the queue continues whenever it starts up again. It uses NSURLSession for the requests.</li>
 
 <li><b>DDMultiDateFormatter [ios+osx] + demo </b> - A NSFormatter subclass that wraps multiple date formatters. This 'compound' date formatter by default adheres to RFC3339 but can be used to understand all kind of date formats.</li>
