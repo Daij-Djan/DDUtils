@@ -11,6 +11,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 <ul>
 <li><b>CollectionType+Shuffle [ios+osx]</b> - A Category that adds the ability to shuffle (reproducably) any Collection that uses Integer-based Indices.
  
+<li><b>NotificationObserver [ios+osx] + demo</b> - Makes observing a NSNotificationCenter easy, convenient and more swift like.</li>
+
 <li><b>DDRequestQueue [ios+osx] + demo</b> - An easy class to queue up NSURLRequests that are processed when the app has a valid network connection. The requests are even persisted and the queue continues whenever it starts up again. It uses NSURLSession for the requests.</li>
 
 <li><b>DDMultiDateFormatter [ios+osx] + demo </b> - A NSFormatter subclass that wraps multiple date formatters. This 'compound' date formatter by default adheres to RFC3339 but can be used to understand all kind of date formats.</li>
@@ -37,7 +39,11 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 
 <li><b>NSView+Enable [osx]</b> - Category for NSView to quickly enable/disable it and all its subviews.
 
-<li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation
+<li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation</li>
+
+<li><b>NSWindow+Fade [osx]</b> - Category for NSWindow that provides helpers to fade in/out a window when ordering it in/out
+
+<li><b>NSImage+PNG [osx]</b> - a Category on NSImage to get NSData in PNG Format for saving it to file. This simplifies the 'weirdness' of NSImageRepresentations away ;)
 </ul>
 
 ###ObjC
