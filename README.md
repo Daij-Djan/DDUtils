@@ -9,6 +9,8 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 ###Swift
 ######model-related:
 <ul>
+<li><b>CLPlacemark+CNPostalAddress [ios + osx]</b> - An extension to get a CNPostalAddress from a placemark (cl or mk) that can be used to get a formatted address string in current IOS</li>
+
 <li><b>CollectionType+Shuffle [ios+osx]</b> - A Category that adds the ability to shuffle (reproducably) any Collection that uses Integer-based Indices.
  
 <li><b>NotificationObserver [ios+osx] + demo</b> - Makes observing a NSNotificationCenter easy, convenient and more swift like.</li>
