@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         //setup ews
-        EWSProfileImages.shared.credentials = (host:"webmail.sapient.com", username: "dpich", password: "***REMOVED***")
+        EWSProfileImages.shared.credentials = (host:"webmail.sapient.com", username: "TODO", password: "TODO")
 
         return true
     }
