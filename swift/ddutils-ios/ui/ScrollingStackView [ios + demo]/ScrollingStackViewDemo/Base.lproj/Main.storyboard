@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,23 +15,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wh4-3Z-326" customClass="ScrollingStackView" customModule="ScrollingStackViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="47" y="36" width="110" height="299"/>
-                                <color key="backgroundColor" red="1" green="0.89728573212080431" blue="0.14852914471168355" alpha="1" colorSpace="calibratedRGB"/>
+                                <frame key="frameInset" minX="47" minY="36" width="110" height="299"/>
+                                <color key="backgroundColor" red="1" green="0.89728573212080431" blue="0.14852914471168355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IzV-dW-dcv" customClass="ScrollingStackView" customModule="ScrollingStackViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="165" y="36" width="110" height="299"/>
-                                <color key="backgroundColor" red="0.65997951730000004" green="1" blue="0.40080703220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <frame key="frameInset" minX="165" minY="36" width="110" height="299"/>
+                                <color key="backgroundColor" red="0.65997951730000004" green="1" blue="0.40080703220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bA3-1r-ecp" customClass="ScrollingStackView" customModule="ScrollingStackViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="47" y="343" width="228" height="68"/>
-                                <color key="backgroundColor" red="0.56487575339999996" green="0.95151787389999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <frame key="frameInset" minX="47" minY="343" width="228" height="68"/>
+                                <color key="backgroundColor" red="0.56487575339999996" green="0.95151787389999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bA3-1r-ecp" firstAttribute="top" secondItem="IzV-dW-dcv" secondAttribute="bottom" constant="8" id="B5j-ju-jIN"/>
                             <constraint firstItem="IzV-dW-dcv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="CcA-tI-29s"/>
