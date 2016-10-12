@@ -17,19 +17,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         for i in 1 ..< 3 {
-            let vw = UIButton(type: UIButtonType.System)
-            vw.setTitle("Button \(i)", forState: .Normal)
+            let vw = UIButton(type: UIButtonType.system)
+            vw.setTitle("Button \(i)", for: UIControlState())
             sv1.addArrangedSubview(vw)
         }
         
         for i in 1 ..< 100 {
-            let vw = UIButton(type: UIButtonType.System)
-            vw.setTitle("Button \(i)", forState: .Normal)
+            let vw = UIButton(type: UIButtonType.system)
+            vw.setTitle("Button \(i)", for: UIControlState())
             sv2.addArrangedSubview(vw)
         }
         for i in 1 ..< 100 {
-            let vw = UIButton(type: UIButtonType.System)
-            vw.setTitle("Button \(i)", forState: .Normal)
+            let vw = UIButton(type: UIButtonType.system)
+            vw.setTitle("Button \(i)", for: UIControlState())
             sv3.addArrangedSubview(vw)
         }
     }

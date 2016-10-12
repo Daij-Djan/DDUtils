@@ -9,12 +9,12 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    @IBAction func popOrDismiss(sender: AnyObject) {
+    @IBAction func popOrDismiss(_ sender: AnyObject) {
         if let n = self.navigationController {
-            n.popViewControllerAnimated(true)
+            n.popViewController(animated: true)
         }
         else {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

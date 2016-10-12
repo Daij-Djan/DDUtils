@@ -9,13 +9,14 @@
 import UIKit
 //#import <objc/runtime.h>
 
+var swizzed = false
 let kBaseTag = 5000
 
 extension UIViewController {
 
-    public override class func initialize() {
+    open override class func initialize() {
         struct Static {
-            static var token: dispatch_once_t = 0
+            static var token: Int = 0
         }
         
         // make sure this isn't a subclass
@@ -23,15 +24,16 @@ extension UIViewController {
             return
         }
         
-        dispatch_once(&Static.token) {
+        if !swizzed {
             self.swizzleSelector("viewWillAppear:", withSelector: "xchg_viewWillAppear:")
+            swizzed = true
         }
     }
 
-    func xchg_viewWillAppear(animated:Bool) {
+    func xchg_viewWillAppear(_ animated:Bool) {
         self.xchg_viewWillAppear(animated)
     
-        if(!self.isMemberOfClass(UIViewController.self)) {
+        if(!self.isMember(of: UIViewController.self)) {
             return;
         }
 
@@ -43,7 +45,7 @@ extension UIViewController {
         //if not in a navigation controller and presented
         if(self.presentingViewController != nil) {
             let item = self.navigationItem
-            item.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "closeView")
+            item.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UIViewController.closeView))
             
             let rect = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 74)
             let bar = UINavigationBar(frame: rect)
@@ -64,19 +66,21 @@ extension UIViewController {
             var i = kBaseTag
             var v = self.view.viewWithTag(i)
             while(v != nil) {
+                i = i+1
+                
                 v!.removeFromSuperview()
-                v = self.view.viewWithTag(++i)
+                v = self.view.viewWithTag(i)
             }
             
             //add a button list for the ids
             var y = 88;
             i = kBaseTag;
             for identifier in seguesIds {
-                let button = UIButton(type: UIButtonType.System)
+                let button = UIButton(type: UIButtonType.system)
                 button.frame = CGRect(x: 44, y: y, width: Int(self.view.frame.width) - 88, height: 44)
                 button.tag = i;
-                button.setTitle(identifier, forState: UIControlState.Normal)
-                button.addTarget(self, action: "performSegueForButton:", forControlEvents: UIControlEvents.TouchUpInside)
+                button.setTitle(identifier, for: UIControlState())
+                button.addTarget(self, action: #selector(UIViewController.performSegueForButton(_:)), for: UIControlEvents.touchUpInside)
                 self.view.addSubview(button)
                 
                 y+=44;
@@ -89,29 +93,29 @@ extension UIViewController {
 
     var segueIdentifiers: [String]? {
         get {
-            if let segues = self.valueForKey("storyboardSegueTemplates") as? NSArray {
-                let identifiers = segues.valueForKeyPath("identifier") as! [String]!
+            if let segues = self.value(forKey: "storyboardSegueTemplates") as? NSArray {
+                let identifiers = segues.value(forKeyPath: "identifier") as! [String]!
                 return identifiers
             }
             return nil
         }
     }
 
-    func performSegueForButton(button:UIButton!) -> Void {
+    func performSegueForButton(_ button:UIButton!) -> Void {
         if let seguesIds = self.segueIdentifiers {
             let i = button.tag - kBaseTag
             let identifier = seguesIds[i]
-            self.performSegueWithIdentifier(identifier, sender: button)
+            self.performSegue(withIdentifier: identifier, sender: button)
         }
     }
 
     func closeView() -> Void {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: -
 
-    class func swizzleSelector(origSelector:String, withSelector:String) -> Void {
+    class func swizzleSelector(_ origSelector:String, withSelector:String) -> Void {
         let originalMethod = class_getInstanceMethod(self, Selector(origSelector))
         let swizzledMethod = class_getInstanceMethod(self, Selector(withSelector))
         

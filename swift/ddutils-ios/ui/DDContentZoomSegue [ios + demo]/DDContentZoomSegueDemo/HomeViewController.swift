@@ -11,10 +11,10 @@ import AVKit
 import AVFoundation
 
 class HomeViewController: UIViewController {
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let s = segue as? DDContentZoomSegue {
             s.modal = (segue.identifier?.hasPrefix("Present"))!
-            s.sender = sender
+            s.sender = sender as AnyObject?
             s.duration = 2
         }
     }

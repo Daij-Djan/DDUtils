@@ -1,40 +1,36 @@
 #About
 this is a VERY loose collection of individual classes and/or components for OSX/IOS that I find myself reusing serveral times and so thought it that it might be good to make them available.
 
-Most of the classes are arent meant or even guaranteed to be feature complete. Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
+Most of the classes are aren't meant or even guaranteed to be feature complete. The newer ones all have small demo apps though :D Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
 
 - new classes will be in swift (and sometimes in objC as well) but the 'old' objective-C classes are useful and still up to date too and I won't port all old code.
 
 ##Individual Classes
-###Swift
+###Swift (all updated for swift 3.0)
 ######model-related:
 <ul>
 <li><b>EWSProfileImage [ios+osx] + Demo</b> - Class that will load & cache profile images from an exchange server</li>
 
 <li><b>CLPlacemark+CNPostalAddress [ios + osx]</b> - An extension to get a CNPostalAddress from a placemark (cl or mk) that can be used to get a formatted address string in current IOS</li>
 
-<li><b>CollectionType+Shuffle [ios+osx]</b> - A Category that adds the ability to shuffle (reproducably) any Collection that uses Integer-based Indices.
- 
 <li><b>NotificationObserver [ios+osx] + demo</b> - Makes observing a NSNotificationCenter easy, convenient and more swift like.</li>
 
 <li><b>DDRequestQueue [ios+osx] + demo</b> - An easy class to queue up NSURLRequests that are processed when the app has a valid network connection. The requests are even persisted and the queue continues whenever it starts up again. It uses NSURLSession for the requests.</li>
 
 <li><b>DDMultiDateFormatter [ios+osx] + demo </b> - A NSFormatter subclass that wraps multiple date formatters. This 'compound' date formatter by default adheres to RFC3339 but can be used to understand all kind of date formats.</li>
 
-<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for IOS. the objC verion's demo is for OSX.</li>
+<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for IOS. the objC version's demo is for OSX.</li>
 
-<li><b>DDPermutation [ios+osx + demo]</b> - adds a Helper to build indexsets that are random but the indices remain unique and the sets reproducable. Wraps around arrays and can be used in a for in loop with arrays via the global method `permutate`</li>
-
-<li><b>CLBeaconRegion+Dictionary [ios + osx]</b> - extension to add methods for convert from/to plist compatible dictionary.</li>
+<li><b>DDPermutation [ios+osx + demo]</b> - adds a Helper to build index sets that are random but the indices remain unique and the sets (reproducibly). Wraps around arrays and can be used in a for in loop with arrays via the global method `permutate`</li>
 
 <li><b>NSUserDefaults+RunOnce [ios + osx]</b> - extension on user defaults to add a convenience method to run a specified closure only once per user (e.g. some legal info popup needs to be shown only once, or a tutorial or a certain system check).</li>
-
-<li><b>String+FileName [ios + osx]</b> - extension to provide a getter for a valid (saveable) filename from a string (that may contain lots of unsaveable characters).</li>
 
 </ul>
 
 ######ui-related:
 <ul>
+<li><b>CloudEmitterView [ios + demo]</b> - a view that shows moving clouds -- like in a sky. It shows how to use a CAEmitterLayer</li>
+
 <li><b>ScrollingStackView [ios + demo]</b> - A drop in replacement for UIStackView that automatically adds scrolling if needed</li>
 
 <li><b>UIViewController+Dummy [ios + demo]</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)
@@ -43,13 +39,7 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 '
 <li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
 
-<li><b>NSView+Enable [osx]</b> - Category for NSView to quickly enable/disable it and all its subviews.
-
 <li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation</li>
-
-<li><b>NSWindow+Fade [osx]</b> - Category for NSWindow that provides helpers to fade in/out a window when ordering it in/out
-
-<li><b>NSImage+PNG [osx]</b> - a Category on NSImage to get NSData in PNG Format for saving it to file. This simplifies the 'weirdness' of NSImageRepresentations away ;)
 </ul>
 
 ###ObjC
@@ -84,9 +74,9 @@ Most of the classes are arent meant or even guaranteed to be feature complete. O
 <li><b>DDMicBlowDetector [ios] + demo</b> - one class that worries about getting microphone input and making 'sure' that the sound is a blowing/hissing sound… not some random music. (the confidence value for this can be set, as well as min/max durations)
 The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
-<li><b>DDFilterableArray [ios+osx] + demo</b> - basic Subclasses of NSArray and NSMutableArray AND a category on NSArray to make a Array class that you can easily filter by passing a prediate format string or a predicate inside of the brackets. (This is great for parsers, see xsd2cocoa for a real life usage)
+<li><b>DDFilterableArray [ios+osx] + demo</b> - basic Subclasses of NSArray and NSMutableArray AND a category on NSArray to make a Array class that you can easily filter by passing a predicate format string or a predicate inside of the brackets. (This is great for parsers, see xsd2cocoa for a real life usage)
 
-<li><b>NSObject+TransparentKVC [ios+osx] + demo</b> - use @protocols fot typesafe KVC. E.g. for Accessing parsed JSON (nested NSDictionaries) [clean, consisce, effective, self documenting, see the Demo for a better explanation of this concept]
+<li><b>NSObject+TransparentKVC [ios+osx] + demo</b> - use @protocols for typesafe KVC. E.g. for Accessing parsed JSON (nested NSDictionaries) [clean, concise, effective, self documenting, see the Demo for a better explanation of this concept]
 
 <li><b>DDRecentItemsManager [ios+osx] + demo</b> - simple wrapper that stores a list of items (NSDictionaries). The array is trimmed to a user-definable maximum (on osx it uses NSDocumentController, on ios it is set to 10 by default). The list is persisted as a plist in the ApplicationSupport directory. 
 
@@ -98,7 +88,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>M42AbstractCoreDataStack [ios+osx]</b> - offers a simple core data wrapper (if one doesnt want to use the really good library MagicalRecord)
 
-<li><b>M42RandomIndexPermutation [ios+osx] + demo</b> - Helper to build indexsets that are random but the indices remain unique and the sets reproducable.
+<li><b>M42RandomIndexPermutation [ios+osx] + demo</b> - Helper to build index sets that are random but the indices remain unique and the sets (reproducibly).
 
 <li><b>NSFileManager+Count [osx]</b> - (Cocoa wrapper for legacy but fast carbon way of counting files in a folder )
 
@@ -116,7 +106,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>NSArray+DDPerformAfterDelay [ios+osx]</b> - Category on NSArray to easily call makeObjectsPerformSelector after a delay
 
-<li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVELY. The normal refreshObject isnt recursive.
+<li><b>NSManagedObjectContext+RefreshObjectRecursive [ios+osx]</b> - Category on the context to allow to refresh an object RECURSIVELY. The normal refreshObject method isn't recursive.
 
 <li><b>NSOperation+Duration [ios+osx] + demo</b> - Category that adds a duration property to ANY NSOperation. (The included test app shows this working with AFNetworking!)
 
@@ -152,13 +142,13 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 <li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
 
-<li><b>DDAddressPicker [osx] +demo</b> - A Windowcontroller that offers a PeoplePicker allowing to pick persons from the addressbook. Adding some Features commonly needed
+<li><b>DDAddressPicker [osx] +demo</b> - A Window controller that offers a PeoplePicker allowing to pick persons from the address book. Adding some Features commonly needed
 
 <li><b>M42ActionSheet [ios]</b> - Drop In Replacement for UIActionSheet with support for custom colored buttons. (specifically we wanted a green one!)
 
 <li><b>M42ClickableImagview & Label [ios]</b> - Subclasses that have action & target and react to touches
 
-<li><b>M42LoadingScreenViewController [ios]</b> - Black screen, White 'Loading...', spinner, progressbar :) Looks a bit like the iOS Startup 
+<li><b>M42LoadingScreenViewController [ios]</b> - Black screen, White 'Loading...', spinner, progress bar :) Looks a bit like the iOS Startup 
 screen
 
 <li><b>M42PieChartView [ios]</b> - A UIView that displays a 2D PieChart (for more graphing options, look into CorePlot)

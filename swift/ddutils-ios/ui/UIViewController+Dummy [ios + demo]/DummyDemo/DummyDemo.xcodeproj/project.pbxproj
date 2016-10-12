@@ -11,7 +11,7 @@
 		B3072D421BAEF60C00264E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3072D401BAEF60C00264E73 /* Main.storyboard */; };
 		B3072D441BAEF60C00264E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3072D431BAEF60C00264E73 /* Assets.xcassets */; };
 		B3072D471BAEF60C00264E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3072D451BAEF60C00264E73 /* LaunchScreen.storyboard */; };
-		B3072D4F1BAEF63A00264E73 /* UIViewController+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3072D4E1BAEF63A00264E73 /* UIViewController+Dummy.swift */; settings = {ASSET_TAGS = (); }; };
+		B3072D4F1BAEF63A00264E73 /* UIViewController+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3072D4E1BAEF63A00264E73 /* UIViewController+Dummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +95,7 @@
 				TargetAttributes = {
 					B3072D381BAEF60C00264E73 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -250,6 +251,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sapient.garage.DummyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -261,6 +263,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sapient.garage.DummyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
