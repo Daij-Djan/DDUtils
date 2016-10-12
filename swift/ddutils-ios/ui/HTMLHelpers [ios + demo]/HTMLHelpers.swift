@@ -1,6 +1,5 @@
 //
 //  html.swift
-//  LHWalkthroughLounge
 //
 //  Created by Dominik Pich on 9/2/16.
 //
