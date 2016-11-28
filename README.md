@@ -35,10 +35,13 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 <li><b>ScrollingStackView [ios + demo]</b> - A drop in replacement for UIStackView that automatically adds scrolling if needed</li>
 
-<li><b>UIViewController+Dummy [ios + demo]</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)
+<li><b>UIViewController+Dummy [ios + demo]</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)</li>
 
-<li><b>DDContentZoomSegue [ios + demo]</b> A custom segue that can be pushed / present modally using an 'expand/scale to reveal' animation. It takes into account the sender's placement for the best effect
-'
+<li><b>MovieView [ios + demo]</b> - A UIView subclass that is IBDesignable and can show a movie (any format AVKit can handle should do) It can transparently use device specific videos (-ipad or -iphone) if provided.</li>
+
+
+<li><b>DDContentZoomSegue [ios + demo]</b> A custom segue that can be pushed / present modally using an 'expand/scale to reveal' animation. It takes into account the sender's placement for the best effect</li>
+
 <li><b>DDRectUtilities [ios+osx]</b> - Utility class with useful scaling/placement methods for CGRects
 
 <li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation</li>
