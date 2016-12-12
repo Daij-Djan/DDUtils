@@ -31,6 +31,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 <ul>
 <li><b>HTMLHelpers [ios + demo]</b> - three categories that add setHTMLText methods to Buttons, Labels and TextViews</li>
 
+<li>RingsView [ios + demo]</b> - a UIView subclass that draws customizable, colored, pulsating rings around any given UIView! The view remains interactable.</li>
+
 <li><b>CloudEmitterView [ios + demo]</b> - a view that shows moving clouds -- like in a sky. It shows how to use a CAEmitterLayer</li>
 
 <li><b>ScrollingStackView [ios + demo]</b> - A drop in replacement for UIStackView that automatically adds scrolling if needed</li>
