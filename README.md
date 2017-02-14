@@ -9,6 +9,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 ###Swift (all updated for swift 3.0)
 ######model-related:
 <ul>
+<li><b>Color+rgbaString [ios+osx]</b> - Extension that adds a property & constructor to stringify a color.</li>
+
 <li><b>EWSProfileImage [ios+osx] + Demo</b> - Class that will load & cache profile images from an exchange server</li>
 
 <li><b>CLPlacemark+CNPostalAddress [ios + osx]</b> - An extension to get a CNPostalAddress from a placemark (cl or mk) that can be used to get a formatted address string in current IOS</li>
@@ -29,6 +31,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 ######ui-related:
 <ul>
+<li><b>AutoshrinkWithWordWrap [ios + demo]</b> - Two categories (on String and UILabel) that correctly autoshrink multi-line text that contains a long word like 'Congratulations' which is shrunk but not split in between. The Multi-Line label honours the Word-Wrap property.</li>
+
 <li><b>HTMLHelpers [ios + demo]</b> - three categories that add setHTMLText methods to Buttons, Labels and TextViews</li>
 
 <li>RingsView [ios + demo]</b> - a UIView subclass that draws customizable, colored, pulsating rings around any given UIView! The view remains interactable.</li>
