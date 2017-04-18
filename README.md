@@ -9,7 +9,9 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 ###Swift (all updated for swift 3.0)
 ######model-related:
 <ul>
-<li><b>GoogleSpeechSession [ios + osx + demo]</b> - Class that wraps AVRecorder/AVAudioPlayer and provides a very easy to use interface to leverage the Google Cloud Speech API (Note: You will need a Google Cloud API Key!)</li>
+<li><b>BeaconManager [ios + demo]</b> An easy to use iBeacon monitor</li>
+
+<li><b>GoogleSpeechSession [ios + osx + demo]</b> - Class that wraps AVRecorder/AVAudioPlayer and provides a very easy to use interface to leverage the SYNCHRONOUS REST-based Google Cloud Speech API (Note: You will need a Google Cloud API Key!)</li>
 <li><b>Color+rgbaString [ios+osx]</b> - Extension that adds a property & constructor to stringify a color.</li>
 
 <li><b>EWSProfileImage [ios+osx] + Demo</b> - Class that will load & cache profile images from an exchange server</li>
