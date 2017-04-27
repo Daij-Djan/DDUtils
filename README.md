@@ -1,13 +1,13 @@
-#About
+# About
 this is a VERY loose collection of individual classes and/or components for OSX/IOS that I find myself reusing serveral times and so thought it that it might be good to make them available.
 
 Most of the classes are aren't meant or even guaranteed to be feature complete. The newer ones all have small demo apps though :D Originally, they were developed for a very specific use case. They were/are all used in one or the other published app and then I thought I'd make them available to the general public.</b>
 
 - new classes will be in swift (and sometimes in objC as well) but the 'old' objective-C classes are useful and still up to date too and I won't port all old code.
 
-##Individual Classes
-###Swift (all updated for swift 3.0)
-######model-related:
+## Individual Classes
+### Swift (all updated for swift 3.0)
+###### model-related:
 <ul>
 <li><b>BeaconManager [ios + demo]</b> An easy to use iBeacon monitor</li>
 
@@ -32,7 +32,7 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 </ul>
 
-######ui-related:
+###### ui-related:
 <ul>
 <li><b>AutoshrinkWithWordWrap [ios + demo]</b> - Two categories (on String and UILabel) that correctly autoshrink multi-line text that contains a long word like 'Congratulations' which is shrunk but not split in between. The Multi-Line label honours the Word-Wrap property.</li>
 
@@ -56,8 +56,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 <li><b>DDSlidingImageView [ios + demo]</b> - View class that shows a UIImage (same as an imageView) but also supports 'covering it' by animating color to cover non-transparent areas of the image using a color. So it can do an animated 'colorize' of the image shown. I use it for FILLING effects. It uses CADisplayLink and also shows hhow to make a view IBDesignable. A Demo showing a configured view is included and the demo app shows the intrinsic animation</li>
 </ul>
 
-###ObjC
-######model-related:
+### ObjC
+###### model-related:
 <ul>
 <li><b>DDRequestQueue [ios+osx]</b> - An easy class to queue up NSURLRequests that are processed when the app has a valid network connection. The requests are even persisted and the queue continues whenever it starts up again. It uses NSURLSession for the requests.</li>
 
@@ -146,7 +146,7 @@ The basic algorithm is based on a tutorial from Mobile Orchad by Dan Grigsby.
 
 </ul>
 
-######ui-related:
+###### ui-related:
 <ul>
 <li><b>UIViewController+Dummy [ios] + demo</b> - Helper that swizzles viewWillAppear and adds a navbar and buttons for all segues as needed! This is meant to be used during development only. At the beginning of development work you can 'test' out your storyboard flow.(segues need to have ids!)
 
@@ -205,4 +205,4 @@ On OSX there's also attributedStringWithImage.
 
 <br/>
 <br/>
-###ALL IS AVAIABLE under MIT
+### ALL IS AVAIABLE under MIT
