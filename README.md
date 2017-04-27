@@ -205,4 +205,6 @@ On OSX there's also attributedStringWithImage.
 
 <br/>
 <br/>
-### ALL IS AVAIABLE under MIT
+
+# License
+The Code is completely available under MIT
