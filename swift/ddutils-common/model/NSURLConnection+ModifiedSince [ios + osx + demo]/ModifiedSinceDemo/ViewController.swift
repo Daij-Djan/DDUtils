@@ -47,7 +47,9 @@ class ViewController: UIViewController {
                 string += ("Got no data. Request failed: \(error)\n\n");
             }
             
-            self.textView.text = string
+            DispatchQueue.main.async {
+                self.textView.text = string
+            }
             
             //now go and try again to see all cached or modify the server to get fresh data
         })
