@@ -11,6 +11,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 <ul>
 <li><b>BeaconManager [ios + demo]</b> An easy to use iBeacon monitor</li>
 
+<li><b>URLSession+ModifiedSince [ios+osx] + demo</b> - A category on URLSession that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for IOS].</li>
+
 <li><b>GoogleSpeechSession [ios + osx + demo]</b> - Class that wraps AVRecorder/AVAudioPlayer and provides a very easy to use interface to leverage the SYNCHRONOUS REST-based Google Cloud Speech API (Note: You will need a Google Cloud API Key!)</li>
 <li><b>Color+rgbaString [ios+osx]</b> - Extension that adds a property & constructor to stringify a color.</li>
 
@@ -63,7 +65,7 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 <li><b>DDMultiDateFormatter [ios+osx] + demo </b> - A NSFormatter subclass that wraps multiple date formatters. This 'compound' date formatter by default adheres to RFC3339 but can be used to understand all kind of date formats.</li>
 
-<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for OSX. the swift verion's demo is for ios.</li>
+<li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for OSX. the swift version's demo is for ios.</li>
 
 <li><b>DDUnits [ios+osx] + demo</b> - A class to quickly convert between formatted strings and numbers for units.</li>
 
