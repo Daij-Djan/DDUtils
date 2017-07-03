@@ -1,10 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Umx-I5-A1a">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Umx-I5-A1a">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="eRu-cz-JjI">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="az7-gc-nRR" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Z5F-FR-HbX" kind="show" identifier="page1" id="Wmh-An-EWM"/>
+                        <segue destination="Hf4-6q-Rcr" kind="show" identifier="page2" id="EnX-wl-wWE"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xRA-wU-D0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-806" y="476"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nw2-cw-Wie">
             <objects>
@@ -19,7 +35,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dkp-g4-efH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-524" y="-303"/>
+            <point key="canvasLocation" x="289" y="-1033"/>
         </scene>
         <!--initialVC-->
         <scene sceneID="tne-QT-ifu">
@@ -39,11 +55,12 @@
                         <segue destination="REM-yP-fPO" kind="presentation" identifier="modalViewController" id="SBG-dx-YP0"/>
                         <segue destination="mhA-iv-YsO" kind="show" identifier="pushViewController" id="lZv-49-0fS"/>
                         <segue destination="wi8-DA-y1v" kind="presentation" identifier="modalToVC2" id="ldD-N0-Cqs"/>
+                        <segue destination="az7-gc-nRR" kind="show" identifier="pushPager" id="7jL-Rb-3dc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="-303"/>
+            <point key="canvasLocation" x="289" y="-304"/>
         </scene>
         <!--modal1-->
         <scene sceneID="BQq-wr-rWs">
@@ -103,10 +120,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O97-IB-20R" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="453"/>
+            <point key="canvasLocation" x="1025" y="476"/>
+        </scene>
+        <!--page1-->
+        <scene sceneID="ql7-XE-cbv">
+            <objects>
+                <viewController title="page1" id="Z5F-FR-HbX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0JN-7N-6fl"/>
+                        <viewControllerLayoutGuide type="bottom" id="6hY-qE-kfx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p70-z4-Sid">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="page1" id="bZl-dp-VA8"/>
+                    <connections>
+                        <segue destination="95u-YC-JCY" kind="show" identifier="push child" id="8Dt-pu-mly"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Wn-q2-gTS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1151" y="1236"/>
+        </scene>
+        <!--page2-->
+        <scene sceneID="cxv-sp-Uh3">
+            <objects>
+                <viewController title="page2" id="Hf4-6q-Rcr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tDn-YU-NUH"/>
+                        <viewControllerLayoutGuide type="bottom" id="SHz-4R-Wj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I3V-Oy-mqh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="page2" id="Dgg-Hh-pjS"/>
+                    <connections>
+                        <segue destination="REM-yP-fPO" kind="presentation" identifier="present modally" id="1nE-4e-gfy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1lQ-U9-NaR" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-478" y="1236"/>
+        </scene>
+        <!--child-->
+        <scene sceneID="Yoa-Vu-zc2">
+            <objects>
+                <viewController title="child" id="95u-YC-JCY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pJx-EN-kwD"/>
+                        <viewControllerLayoutGuide type="bottom" id="ltd-DJ-cqI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h7R-H1-EgI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="modal1" id="VKR-Xx-9wK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBI-86-icV" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1151" y="1979"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="63m-2u-Zqm"/>
+        <segue reference="1nE-4e-gfy"/>
+        <segue reference="ldD-N0-Cqs"/>
     </inferredMetricsTieBreakers>
 </document>
