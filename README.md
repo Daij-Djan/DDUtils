@@ -18,6 +18,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 <li><b>EWSProfileImage [ios+osx] + Demo</b> - Class that will load & cache profile images from an exchange server</li>
 
+<li><b>ReflectionHelper [osx + ios + demo]</b> - an objC and a swift ReflectionHelper that allows even getting values of _SwiftValues or properties not marked for objC (incl. enums) across languages if needed and without knowing knowing any prototypes</li>
+
 <li><b>CLPlacemark+CNPostalAddress [ios + osx]</b> - An extension to get a CNPostalAddress from a placemark (cl or mk) that can be used to get a formatted address string in current IOS</li>
 
 <li><b>NotificationObserver [ios+osx] + demo</b> - Makes observing a NSNotificationCenter easy, convenient and more swift like.</li>
@@ -66,6 +68,8 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 <li><b>DDMultiDateFormatter [ios+osx] + demo </b> - A NSFormatter subclass that wraps multiple date formatters. This 'compound' date formatter by default adheres to RFC3339 but can be used to understand all kind of date formats.</li>
 
 <li><b>NSURLConnection+ModifiedSince [ios+osx] + demo</b> - A category on NSURLConnection that provides an easy to use convenient method to Get & Cache Data (Using Modified-Since HTTP) [the demo is for OSX. the swift version's demo is for ios.</li>
+
+<li><b>ReflectionHelper [osx + ios + demo]</b> - an objC and a swift ReflectionHelper that allows even getting values of _SwiftValues or properties not marked for objC (incl. enums) across languages if needed and without knowing knowing any prototypes</li>
 
 <li><b>DDUnits [ios+osx] + demo</b> - A class to quickly convert between formatted strings and numbers for units.</li>
 
