@@ -34,6 +34,12 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 <li><b>NSUserDefaults+RunOnce [ios + osx]</b> - extension on user defaults to add a convenience method to run a specified closure only once per user (e.g. some legal info popup needs to be shown only once, or a tutorial or a certain system check).</li>
 
+<li><b>ColorUtils [ios + osx]</b> - Extensions on color to get/set color components or hex values, store colors in user defaults, adjust its values.</li>
+
+<li><b>DeveloperUtils [ios + osx]</b> - Helpers to tell you if a debugger is attached or if your app runs as part of xcode's swift ui live-preview.</li>
+
+<li><b>LaunchAtLoginUtils [ios + osx]</b> - wrapper around SMAppService to manage a login item.</li>
+
 </ul>
 
 ###### ui-related:
@@ -42,7 +48,7 @@ Most of the classes are aren't meant or even guaranteed to be feature complete. 
 
 <li><b>HTMLHelpers [ios + demo]</b> - three categories that add setHTMLText methods to Buttons, Labels and TextViews</li>
 
-<li>RingsView [ios + demo]</b> - a UIView subclass that draws customizable, colored, pulsating rings around any given UIView! The view remains interactable.</li>
+<li><b>RingsView [ios + demo]</b> - a UIView subclass that draws customizable, colored, pulsating rings around any given UIView! The view remains interactable.</li>
 
 <li><b>CloudEmitterView [ios + demo]</b> - a view that shows moving clouds -- like in a sky. It shows how to use a CAEmitterLayer</li>
 
